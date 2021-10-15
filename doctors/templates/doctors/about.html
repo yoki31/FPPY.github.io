@@ -1,0 +1,101 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" c.ontent="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+
+    <link rel="Stylesheet" href="{% static 'css/style-about.css' %}">
+
+</head>
+<body>
+    <div class="label"></div>
+
+    <div class="card">
+        <h1>About</h1>
+
+        <div class="content">
+            
+            <a href ="#" class="content-item">
+                <div class="box-l">
+                <div class="bg-icon">
+                    <ion-icon name="document"></ion-icon>
+                </div>
+                <h4>ไฟล์ข้อเสนอ</h4>
+                </div>
+            </a>
+
+            <a href ="#" class="content-item">
+                <div class="box-l">
+                <div class="bg-icon">
+                    <ion-icon name="analytics"></ion-icon>
+                </div>
+                <h4>Tracker</h4>
+                </div>
+            </a>
+
+            <a href ="https://github.com/FPPY/FPPY.github.io" class="content-item">
+                <div class="box-l">
+                <div class="bg-icon">
+                    <ion-icon name="logo-github"></ion-icon>
+                </div>
+                <h4>GitHub Repositories</h4>
+                </div>
+            </a>
+
+            <a href ="#" class="content-item">
+                <div class="box-l">
+                <div class="bg-icon">
+                    <ion-icon name="logo-youtube"></ion-icon>
+                </div>
+                <h4>Youtube [Unavailable]</h4>
+                </div>
+            </a>
+
+            <a href ="#" class="content-item" id="mem-tab" onclick="showMember();">
+                <div class="box-l" id="box-l">
+                <div class="bg-icon">
+                    <ion-icon name="people"></ion-icon>
+                </div>
+                <h4>รายชื่อสมาชิก</h4>
+                </div>
+                <ion-icon name="chevron-down" id="icon-more"></ion-icon>
+            </a>
+            <li class="member-item">
+                <ion-icon name="person"></ion-icon>
+                <div class="mem-content">
+                <h4>นาย พุฒิพงศ์ เรืองสันติกรกุล</h4>
+                <p>6210520117</p>
+                </div>
+            </li>
+            <li class="member-item">
+                <ion-icon name="person"></ion-icon>
+                <div class="mem-content">
+                <h4>นาย ปราโมทย์ ศิริภาพ</h4>
+                <p>6210530017</p>
+                </div>
+            </li>
+            <li class="member-item">
+                <ion-icon name="person"></ion-icon>
+                <div class="mem-content">
+                <h4>นางสาว ธัญพร ตั้งเจริญจิตกุล</h4>
+                <p>6210612641</p>
+            </div>
+            </li>
+            <li class="member-item">
+                <ion-icon name="person"></ion-icon>
+                <div class="mem-content">
+                <h4>นางสาว กชมล อัครเบญจสิริ</h4>
+                <p>6210612666</p>
+            </div>
+            </li>
+        </div>
+    </div>
+
+    <script src="{% static 'js/app-about.js' %}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

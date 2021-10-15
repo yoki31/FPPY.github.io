@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Prompt', sans-serif; }
+
+body {
+  background-color: #63bc8a;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
+  body .card {
+    background-color: white;
+    width: 500px;
+    height: 600px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    overflow: hidden;
+    position: fixed; }
+    body .card h1 {
+      color: #f1bc1c;
+      margin-top: 5px; }
+    body .card .content {
+      width: 100%;
+      height: 500px;
+      border-radius: 20px;
+      overflow: hidden;
+      overflow-y: scroll;
+      padding: 5px; }
+      body .card .content .content-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        background-color: #f7f7f7;
+        text-decoration: none;
+        color: black;
+        border-radius: 10px;
+        margin: 3px; }
+        body .card .content .content-item .box-l {
+          display: flex;
+          text-align: center;
+          align-items: center;
+          justify-content: center; }
+          body .card .content .content-item .box-l .bg-icon {
+            width: 40px;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            margin: 5px;
+            margin-right: 10px;
+            background: #e4e6eb;
+            color: #050505;
+            border-radius: 20px;
+            text-decoration: none; }
+            body .card .content .content-item .box-l .bg-icon ion-icon {
+              font-size: 1.6rem; }
+        body .card .content .content-item .box-l.active .bg-icon {
+          background: #f7e1a2; }
+        body .card .content .content-item .box-l.active ion-icon {
+          color: #e4ab00; }
+        body .card .content .content-item #icon-more {
+          margin: 10px;
+          font-size: 1.2rem; }
+        body .card .content .content-item #icon-more.active {
+          transform: rotate(180deg);
+          color: #cfa420; }
+      body .card .content .content-item:hover {
+        background-color: #f1f1f1; }
+        body .card .content .content-item:hover .bg-icon {
+          background-color: #cfd2d8; }
+      body .card .content .content-item.active {
+        background: #fff1c8; }
+      body .card .content .content-item.active:hover {
+        background: #ffeebd; }
+        body .card .content .content-item.active:hover .bg-icon {
+          background: #eed99a; }
+      body .card .content li {
+        display: flex;
+        align-items: center;
+        padding-left: 50px;
+        list-style: none;
+        background-color: #fff9e6;
+        border-radius: 10px;
+        height: 0px;
+        overflow: hidden;
+        margin: 3px;
+        text-align: start; }
+        body .card .content li h4 {
+          margin-top: 5px;
+          color: black;
+          margin-left: 20px; }
+        body .card .content li p {
+          color: gray;
+          margin-left: 30px;
+          margin-bottom: 5px; }
+        body .card .content li ion-icon {
+          color: #ffbf00;
+          font-size: 1.3rem; }
+      body .card .content li.active {
+        height: 65px; }
+  body .label {
+    position: fixed;
+    width: 100%;
+    height: 25vh;
+    background-color: #F2DC99;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.25); }
+
+::-webkit-scrollbar {
+  width: 10px; }
+
+::-webkit-scrollbar-track {
+  background: transparent !important; }
+
+::-webkit-scrollbar-thumb {
+  background: #b1b1b1;
+  border-radius: 10px; }
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c5c5c5;
+  border-radius: 10px; }
+
+/*# sourceMappingURL=style-about.css.map */
