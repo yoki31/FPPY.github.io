@@ -6,3 +6,9 @@ def index(request):
 
 # ทดลองชั่วคราว
 	return render(request, "doctors/about.html")
+
+def maps(request):
+    return render(request, "doctors/maps.html")
+
+def project_requirement(request):
+    return render(request, "doctors/requirement.html")

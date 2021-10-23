@@ -2,141 +2,13 @@
 {% load static %}
 
 {% block content %}
-    <div id="navbar">
-        <div class="nav-box-l">
-            <a href="#" class="menu-bars" id="show-menu">
-                <ion-icon name="menu-outline"></ion-icon>
-            </a>
-            <a href="#"><img src="{% static 'images/logo.png' %}"></img></a>
-        </div>
 
-        <div class="nav-box-r">
-            <a href="#" class="user-profile">
-                <img src="{% static 'images/pie.PNG' %}">
-                <p>Pramote</p>
-            </a>
-
-            <div class="normal-a">
-
-            <a href="#" id="show-noti" onclick="showNoti();">
-                <ion-icon name="notifications"></ion-icon>
-            </a>
-
-            <a href="#" id="show-more" onclick="showMore();">
-                <ion-icon name="caret-down"></ion-icon>
-            </a>
-        </div>
-        </div>
-    </div>
-
-    <div class="noti" id="noti">
-        <h2>การแจ้งเตือน</h2>
-
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>สพ.ญ.กชมลติดต่อคุณ</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>สพ.ญ.กชมลแจ้งเตือนฉีดวัคซีนหมาของคุณให้มาฉีดวันที่ 30 ก.พ. 2565 มาด้วยนะคะ</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>สพ.ญ.กชมลติดต่อคุณ3</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>สพ.ญ.กชมลติดต่อคุณ4</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>สพ.ญ.กชมลติดต่อคุณ5</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>สพ.ญ.กชมลติดต่อคุณ6</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>สพ.ญ.กชมลติดต่อคุณ7</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>สพ.ญ.กชมลติดต่อคุณ8</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>สพ.ญ.กชมลติดต่อคุณ9</p>
-        </a>
-    </div>
-
-    <div class="more-options" id="more-options">
-        <a href="#" class="more-profile-item">
-            <img src="{% static 'images/pie.PNG' %}">
-            <div class="profile-detail">
-            <h3>Pramote Siriparp</h3>
-            <p>ดูโปรไฟล์ของคุณ</p>
-            </div>
-        </a>
-
-        <hr />
-
-        <a href="#" class="more-item" >
-            <div class="normal-a">
-                <ion-icon name="settings-sharp"></ion-icon>
-            </div>
-            <div class="item-detail">
-                <p>การตั้งค่า</p>
-            </div>
-        </a>
-
-        <a href="#" class="more-item">
-            <div class="normal-a">
-                <ion-icon name="log-out-outline"></ion-icon>
-            </div>
-            <div class="item-detail">
-                <p>ออกจากระบบ</p>
-            </div>
-        </a>
-    </div>
-
-    <nav id="nav-menu">
-        <ul class="nav-menu-items">
-            <div id="navbar-toggle">
-                <a href="#" class="menu-bars" id="hide-menu">
-                    <ion-icon name="menu-outline"></ion-icon>
-                </a>
-                <a href="#"><img src="{% static 'images/logo.png' %}"></img></a>
-            </div>
-            <div class="nav-section">
-                <li class="nav-text"><a href="#">หน้าแรก</a></li>
-                <li class="nav-text"><a href="#">ค้นหาแพทย์</a></li>
-                <li class="nav-text"><a href="#">นัดหมายแพทย์</a></li>
-                <li class="nav-text"><a href="#">บริการสำหรับผู้ป่วย</a></li>
-                <li class="nav-text"><a href="#">แพ็คเกจ</a></li>
-                <li class="nav-text"><a href="#">ติดต่อเรา</a></li>
-                <li class="nav-text"><a href="#">เกี่ยวกับเรา</a></li>
-                <li class="nav-text"><a href="#">บทความ</a></li>
-                <li class="nav-text"><a href="#">ข่าวสาร</a></li>
-                <li class="nav-text"><a href="#">ปุ่ม1</a></li>
-                <li class="nav-text"><a href="#">ปุ่ม2</a></li>
-                <li class="nav-text"><a href="#">ปุ่ม3</a></li>
-                <li class="nav-text"><a href="#">ปุ่ม4</a></li>
-                <li class="nav-text"><a href="#">ปุ่ม5</a></li>
-                <li class="nav-text"><a href="#">ปุ่ม6</a></li>
-        </div>
-        </ul>
-    </nav>
-
-    <div class="box-head-empty"></div>
-
-    <div class ="area-content" id="area-content">
         <div class="card">
             <h1>About</h1>
 
             <div class="content">
 
-                <a href ="#" class="content-item">
+                <a href ="{% url 'doctors:project_requirement' %}" class="content-item">
                     <div class="box-l">
                     <div class="bg-icon">
                         <ion-icon name="document"></ion-icon>
@@ -145,7 +17,7 @@
                     </div>
                 </a>
 
-                <a href ="#" class="content-item">
+                <a href ="https://www.pivotaltracker.com/projects/2536279" class="content-item">
                     <div class="box-l">
                     <div class="bg-icon">
                         <ion-icon name="analytics"></ion-icon>
@@ -182,28 +54,32 @@
                     <ion-icon name="chevron-down" id="icon-more"></ion-icon>
                 </a>
                 <li class="member-item">
-                    <ion-icon name="person"></ion-icon>
+                    <!--<ion-icon name="person"></ion-icon>-->
+                    <img src="{% static 'images/few.jpg' %}">
                     <div class="mem-content">
                     <h4>นาย พุฒิพงศ์ เรืองสันติกรกุล</h4>
                     <p>6210520117</p>
                     </div>
                 </li>
                 <li class="member-item">
-                    <ion-icon name="person"></ion-icon>
+                    <!--<ion-icon name="person"></ion-icon>-->
+                    <img src="{% static 'images/pie.jpg' %}">
                     <div class="mem-content">
                     <h4>นาย ปราโมทย์ ศิริภาพ</h4>
                     <p>6210530017</p>
                     </div>
                 </li>
                 <li class="member-item">
-                    <ion-icon name="person"></ion-icon>
+                    <!--<ion-icon name="person"></ion-icon>-->
+                    <img src="{% static 'images/prim.jpg' %}">
                     <div class="mem-content">
                     <h4>นางสาว ธัญพร ตั้งเจริญจิตกุล</h4>
                     <p>6210612641</p>
                 </div>
                 </li>
                 <li class="member-item">
-                    <ion-icon name="person"></ion-icon>
+                    <!--<ion-icon name="person"></ion-icon>-->
+                    <img src="{% static 'images/yok.jpg' %}">
                     <div class="mem-content">
                     <h4>นางสาว กชมล อัครเบญจสิริ</h4>
                     <p>6210612666</p>
@@ -212,11 +88,5 @@
             </div>
         </div>
 
-        <script type="text/javascript" src="{% static 'js/app-about.js' %}"></script>
-    </div>
 
-
-    <script type="text/javascript" src="{% static 'js/app-navbar.js' %}"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 {% endblock %}
