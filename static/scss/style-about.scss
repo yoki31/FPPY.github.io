@@ -175,53 +175,53 @@ $Topiccolor: #63bc8a;
         margin: 10px;
     }
 
-    // .card-slide-area {
-    //     position: relative;
-    //     max-width: 100%;
-    //     margin-bottom: 20px;
-    // }
+    .card-slide-area {
+        position: relative;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
 
-    // .swiper-slide {
-    //     background-position: center;
-    //     background-size: cover;
-    //     width: 350px;
-    //     min-height: 350px;
-    //     background-color: $Cardcolor;
-    //     margin: 0 20px;
-    //     border-radius: 10px;
-    //     box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
-    //     overflow: hidden;
+    .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 350px;
+        min-height: 350px;
+        background-color: $Cardcolor;
+        margin: 0 20px;
+        border-radius: 10px;
+        box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
+        overflow: hidden;
 
-    //     .news-card {
-    //         img {
-    //             width: 100%;
-    //         }
+        .news-card {
+            img {
+                width: 100%;
+            }
 
-    //         .news-topic {
-    //             color: $Topiccolor;
-    //         }
+            .news-topic {
+                color: $Topiccolor;
+            }
 
-    //         .details {
-    //             color: gray;
-    //         }
+            .details {
+                color: gray;
+            }
 
-    //         .read-more {
-    //             position: relative;
-    //             display: inline-block;
-    //             padding: 5px 10px;
-    //             background: $Topiccolor;
-    //             color: $Cardcolor;
-    //             border-radius: 15px;
-    //             text-decoration: none;
-    //             margin-top: 10px;
-    //             margin-bottom: 10px;
-    //         }
+            .read-more {
+                position: relative;
+                display: inline-block;
+                padding: 5px 10px;
+                background: $Topiccolor;
+                color: $Cardcolor;
+                border-radius: 15px;
+                text-decoration: none;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
 
 
-    //     }
-    // }
-    // .swiper-3d .swiper-slide-shadow-left, 
-    // .swiper-3d .swiper-slide-shadow-right {
-    //     background-image: none;
-    // }
+        }
+    }
+    .swiper-3d .swiper-slide-shadow-left, 
+    .swiper-3d .swiper-slide-shadow-right {
+        background-image: none;
+    }
 }

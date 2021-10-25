@@ -111,5 +111,38 @@
   .area-content h1 {
     color: #63bc8a;
     margin: 10px; }
+  .area-content .card-slide-area {
+    position: relative;
+    max-width: 100%;
+    margin-bottom: 20px; }
+  .area-content .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 350px;
+    min-height: 350px;
+    background-color: white;
+    margin: 0 20px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden; }
+    .area-content .swiper-slide .news-card img {
+      width: 100%; }
+    .area-content .swiper-slide .news-card .news-topic {
+      color: #63bc8a; }
+    .area-content .swiper-slide .news-card .details {
+      color: gray; }
+    .area-content .swiper-slide .news-card .read-more {
+      position: relative;
+      display: inline-block;
+      padding: 5px 10px;
+      background: #63bc8a;
+      color: white;
+      border-radius: 15px;
+      text-decoration: none;
+      margin-top: 10px;
+      margin-bottom: 10px; }
+  .area-content .swiper-3d .swiper-slide-shadow-left,
+  .area-content .swiper-3d .swiper-slide-shadow-right {
+    background-image: none; }
 
 /*# sourceMappingURL=style-about.css.map */
