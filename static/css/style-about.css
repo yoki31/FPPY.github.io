@@ -6,9 +6,10 @@
   width: 100%;
   overflow: hidden;
   overflow-y: scroll;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  text-align: center; }
+  text-align: center;
+  flex-direction: column; }
   .area-content .card {
     background-color: white;
     width: 500px;
@@ -16,7 +17,8 @@
     border-radius: 10px;
     box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.25);
     padding: 10px;
-    overflow: hidden; }
+    overflow: hidden;
+    margin-top: 30px; }
     .area-content .card h1 {
       color: #63bc8a;
       margin-top: 5px; }
@@ -106,5 +108,8 @@
           border-radius: 25px; }
       .area-content .card .content li.active {
         height: 65px; }
+  .area-content h1 {
+    color: #63bc8a;
+    margin: 10px; }
 
 /*# sourceMappingURL=style-about.css.map */

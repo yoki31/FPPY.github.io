@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 def index(request):
-# 	return render(request, "doctors/index.html")
+	return render(request, "doctors/index.html")
 
-# ทดลองชั่วคราว
+def about(request):
 	return render(request, "doctors/about.html")
 
 def maps(request):
