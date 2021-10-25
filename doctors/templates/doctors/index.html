@@ -7,7 +7,8 @@
 {% endblock %}
 
 {% block content %}
-<h1>News</h1>
+<div class="zone">
+    <h1>News</h1>
 <div class="card-slide-area">
 
     <div class="swiper-container">
@@ -77,12 +78,14 @@
                 </div>
             </div>
         </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div> 
+        <div class="swiper-pagination"></div>
     </div>
-
     </div>
-
+</div>
 <!-- ======================================================================================================= -->
-
+<div class="zone">
 <h1>บทความ</h1>
 <div class="card-slide-area">
 
@@ -153,32 +156,41 @@
                 </div>
             </div>
         </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div> 
+        <div class="swiper-pagination"></div>
     </div>
-
     </div>
+</div>
 
 <!-- ======================================================================================================= -->
 
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-        <script>
+        
+        <script type="module">
             var swiper = new Swiper('.swiper-container', {
                 effect: 'coverflow',
-                grabCursor: true,
-                centeredSlides: true,
-                slidesPerView: 'auto',
+                
                 coverflowEffect: {
-                    // rotate: 50,
                     rotate: 0,
                     stretch: 0,
-                    // depth: 100,
                     depth: 0,
-                    modifier: 1,
-                    slideShadows: true,
                 },
-                // pagination: {
-                //     el: '.swiper-pagination',
-                // },
-                loop: true,
+                // loop: true,
+
+            slidesPerView: 3,
+            spaceBetween: 30,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            keyboard: true,
+            grabCursor: true,
+            // loop: true,
             });
         </script>
 {% endblock %}
