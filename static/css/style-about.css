@@ -188,5 +188,18 @@
   .area-content .swiper-3d .swiper-slide-shadow-left,
   .area-content .swiper-3d .swiper-slide-shadow-right {
     background-image: none; }
+  .area-content .swiper-container2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .area-content .swiper-container2 .swiper-wrapper .swiper-slide .banner {
+      width: 100%; }
+    .area-content .swiper-container2 .swiper-wrapper .swiper-pagination-bullet {
+      background-color: #63bc8a; }
+    .area-content .swiper-container2 .swiper-pagination {
+      position: relative;
+      margin-top: -20px; }
 
 /*# sourceMappingURL=style-about.css.map */

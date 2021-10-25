@@ -289,4 +289,37 @@ $Topiccolor: #63bc8a;
     .swiper-3d .swiper-slide-shadow-right {
         background-image: none;
     }
+
+    .swiper-container2 {
+        width: 100%;
+        // background-color: purple;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .swiper-wrapper {
+            .swiper-slide {
+                // display: -webkit-box;
+                // display: -ms-flexbox;
+                // display: -webkit-flex;
+                // display: flex;
+                // -webkit-box-pack: center;
+                // -ms-flex-pack: center;
+                // -webkit-justify-content: center;
+                // justify-content: center;
+                // -webkit-box-align: center;
+                // -ms-flex-align: center;
+                // -webkit-align-items: center;
+                // align-items: center;
+                .banner {width: 100%;}
+            }
+            .swiper-pagination-bullet {
+                background-color: $Topiccolor; //เปลี่ยนสีจุด
+            }
+        }
+        .swiper-pagination {
+            position: relative;
+            margin-top: -20px;
+        }
+    }
 }
