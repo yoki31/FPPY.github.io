@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 def index(request):
-	return render(request, "doctors/index.html")
+    context = {}
+	return render(request, "doctors/index.html", context)
 
 def about(request):
 	return render(request, "doctors/about.html")
@@ -15,9 +16,15 @@ def project_requirement(request):
 
 def healthblog(request):
     return render(request, "doctors/healthblog.html")
+    
+def healthblog_one(request):
+    return render(request, "doctors/healthblog_one.html")
 
 def news(request):
     return render(request, "doctors/news.html")
+    
+def news_one(request):
+    return render(request, "doctors/news_one.html")
 
 # user
 def userhome(request):
@@ -25,9 +32,15 @@ def userhome(request):
 
 def uhealthblog(request):
     return render(request, "doctors/uhealthblog.html")
+    
+def uhealthblog_one(request):
+    return render(request, "doctors/uhealthblog_one.html")
 
 def unews(request):
     return render(request, "doctors/unews.html")
+    
+def unews_one(request):
+    return render(request, "doctors/unews_one.html")
 
 # admin
 def mhealthblog(request):

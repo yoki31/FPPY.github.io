@@ -8,12 +8,16 @@ urlpatterns = [
     path('maps', views.maps, name="maps"),
     path('project_requirement', views.project_requirement, name="project_requirement"),
     path('healthblog', views.healthblog, name="healthblog"),
+    path('healthblog_one', views.healthblog_one, name="healthblog_one"),
     path('news', views.news, name="news"),
+    path('news_one', views.news_one, name="news_one"),
 
     # user
     path('userhome', views.userhome, name="userhome"),
     path('uhealthblog', views.uhealthblog, name="uhealthblog"),
+    path('uhealthblog_one', views.uhealthblog_one, name="uhealthblog_one"),
     path('unews', views.unews, name="unews"),
+    path('unews_one', views.unews_one, name="unews_one"),
 
     # admin
     path('mhealthblog', views.mhealthblog, name="mhealthblog"),
