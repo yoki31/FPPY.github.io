@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap");
+/* mhealthblog and uhealthblog and healthblog and mnews and unews and news */
+.area-content {
+  background-color: #f4f4f4;
+  display: flex;
+  height: 91vh;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  flex-direction: column; }
+  .area-content .header-news {
+    display: flex;
+    margin: 15px;
+    width: 85%;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px; }
+    .area-content .header-news h2 {
+      color: #63bc8a; }
+  .area-content .img-blog {
+    width: 75%;
+    border-radius: 20px; }
+  .area-content .button-group {
+    display: flex;
+    margin: 10px;
+    width: 75%;
+    justify-content: flex-end; }
+    .area-content .button-group .edit-button {
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      background: #63bc8a;
+      color: white;
+      border-radius: 15px;
+      text-decoration: none;
+      margin: 10px;
+      transition: 100ms; }
+    .area-content .button-group .edit-button:hover {
+      background: #56cc89; }
+    .area-content .button-group .remove-button {
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      background: #f4f4f4;
+      color: #63bc8a;
+      stroke-width: 2px;
+      border-radius: 15px;
+      text-decoration: none;
+      margin: 10px;
+      transition: 200ms; }
+    .area-content .button-group .remove-button:hover {
+      background: #ff3636;
+      color: white; }
+  .area-content .content-blog {
+    color: #a1a1a1;
+    width: 75%;
+    padding: 20px;
+    margin: 10px;
+    text-align: justify;
+    font-size: 20px; }
+
+/*# sourceMappingURL=style-editblog.css.map */

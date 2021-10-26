@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
+
+/* mhealthblog and uhealthblog and healthblog and mnews and unews and news */
+
+// $BGcolor:#63bc8a;
+$BGcolor:#f4f4f4;
+$Cardcolor:white;
+$labelcolor:#F2DC99;
+$Topiccolor: #63bc8a;
+// * {
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+//     font-family: 'Prompt', sans-serif;
+// }
+
+.area-content {
+    background-color: $BGcolor;
+    display: flex;
+    height: 91vh;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    // position: relative;
+    flex-direction: column;
+
+    .header-news {
+        display: flex;
+        margin: 15px;
+        width: 85%;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+        font-size: 20px;
+        h2 {
+           color: $Topiccolor;
+        }
+    }
+    .img-blog {
+        width: 75%;
+        border-radius: 20px;
+    }
+
+    .button-group {
+        display: flex;
+        margin: 10px;
+        width: 75%;
+        justify-content: flex-end;
+
+        .edit-button {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            background: $Topiccolor;
+            color: $Cardcolor;
+            border-radius: 15px;
+            text-decoration: none;
+            margin: 10px;
+            transition: 100ms;
+        }
+
+        .edit-button:hover {
+            background: #56cc89;
+        }
+
+        .remove-button {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            background: $BGcolor;
+            color: $Topiccolor;
+            stroke-width: 2px;
+            border-radius: 15px;
+            text-decoration: none;
+            margin: 10px;
+            transition: 200ms;
+        }
+
+        .remove-button:hover {
+            background: rgb(255, 54, 54);
+            color: $Cardcolor;
+        }
+    }
+    
+    .content-blog {
+        color: #a1a1a1;
+        width: 75%;
+        padding: 20px;
+        margin: 10px;
+        text-align: justify;
+        font-size: 20px;
+    }
+}
