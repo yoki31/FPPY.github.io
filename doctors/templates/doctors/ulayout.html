@@ -16,7 +16,7 @@
             <a href="#" class="menu-bars" id="show-menu">
                 <ion-icon name="menu-outline"></ion-icon>
             </a>
-            <a href="{% url 'doctors:index' %}"><img src="{% static 'images/logo.png' %}"></img></a>
+            <a href="{% url 'doctors:userhome' %}"><img src="{% static 'images/logo.png' %}"></img></a>
         </div>
 
         <div class="nav-box-r">
@@ -52,7 +52,7 @@
                 <a href="#" class="menu-bars" id="hide-menu">
                     <ion-icon name="menu-outline"></ion-icon>
                 </a>
-                <a href="{% url 'doctors:index' %}"><img src="{% static 'images/logo.png' %}"></img></a>
+                <a href="{% url 'doctors:userhome' %}"><img src="{% static 'images/logo.png' %}"></img></a>
             </div>
             <div class="nav-section">
                 <!-- <li class="nav-text"><a href="#">ค้นหาแพทย์</a></li>
@@ -60,8 +60,8 @@
                 <li class="nav-text"><a href="#">บริการสำหรับผู้ป่วย</a></li>
                 <li class="nav-text"><a href="#">แพ็คเกจ</a></li>
                 <li class="nav-text"><a href="#">ติดต่อเรา</a></li> -->
-                <!-- <a class="nav-text" href="{% url 'doctors:index' %}"><li>หน้าแรก</li></a>
-                <a class="nav-text" href="{% url 'doctors:about' %}"><li>เกี่ยวกับเรา</li></a> -->
+                <a class="nav-text" href="{% url 'doctors:userhome' %}"><li>หน้าแรก</li></a>
+                <!-- <a class="nav-text" href="{% url 'doctors:about' %}"><li>เกี่ยวกับเรา</li></a> -->
                 <a class="nav-text" href="{% url 'doctors:uhealthblog' %}"><li>บทความทั้งหมด</li></a>
                 <!-- <a class="nav-text" href="{% url 'doctors:maps' %}"><li>แผนที่</li></a> -->
                 <!-- <li class="nav-text"><a href="#">บทความ</a></li>

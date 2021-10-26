@@ -10,6 +10,7 @@ urlpatterns = [
     path('healthblog', views.healthblog, name="healthblog"),
 
     # user
+    path('userhome', views.userhome, name="userhome"),
     path('uhealthblog', views.uhealthblog, name="uhealthblog"),
 
     # admin

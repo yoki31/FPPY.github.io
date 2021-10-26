@@ -17,8 +17,8 @@ def healthblog(request):
     return render(request, "doctors/healthblog.html")
 
 # user
-# def userhome(request):
-#     return render(request, "doctors/healthblog.html")
+def userhome(request):
+    return render(request, "doctors/userhome.html")
 
 def uhealthblog(request):
     return render(request, "doctors/uhealthblog.html")
