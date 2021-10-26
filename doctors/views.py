@@ -39,3 +39,6 @@ def mnews(request):
 # มันต้องแตกตามหน้าย่อย ต้องส่งหัวข้อ รูป เนื้อหาเข้าไป จำไม่ได้ ฝากทำหน่อย
 def edithealthblog(request):
     return render(request, "doctors/edithealthblog.html")
+    
+def editnews(request):
+    return render(request, "doctors/editnews.html")
