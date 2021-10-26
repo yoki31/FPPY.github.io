@@ -16,6 +16,9 @@ def project_requirement(request):
 def healthblog(request):
     return render(request, "doctors/healthblog.html")
 
+def news(request):
+    return render(request, "doctors/news.html")
+
 # user
 def userhome(request):
     return render(request, "doctors/userhome.html")
@@ -23,6 +26,12 @@ def userhome(request):
 def uhealthblog(request):
     return render(request, "doctors/uhealthblog.html")
 
+def unews(request):
+    return render(request, "doctors/unews.html")
+
 # admin
 def mhealthblog(request):
     return render(request, "doctors/mhealthblog.html")
+
+def mnews(request):
+    return render(request, "doctors/mnews.html")

@@ -8,12 +8,15 @@ urlpatterns = [
     path('maps', views.maps, name="maps"),
     path('project_requirement', views.project_requirement, name="project_requirement"),
     path('healthblog', views.healthblog, name="healthblog"),
+    path('news', views.news, name="news"),
 
     # user
     path('userhome', views.userhome, name="userhome"),
     path('uhealthblog', views.uhealthblog, name="uhealthblog"),
+    path('unews', views.unews, name="unews"),
 
     # admin
     path('mhealthblog', views.mhealthblog, name="mhealthblog"),
+    path('mnews', views.mnews, name="mnews"),
     
 ]
