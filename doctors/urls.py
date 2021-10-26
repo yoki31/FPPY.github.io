@@ -7,4 +7,12 @@ urlpatterns = [
     path('about', views.about, name="about"),
     path('maps', views.maps, name="maps"),
     path('project_requirement', views.project_requirement, name="project_requirement"),
+    path('healthblog', views.healthblog, name="healthblog"),
+
+    # user
+    path('uhealthblog', views.uhealthblog, name="uhealthblog"),
+
+    # admin
+    path('mhealthblog', views.mhealthblog, name="mhealthblog"),
+    
 ]

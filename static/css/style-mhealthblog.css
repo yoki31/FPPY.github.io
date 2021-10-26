@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap");
+/* mhealthblog and uhealthblog and healthblog */
+.area-content {
+  background-color: #f4f4f4;
+  display: flex;
+  height: 91vh;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  flex-direction: column; }
+  .area-content .header-news-menu {
+    display: flex;
+    margin: 15px;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 10px; }
+    .area-content .header-news-menu h2 {
+      color: #63bc8a; }
+    .area-content .header-news-menu a {
+      position: relative;
+      display: inline-block;
+      padding: 5px 20px;
+      background: #63bc8a;
+      color: white;
+      border-radius: 15px;
+      text-decoration: none;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      transition: 100ms; }
+    .area-content .header-news-menu a:hover {
+      background: #56cc89; }
+  .area-content .news-card-area-all {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center; }
+    .area-content .news-card-area-all .row {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 5px;
+      display: flex;
+      justify-content: space-between; }
+      .area-content .news-card-area-all .row .news-card {
+        width: 30%;
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden; }
+        .area-content .news-card-area-all .row .news-card img {
+          width: 100%; }
+        .area-content .news-card-area-all .row .news-card .news-topic {
+          color: #63bc8a;
+          padding: 10px; }
+        .area-content .news-card-area-all .row .news-card .details {
+          color: gray;
+          padding: 10px; }
+        .area-content .news-card-area-all .row .news-card .read-more {
+          position: relative;
+          display: inline-block;
+          padding: 5px 10px;
+          background: #63bc8a;
+          color: white;
+          border-radius: 15px;
+          text-decoration: none;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          transition: 100ms; }
+        .area-content .news-card-area-all .row .news-card .read-more:hover {
+          background: #56cc89; }
+
+/*# sourceMappingURL=style-mhealthblog.css.map */

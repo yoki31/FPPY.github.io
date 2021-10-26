@@ -12,3 +12,17 @@ def maps(request):
 
 def project_requirement(request):
     return render(request, "doctors/requirement.html")
+
+def healthblog(request):
+    return render(request, "doctors/healthblog.html")
+
+# user
+# def userhome(request):
+#     return render(request, "doctors/healthblog.html")
+
+def uhealthblog(request):
+    return render(request, "doctors/uhealthblog.html")
+
+# admin
+def mhealthblog(request):
+    return render(request, "doctors/mhealthblog.html")

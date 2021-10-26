@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Hospital</title>
         <link rel="Stylesheet" href="{% static 'css/style-navbar.css' %}">
-        <link rel="Stylesheet" href="{% static 'css/style-about.css' %}">
+        <!-- <link rel="Stylesheet" href="{% static 'css/style-about.css' %}"> -->
         {% block head %}
         {% endblock %}
     </head>
@@ -22,15 +22,10 @@
         <div class="nav-box-r">
             <a href="#" class="user-profile">
                 <img src="{% static 'images/pie.jpg' %}">
-                <p>Unauthenticated</p>
+                <p>Admin</p>
             </a>
 
             <div class="normal-a">
-
-            <a href="#" id="show-noti" onclick="showNoti();">
-                <ion-icon name="notifications"></ion-icon>
-            </a>
-
             <a href="#" id="show-more" onclick="showMore();">
                 <ion-icon name="caret-down"></ion-icon>
             </a>
@@ -60,69 +55,22 @@
                 <li class="nav-text"><a href="#">บริการสำหรับผู้ป่วย</a></li>
                 <li class="nav-text"><a href="#">แพ็คเกจ</a></li>
                 <li class="nav-text"><a href="#">ติดต่อเรา</a></li> -->
-                <a class="nav-text" href="{% url 'doctors:index' %}"><li>หน้าแรก</li></a>
-                <a class="nav-text" href="{% url 'doctors:about' %}"><li>เกี่ยวกับเรา</li></a>
-                <a class="nav-text" href="{% url 'doctors:healthblog' %}"><li>บทความทั้งหมด</li></a>
-                <a class="nav-text" href="{% url 'doctors:maps' %}"><li>แผนที่</li></a>
-                <!-- <li class="nav-text"><a href="#">ข่าวสาร</a></li>
-                <li class="nav-text"><a href="#">ปุ่ม1</a></li>
-                <li class="nav-text"><a href="#">ปุ่ม2</a></li>
-                <li class="nav-text"><a href="#">ปุ่ม3</a></li>
-                <li class="nav-text"><a href="#">ปุ่ม4</a></li>
-                <li class="nav-text"><a href="#">ปุ่ม5</a></li>
-                <li class="nav-text"><a href="#">ปุ่ม6</a></li> -->
+                
+                <!-- <a class="nav-text" href="{% url 'doctors:index' %}"><li>หน้าแรก</li></a> -->
+                <a class="nav-text" href="{% url 'doctors:mhealthblog' %}"><li>บทความทั้งหมด</li></a>
+                
+                <!-- <li class="nav-text"><a href="#">บทความ</a></li>
+                <li class="nav-text"><a href="#">ข่าวสาร</a></li>
+                <li class="nav-text"><a href="#">ปุ่ม1</a></li> -->
         </div>
         </ul>
     </nav>
-
-    <div class="noti" id="noti">
-        <h2>การแจ้งเตือน</h2>
-
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>กชมลติดต่อคุณ</p>
-        </a>
-        <!--
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>พญ.กชมลติดต่อคุณ2</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>พญ.กชมลติดต่อคุณ3</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>พญ.กชมลติดต่อคุณ4</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>พญ.กชมลติดต่อคุณ5</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>พญ.กชมลติดต่อคุณ6</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>พญ.กชมลติดต่อคุณ7</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>พญ.กชมลติดต่อคุณ8</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>พญ.กชมลติดต่อคุณ9</p>
-        </a>
-        -->
-    </div>
 
     <div class="more-options" id="more-options">
         <a href="#" class="more-profile-item">
             <img src="{% static 'images/pie.jpg' %}">
             <div class="profile-detail">
-                <h3>Pramote Siriparp</h3>
+                <h3>Admin</h3>
                 <p>ดูโปรไฟล์ของคุณ</p>
             </div>
         </a>
@@ -150,7 +98,7 @@
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script type="text/javascript" src="{% static 'js/app-navbar.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/app-navbar-admin.js' %}"></script>
     </body>
 
 </html>
