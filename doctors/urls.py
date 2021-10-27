@@ -22,6 +22,7 @@ urlpatterns = [
     # admin
     path('mhealthblog', views.mhealthblog, name="mhealthblog"),
     path('mnews', views.mnews, name="mnews"),
+    path('mpromotion', views.mpromotion, name="mpromotion"),
     path('mdoctor', views.mdoctor, name="mdoctor"),
     
     path('edithealthblog', views.edithealthblog, name="edithealthblog"), #เดี๋ยวต้องมาแก้pathให้ตามในรายงาน มันแบ่งตามหน้าย่อยนี่จำไม่ได้ว่าเขียนยังไง

@@ -52,6 +52,9 @@ def mnews(request):
 def mdoctor(request):
     return render(request, "doctors/mdoctor.html")
 
+def mpromotion(request):
+    return render(request, "doctors/mpromotion.html")
+
 # มันต้องแตกตามหน้าย่อย ต้องส่งหัวข้อ รูป เนื้อหาเข้าไป จำไม่ได้ ฝากทำหน่อย
 def edithealthblog(request):
     return render(request, "doctors/edithealthblog.html")
