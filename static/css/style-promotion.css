@@ -58,8 +58,9 @@
           position: absolute;
           top: 15px;
           left: -10px;
-          width: 100px;
-          height: 40px;
+          width: 25%;
+          min-width: 65px;
+          height: 35px;
           background-color: #ff5151;
           border-radius: 30px;
           border-bottom-left-radius: 0;
@@ -68,28 +69,27 @@
           justify-content: center;
           text-align: center;
           align-items: center;
-          font-size: 24px;
+          font-size: 20px;
           color: white;
           font-weight: bold; }
         .area-content .promotion-card-area-all .row .promotion-card i::before {
           content: '';
           position: absolute;
-          top: 40px;
+          top: 35px;
+          left: 0px;
+          width: 10px;
+          height: 10px;
+          background-color: #ff5151; }
+        .area-content .promotion-card-area-all .row .promotion-card i::after {
+          content: '';
+          position: absolute;
+          top: 35px;
           left: 0px;
           width: 10px;
           height: 20px;
           border-top-left-radius: 20px;
           border-bottom-left-radius: 20px;
-          background-color: #b92b2b;
-          z-index: 2; }
-        .area-content .promotion-card-area-all .row .promotion-card i::after {
-          content: '';
-          position: absolute;
-          top: 40px;
-          left: 0px;
-          width: 10px;
-          height: 10px;
-          background-color: #ff5151; }
+          background-color: #b92b2b; }
         .area-content .promotion-card-area-all .row .promotion-card img {
           width: 100%;
           border-top-left-radius: 10px;
