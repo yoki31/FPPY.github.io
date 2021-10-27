@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 def index(request):
-    context = {}
-	return render(request, "doctors/index.html", context)
+    # context = {}
+	return render(request, "doctors/index.html")#, context)
 
 def about(request):
 	return render(request, "doctors/about.html")
@@ -48,6 +48,9 @@ def mhealthblog(request):
 
 def mnews(request):
     return render(request, "doctors/mnews.html")
+
+def mdoctor(request):
+    return render(request, "doctors/mdoctor.html")
 
 # มันต้องแตกตามหน้าย่อย ต้องส่งหัวข้อ รูป เนื้อหาเข้าไป จำไม่ได้ ฝากทำหน่อย
 def edithealthblog(request):
