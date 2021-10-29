@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from doctors.models import *
 
 # Create your views here.
 def index(request):
@@ -15,7 +16,9 @@ def project_requirement(request):
     return render(request, "doctors/requirement.html")
 
 def healthblog(request):
-    return render(request, "doctors/healthblog.html")
+    articles = Article.objects.all()
+    context = {"articles": articles}
+    return render(request, "doctors/healthblog.html", context)
 
 def healthblog_one(request):
     return render(request, "doctors/healthblog_one.html")
