@@ -14,12 +14,14 @@ urlpatterns = [
 
     # user
     path('userhome', views.userhome, name="userhome"),
+    path('umaps', views.umaps, name="umaps"),
     path('uhealthblog', views.uhealthblog, name="uhealthblog"),
     path('uhealthblog_one', views.uhealthblog_one, name="uhealthblog_one"),
     path('unews', views.unews, name="unews"),
     path('unews_one', views.unews_one, name="unews_one"),
 
     # admin
+    path('adminhome', views.adminhome, name="adminhome"),
     path('mhealthblog', views.mhealthblog, name="mhealthblog"),
     path('mnews', views.mnews, name="mnews"),
     path('mpromotion', views.mpromotion, name="mpromotion"),
