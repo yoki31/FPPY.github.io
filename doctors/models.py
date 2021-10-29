@@ -27,7 +27,7 @@ class Doctor(models.Model):
 
 #เบล็ดเตล็ด
 class Article(models.Model):
-    Doctor_id = models.OneToOneField(Doctor, null = True, on_delete=models.CASCADE)
+    Doctor_id = models.ForeignKey(Doctor, null = True, on_delete=models.CASCADE)
     header = models.CharField(max_length=150, null = True,)
     context = models.CharField(max_length=300, null = True,)
     
