@@ -57,93 +57,175 @@ $Topiccolor: #63bc8a;
     }
 
     .promotion-card-area-all {
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
-        .row {
+        // width: 80%;
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: space-between;
+        // align-items: center;
+        // text-align: center;
+        margin: 0 auto;
+        max-width: 90%;
+        margin-bottom: 20px;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 30px;
+        
+        .promotion-card {
+            text-decoration: none;
             width: 100%;
-            // height: 350px;
-            margin-bottom: 20px;
-            padding: 5px;
-            display: flex;
-            justify-content: space-between;
-            .promotion-card {
-                text-decoration: none;
-                width: 30%;
-                background-color: $Cardcolor;
-                border-radius: 10px;
-                // overflow: hidden;
-                transition: 300ms;
+            background-color: $Cardcolor;
+            border-radius: 10px;
+            // overflow: hidden;
+            transition: 300ms;
 
-                position: relative;
-                i {
-                    position: absolute;
-                    top: 15px;
-                    left: -10px;
-                    width: 25%;
-                    min-width: 65px;
-                    height: 35px;
-                    background-color: rgb(255, 81, 81);
-                    border-radius: 30px;
-                    border-bottom-left-radius: 0;
-                    border-top-left-radius: 25px;
+            position: relative;
+            i {
+                position: absolute;
+                top: 15px;
+                left: -10px;
+                width: 25%;
+                min-width: 65px;
+                height: 35px;
+                background-color: rgb(255, 81, 81);
+                border-radius: 30px;
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 25px;
 
-                    display: flex;
-                    justify-content: center;
-                    text-align: center;
-                    align-items: center;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
 
-                    font-size: 20px;
-                    color: white;
-                    font-weight: bold;
-                }
-
-                i::before {
-                    content: '';
-                    position: absolute;
-                    top: 35px;
-                    left: 0px;
-                    width: 10px;
-                    height: 10px;
-                    background-color: rgb(255, 81, 81);
-                }
-
-                i::after {
-                    content: '';
-                    position: absolute;
-                    top: 35px;
-                    left: 0px;
-                    width: 10px;
-                    height: 20px;
-                    border-top-left-radius: 20px;
-                    border-bottom-left-radius: 20px;
-                    background-color: rgb(185, 43, 43);
-                }
-
-                img {
-                    width: 100%;
-
-                    border-top-left-radius: 10px;
-                    border-top-right-radius: 10px;
-                }
-    
-                h3 {
-                    color: $Topiccolor;
-                    padding: 10px;
-                }
-    
-                .details {
-                    color: gray;
-                    padding: 10px;
-                }
+                font-size: 20px;
+                color: white;
+                font-weight: bold;
             }
 
-            .promotion-card:hover {
-                transform: scale(1.1);
+            i::before {
+                content: '';
+                position: absolute;
+                top: 35px;
+                left: 0px;
+                width: 10px;
+                height: 10px;
+                background-color: rgb(255, 81, 81);
+            }
+
+            i::after {
+                content: '';
+                position: absolute;
+                top: 35px;
+                left: 0px;
+                width: 10px;
+                height: 20px;
+                border-top-left-radius: 20px;
+                border-bottom-left-radius: 20px;
+                background-color: rgb(185, 43, 43);
+            }
+
+            img {
+                width: 100%;
+
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+
+            h3 {
+                color: $Topiccolor;
+                padding: 10px;
+            }
+
+            .details {
+                color: gray;
+                padding: 10px;
             }
         }
+
+        .promotion-card:hover {
+            transform: scale(1.1);
+        }
+
+        // .row {
+        //     width: 100%;
+        //     // height: 350px;
+        //     margin-bottom: 20px;
+        //     padding: 5px;
+        //     display: flex;
+        //     justify-content: space-between;
+        //     .promotion-card {
+        //         text-decoration: none;
+        //         width: 30%;
+        //         background-color: $Cardcolor;
+        //         border-radius: 10px;
+        //         // overflow: hidden;
+        //         transition: 300ms;
+
+        //         position: relative;
+        //         i {
+        //             position: absolute;
+        //             top: 15px;
+        //             left: -10px;
+        //             width: 25%;
+        //             min-width: 65px;
+        //             height: 35px;
+        //             background-color: rgb(255, 81, 81);
+        //             border-radius: 30px;
+        //             border-bottom-left-radius: 0;
+        //             border-top-left-radius: 25px;
+
+        //             display: flex;
+        //             justify-content: center;
+        //             text-align: center;
+        //             align-items: center;
+
+        //             font-size: 20px;
+        //             color: white;
+        //             font-weight: bold;
+        //         }
+
+        //         i::before {
+        //             content: '';
+        //             position: absolute;
+        //             top: 35px;
+        //             left: 0px;
+        //             width: 10px;
+        //             height: 10px;
+        //             background-color: rgb(255, 81, 81);
+        //         }
+
+        //         i::after {
+        //             content: '';
+        //             position: absolute;
+        //             top: 35px;
+        //             left: 0px;
+        //             width: 10px;
+        //             height: 20px;
+        //             border-top-left-radius: 20px;
+        //             border-bottom-left-radius: 20px;
+        //             background-color: rgb(185, 43, 43);
+        //         }
+
+        //         img {
+        //             width: 100%;
+
+        //             border-top-left-radius: 10px;
+        //             border-top-right-radius: 10px;
+        //         }
+    
+        //         h3 {
+        //             color: $Topiccolor;
+        //             padding: 10px;
+        //         }
+    
+        //         .details {
+        //             color: gray;
+        //             padding: 10px;
+        //         }
+        //     }
+
+        //     .promotion-card:hover {
+        //         transform: scale(1.1);
+        //     }
+        // }
     }
 }
