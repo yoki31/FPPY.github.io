@@ -1,5 +1,10 @@
 from django.shortcuts import render, redirect
 from doctors.models import *
+from .forms import CreateUserForm
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 def index(request):
@@ -70,3 +75,38 @@ def edithealthblog(request):
 
 def editnews(request):
     return render(request, "doctors/editnews.html")
+
+
+#register / login / logout
+
+def registerPage(request):
+    form = CreateUserForm()
+
+    if request.method == 'POST' :
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('username')
+            messages.success (request, 'Account was created for ' + user)
+            return redirect ('doctors:login')
+    return render(request, 'doctors/register.html', {'form':form})
+        
+
+def loginPage(request):
+		if request.method == 'POST':
+			username = request.POST.get('username')
+			password = request.POST.get('password')
+
+			user = authenticate(request, username=username, password=password)
+
+			if user is not None:
+				login(request, user)
+				return redirect('doctors:index')
+			else:
+				messages.info(request, 'Username or Password is invalid')
+		return render(request, 'doctors/login.html')
+
+def logoutPLS(request):
+    logout(request)
+    return redirect('doctors:login')
+

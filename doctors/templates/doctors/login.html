@@ -1,0 +1,13 @@
+<h3>login</h3>
+<form method="POST" action="">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Username">
+    <input type="password" name="password" placeholder="password">
+    <input type="submit" value="submit">
+</form>
+{% if messages %}
+          {% for message in messages %}
+          <p id="messages">{{ message }}</p>
+          {% endfor %}
+{% endif %}
+<a href={% url 'doctors:register' %} >register</a>
