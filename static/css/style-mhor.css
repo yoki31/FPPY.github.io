@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap");
+/* mhealthblog and uhealthblog and healthblog and mnews and unews and news */
+.area-content {
+  background-color: #f4f4f4;
+  display: flex;
+  height: 91vh;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  flex-direction: column; }
+  .area-content .header-mhor-menu {
+    display: flex;
+    margin: 15px;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 10px; }
+    .area-content .header-mhor-menu h2 {
+      color: #63bc8a; }
+    .area-content .header-mhor-menu a {
+      position: relative;
+      display: inline-block;
+      padding: 5px 20px;
+      background: #63bc8a;
+      color: white;
+      border-radius: 15px;
+      text-decoration: none;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      transition: 100ms; }
+    .area-content .header-mhor-menu a:hover {
+      background: #56cc89; }
+  .area-content .mhor-card-area-all {
+    margin: 0 auto;
+    width: 80%;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; }
+    .area-content .mhor-card-area-all .mhor-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden; }
+      .area-content .mhor-card-area-all .mhor-card img {
+        width: 150px;
+        height: 150px;
+        border-radius: 75px;
+        margin: 20px; }
+      .area-content .mhor-card-area-all .mhor-card .news-topic {
+        color: #63bc8a;
+        padding: 10px; }
+      .area-content .mhor-card-area-all .mhor-card .details {
+        color: gray;
+        padding: 10px; }
+        .area-content .mhor-card-area-all .mhor-card .details .bold {
+          font-weight: bold; }
+      .area-content .mhor-card-area-all .mhor-card .read-more {
+        position: relative;
+        display: inline-block;
+        padding: 5px 10px;
+        background: #63bc8a;
+        color: white;
+        border-radius: 15px;
+        text-decoration: none;
+        margin: 15px;
+        transition: 100ms; }
+      .area-content .mhor-card-area-all .mhor-card .read-more:hover {
+        background: #56cc89; }
+
+/*# sourceMappingURL=style-mhor.css.map */
