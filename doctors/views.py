@@ -110,3 +110,5 @@ def logoutPLS(request):
     logout(request)
     return redirect('doctors:login')
 
+#@login_requires(login_url='login') อยากให้ login ตรงไหนก็เอาไปใส่ช้างบน def นะ
+
