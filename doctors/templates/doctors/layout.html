@@ -18,11 +18,11 @@
             </a>
             <a href="{% url 'doctors:index' %}"><img src="{% static 'images/logo.png' %}"></img></a>
         </div>
-
+        {% if request.user.is_active %}
         <div class="nav-box-r">
             <a href="#" class="user-profile">
                 <img src="{% static 'images/pie.jpg' %}">
-                <p>Unauthenticated</p>
+                <p>{{request.user.username}}</p>
             </a>
 
             <div class="normal-a">
@@ -36,6 +36,11 @@
             </a>
         </div>
         </div>
+        {% else %}
+        <div class="nav-box-r">
+        <a href={% url "doctors:register" %}>SIGN UP</a><p> / </p><a href={% url "doctors:login" %}>SIGN IN </a>
+        </div>
+        {% endif %}
     </div>
 
     <div class="box-head-empty"></div>
@@ -76,6 +81,7 @@
         </ul>
     </nav>
 
+    {% if request.user.is_active %}
     <div class="noti" id="noti">
         <h2>การแจ้งเตือน</h2>
 
@@ -118,12 +124,12 @@
         </a>
         -->
     </div>
-
+    
     <div class="more-options" id="more-options">
         <a href="#" class="more-profile-item">
             <img src="{% static 'images/pie.jpg' %}">
             <div class="profile-detail">
-                <h3>Pramote Siriparp</h3>
+                <h3>{{request.user.username}}</h3>
                 <p>ดูโปรไฟล์ของคุณ</p>
             </div>
         </a>
@@ -148,6 +154,7 @@
             </div>
         </a>
     </div>
+    {% endif %}
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
