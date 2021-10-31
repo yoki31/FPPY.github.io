@@ -26,7 +26,7 @@
     margin-right: 20px;
 }
 
-#navbar .nav-box-r a {
+#navbar .nav-box-r .signup {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -57,7 +57,7 @@
     background: rgb(240, 240, 240);
 }
 
-#navbar .nav-box-r a:hover {
+#navbar .nav-box-r .signup:hover {
     background: #5eb483;
 }
 
