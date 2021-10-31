@@ -35,7 +35,9 @@
                 </div>
 
                 <div class="container-card-login">
-                    <form action="login.html">
+                
+                    <form method="POST" action="">
+                        {% csrf_token %}
                         <h2 class="title">Welcome</h2>
                            <div class="input-div one">
                               <div class="i">
@@ -43,7 +45,7 @@
                               </div>
                               <div class="div">
                                       <h5>Username</h5>
-                                      <input type="text" class="input">
+                                      <input type="text" name="username" class="input">
                               </div>
                            </div>
                            <div class="input-div pass">
@@ -52,14 +54,14 @@
                               </div>
                               <div class="div">
                                    <h5>Password</h5>
-                                   <input type="password" class="input">
+                                   <input type="password" name="password" class="input">
                            </div>
                         </div>
                         <input type="submit" class="btn" value="Login">
                     </form>
                 </div>
             </div>
-            <a href="#" class="signup_btn">Sign up</a>
+            <a href="{% url 'doctors:register' %}" class="signup_btn">Sign up</a>
         </div>
         <script type="text/javascript" src="{% static 'js/login.js' %}"></script>
     </body>
