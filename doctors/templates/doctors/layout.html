@@ -38,7 +38,8 @@
         </div>
         {% else %}
         <div class="nav-box-r">
-        <a href={% url "doctors:register" %}>SIGN UP</a><p> / </p><a href={% url "doctors:login" %}>SIGN IN </a>
+            <a href="{% url 'doctors:login' %}" class="signin">SIGN IN </a>
+            <a href="{% url 'doctors:register' %}">SIGN UP</a>
         </div>
         {% endif %}
     </div>
