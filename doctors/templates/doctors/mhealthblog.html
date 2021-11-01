@@ -13,87 +13,87 @@
     </div>
 
     <div class="news-card-area-all">
-        <!-- <div class="row"> -->
+            {% for article in articles %}
             <div class="news-card">
                 <img src="{% static 'images/pic.jpg' %}">
                 <div class="news-topic">
-                    <h3>หัวข้อบทความ1</h3>
+                    <h3>{{ article.header }}</h3>
                 </div>
                 <div class="details">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, magni.</p>
+                    <p>{{ article.context }}</p>
                 </div>
-                <a href="{% url 'doctors:edithealthblog' %}" class="read-more">อ่านเพิ่มเติม</a>
+                <a href="{% url 'doctors:edithealthblog_content' article.id %}" class="read-more">อ่านเพิ่มเติม</a>
             </div>
+            {% endfor %}
+        <!--    <div class="news-card">-->
+        <!--        <img src="{% static 'images/pic.jpg' %}">-->
+        <!--        <div class="news-topic">-->
+        <!--            <h3>หัวข้อบทความ2</h3>-->
+        <!--        </div>-->
+        <!--        <div class="details">-->
+        <!--            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, magni.</p>-->
+        <!--        </div>-->
+        <!--        <a href="{% url 'doctors:edithealthblog' %}" class="read-more">อ่านเพิ่มเติม</a>-->
+        <!--    </div>-->
 
-            <div class="news-card">
-                <img src="{% static 'images/pic.jpg' %}">
-                <div class="news-topic">
-                    <h3>หัวข้อบทความ2</h3>
-                </div>
-                <div class="details">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, magni.</p>
-                </div>
-                <a href="{% url 'doctors:edithealthblog' %}" class="read-more">อ่านเพิ่มเติม</a>
-            </div>
-
-            <div class="news-card">
-                <img src="{% static 'images/pic.jpg' %}">
-                <div class="news-topic">
-                    <h3>หัวข้อบทความ3</h3>
-                </div>
-                <div class="details">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, magni.</p>
-                </div>
-                <a href="{% url 'doctors:edithealthblog' %}" class="read-more">อ่านเพิ่มเติม</a>
-            </div>
+        <!--    <div class="news-card">-->
+        <!--        <img src="{% static 'images/pic.jpg' %}">-->
+        <!--        <div class="news-topic">-->
+        <!--            <h3>หัวข้อบทความ3</h3>-->
+        <!--        </div>-->
+        <!--        <div class="details">-->
+        <!--            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, magni.</p>-->
+        <!--        </div>-->
+        <!--        <a href="{% url 'doctors:edithealthblog' %}" class="read-more">อ่านเพิ่มเติม</a>-->
+        <!--    </div>-->
         <!-- </div> -->
 
         <!-- <div class="row"> -->
-            <div class="news-card">
-                <img src="{% static 'images/pic.jpg' %}">
-                <div class="news-topic">
-                    <h3>หัวข้อบทความ4</h3>
-                </div>
-                <div class="details">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, magni.</p>
-                </div>
-                <a href="{% url 'doctors:edithealthblog' %}" class="read-more">อ่านเพิ่มเติม</a>
-            </div>
+        <!--    <div class="news-card">-->
+        <!--        <img src="{% static 'images/pic.jpg' %}">-->
+        <!--        <div class="news-topic">-->
+        <!--            <h3>หัวข้อบทความ4</h3>-->
+        <!--        </div>-->
+        <!--        <div class="details">-->
+        <!--            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, magni.</p>-->
+        <!--        </div>-->
+        <!--        <a href="{% url 'doctors:edithealthblog' %}" class="read-more">อ่านเพิ่มเติม</a>-->
+        <!--    </div>-->
 
-            <div class="news-card">
-                <img src="{% static 'images/pic.jpg' %}">
-                <div class="news-topic">
-                    <h3>หัวข้อบทความ5</h3>
-                </div>
-                <div class="details">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, magni.</p>
-                </div>
-                <a href="{% url 'doctors:edithealthblog' %}" class="read-more">อ่านเพิ่มเติม</a>
-            </div>
+        <!--    <div class="news-card">-->
+        <!--        <img src="{% static 'images/pic.jpg' %}">-->
+        <!--        <div class="news-topic">-->
+        <!--            <h3>หัวข้อบทความ5</h3>-->
+        <!--        </div>-->
+        <!--        <div class="details">-->
+        <!--            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, magni.</p>-->
+        <!--        </div>-->
+        <!--        <a href="{% url 'doctors:edithealthblog' %}" class="read-more">อ่านเพิ่มเติม</a>-->
+        <!--    </div>-->
 
-            <div class="news-card">
-                <img src="{% static 'images/pic.jpg' %}">
-                <div class="news-topic">
-                    <h3>หัวข้อบทความ6</h3>
-                </div>
-                <div class="details">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, magni.</p>
-                </div>
-                <a href="{% url 'doctors:edithealthblog' %}" class="read-more">อ่านเพิ่มเติม</a>
-            </div>
+        <!--    <div class="news-card">-->
+        <!--        <img src="{% static 'images/pic.jpg' %}">-->
+        <!--        <div class="news-topic">-->
+        <!--            <h3>หัวข้อบทความ6</h3>-->
+        <!--        </div>-->
+        <!--        <div class="details">-->
+        <!--            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, magni.</p>-->
+        <!--        </div>-->
+        <!--        <a href="{% url 'doctors:edithealthblog' %}" class="read-more">อ่านเพิ่มเติม</a>-->
+        <!--    </div>-->
         <!-- </div> -->
 
         <!-- <div class="row"> -->
-            <div class="news-card">
-                <img src="{% static 'images/pic.jpg' %}">
-                <div class="news-topic">
-                    <h3>หัวข้อบทความ7</h3>
-                </div>
-                <div class="details">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, magni.</p>
-                </div>
-                <a href="{% url 'doctors:edithealthblog' %}" class="read-more">อ่านเพิ่มเติม</a>
-            </div>
+        <!--    <div class="news-card">-->
+        <!--        <img src="{% static 'images/pic.jpg' %}">-->
+        <!--        <div class="news-topic">-->
+        <!--            <h3>หัวข้อบทความ7</h3>-->
+        <!--        </div>-->
+        <!--        <div class="details">-->
+        <!--            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, magni.</p>-->
+        <!--        </div>-->
+        <!--        <a href="{% url 'doctors:edithealthblog' %}" class="read-more">อ่านเพิ่มเติม</a>-->
+        <!--    </div>-->
 
             <!-- <div class="news-card">
                 <img src="{% static 'images/pic.jpg' %}">
