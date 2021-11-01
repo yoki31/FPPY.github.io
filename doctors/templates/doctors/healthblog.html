@@ -12,7 +12,7 @@
         <!-- <a href="#"><h3>เพิ่ม</h3></a> -->
     </div>
 
-    
+
     <div class="news-card-area-all">
         {% for article in articles %}
         <div class="news-card">
@@ -23,11 +23,11 @@
             <div class="details">
                 <p>{{ article.context }}</p>
             </div>
-            <a href="{% url 'doctors:healthblog_one' %}" class="read-more">อ่านเพิ่มเติม</a>
+            <a href="{% url 'doctors:healthblog_content' article.id %}" class="read-more">อ่านเพิ่มเติม</a>
         </div>
         {% endfor %}
     </div>
-    
+
         <!--    <div class="news-card">-->
         <!--        <img src="{% static 'images/pic.jpg' %}">-->
         <!--        <div class="news-topic">-->
