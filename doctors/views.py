@@ -203,3 +203,6 @@ def logoutPLS(request):
 
 # @login_required(login_url='doctors:login') อยากให้ login ตรงไหนก็เอาไปใส่ช้างบน def นะ
 # @allowed_users(allowed_roles=['xxxxx'])   กลุ่มของบท
+
+def mcustomer(request):
+    return render(request, "doctors/mcustomer.html")

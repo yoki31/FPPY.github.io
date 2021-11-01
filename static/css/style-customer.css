@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap");
+/* mhealthblog and uhealthblog and healthblog and mnews and unews and news */
+.area-content {
+  background-color: #f4f4f4;
+  display: flex;
+  height: 91vh;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  flex-direction: column; }
+  .area-content .header-customer {
+    display: flex;
+    margin: 15px;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 10px; }
+    .area-content .header-customer h2 {
+      color: #63bc8a; }
+    .area-content .header-customer a {
+      position: relative;
+      display: inline-block;
+      padding: 5px 20px;
+      background: #63bc8a;
+      color: white;
+      border-radius: 15px;
+      text-decoration: none;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      transition: 100ms; }
+    .area-content .header-customer a:hover {
+      background: #56cc89; }
+  .area-content .containertable {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 10px; }
+    .area-content .containertable .content-table {
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 0.9rem;
+      min-width: 400px;
+      border-radius: 20px;
+      /* 15px 15px 0 0 */
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); }
+      .area-content .containertable .content-table thead tr {
+        background-color: #63bc8a;
+        color: #ffffff;
+        text-align: left;
+        font-weight: bold; }
+      .area-content .containertable .content-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+        background-color: white;
+        font-weight: bold;
+        color: #63bc8a; }
+      .area-content .containertable .content-table tbody tr a {
+        position: relative;
+        display: inline-block;
+        padding: 5px 10px;
+        background: #63bc8a;
+        /* background: rgb(185, 185, 185); */
+        color: white;
+        border-radius: 10px;
+        text-decoration: none;
+        transition: 0.3s;
+        font-weight: bold; }
+      .area-content .containertable .content-table tbody tr a:hover {
+        background: #2d9c5d; }
+  .area-content .containertable .content-table th,
+  .area-content .containertable .content-table td {
+    padding: 12px 15px; }
+  .area-content .containertable .content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3; }
+  .area-content .containertable .content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #63bc8a; }
+
+/*# sourceMappingURL=style-customer.css.map */
