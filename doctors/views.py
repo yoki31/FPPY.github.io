@@ -30,19 +30,38 @@ def project_requirement(request):
 def healthblog(request):
     articles = Article.objects.all()
     context = {"articles": articles}
+    print(context)
     return render(request, "doctors/healthblog.html", context)
 
 
 def healthblog_one(request):
+    # article = Article.objects.filter(id=pk)
+    # context = {"article": article}
+    # print(context)
     return render(request, "doctors/healthblog_one.html")
 
 
+def healthblog_content(request, pk):
+    article = Article.objects.filter(id=pk).first()
+    context = {"article": article}
+    return render(request, "doctors/healthblog_one.html" ,context)
+    
+
 def news(request):
-    return render(request, "doctors/news.html")
+    news = News.objects.all()
+    context = {"news": news}
+    print(context)
+    return render(request, "doctors/news.html", context)
 
 
 def news_one(request):
     return render(request, "doctors/news_one.html")
+    
+    
+def news_content(request, pk):
+    new = News.objects.filter(id=pk).first()
+    context = {"new": new}
+    return render(request, "doctors/news_one.html" ,context)
 
 # user
 
