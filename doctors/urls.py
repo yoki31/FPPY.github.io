@@ -27,12 +27,16 @@ urlpatterns = [
     # admin
     path('adminhome', views.adminhome, name="adminhome"),
     path('mhealthblog', views.mhealthblog, name="mhealthblog"),
+    path('edithealthblog', views.edithealthblog, name="edithealthblog"),
+    path('edithealthblog/<pk>', views.edithealthblog_content, name="edithealthblog_content"),
     path('mnews', views.mnews, name="mnews"),
+    path('editnews', views.editnews, name="editnews"),
+    path('editnews/<pk>', views.editnews_content, name="editnews_content"),
     path('mpromotion', views.mpromotion, name="mpromotion"),
     path('mdoctor', views.mdoctor, name="mdoctor"),
 
-    path('edithealthblog', views.edithealthblog, name="edithealthblog"), #เดี๋ยวต้องมาแก้pathให้ตามในรายงาน มันแบ่งตามหน้าย่อยนี่จำไม่ได้ว่าเขียนยังไง
-    path('editnews', views.editnews, name="editnews"), #เดี๋ยวต้องมาแก้pathให้ตามในรายงาน มันแบ่งตามหน้าย่อยนี่จำไม่ได้ว่าเขียนยังไง
+#    path('edithealthblog', views.edithealthblog, name="edithealthblog"), #เดี๋ยวต้องมาแก้pathให้ตามในรายงาน มันแบ่งตามหน้าย่อยนี่จำไม่ได้ว่าเขียนยังไง
+#    path('editnews', views.editnews, name="editnews"), #เดี๋ยวต้องมาแก้pathให้ตามในรายงาน มันแบ่งตามหน้าย่อยนี่จำไม่ได้ว่าเขียนยังไง
 
     # register, login
     path('register/', views.registerPage, name="register"),

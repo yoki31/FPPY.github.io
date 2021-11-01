@@ -45,7 +45,7 @@ def healthblog_content(request, pk):
     article = Article.objects.filter(id=pk).first()
     context = {"article": article}
     return render(request, "doctors/healthblog_one.html" ,context)
-    
+
 
 def news(request):
     news = News.objects.all()
@@ -55,8 +55,8 @@ def news(request):
 
 def news_one(request):
     return render(request, "doctors/news_one.html")
-    
-    
+
+
 def news_content(request, pk):
     new = News.objects.filter(id=pk).first()
     context = {"new": new}
@@ -87,8 +87,8 @@ def uhealthblog_content(request, pk):
     article = Article.objects.filter(id=pk).first()
     context = {"article": article}
     return render(request, "doctors/uhealthblog_one.html" ,context)
-    
-    
+
+
 def unews(request):
     news = News.objects.all()
     context = {"news": news}
@@ -97,8 +97,8 @@ def unews(request):
 
 def unews_one(request):
     return render(request, "doctors/unews_one.html")
-    
-    
+
+
 def unews_content(request, pk):
     new = News.objects.filter(id=pk).first()
     context = {"new": new}
@@ -112,11 +112,35 @@ def adminhome(request):
 
 
 def mhealthblog(request):
-    return render(request, "doctors/mhealthblog.html")
+    articles = Article.objects.all()
+    context = {"articles": articles}
+    return render(request, "doctors/mhealthblog.html", context)
+
+
+def edithealthblog(request):
+    return render(request, "doctors/edithealthblog.html")
+
+
+def edithealthblog_content(request, pk):
+    article = Article.objects.filter(id=pk).first()
+    context = {"article": article}
+    return render(request, "doctors/edithealthblog.html" ,context)
 
 
 def mnews(request):
-    return render(request, "doctors/mnews.html")
+    news = News.objects.all()
+    context = {"news": news}
+    return render(request, "doctors/mnews.html", context)
+
+
+def editnews(request):
+    return render(request, "doctors/editnews.html")
+
+
+def editnews_content(request, pk):
+    new = News.objects.filter(id=pk).first()
+    context = {"new": new}
+    return render(request, "doctors/editnews.html" ,context)
 
 
 def mdoctor(request):
@@ -127,14 +151,16 @@ def mpromotion(request):
     return render(request, "doctors/mpromotion.html")
 
 # มันต้องแตกตามหน้าย่อย ต้องส่งหัวข้อ รูป เนื้อหาเข้าไป จำไม่ได้ ฝากทำหน่อย
+#หมายถึงลบ เพิ่ม แก้ไขหรอวะ
+
+# def edithealthblog(request, pk):
+#     article = Article.objects.filter(id=pk).first()
+#     context = {"article": article}
+#     return render(request, "doctors/edithealthblog.html" ,context)
 
 
-def edithealthblog(request):
-    return render(request, "doctors/edithealthblog.html")
-
-
-def editnews(request):
-    return render(request, "doctors/editnews.html")
+# def editnews(request):
+#     return render(request, "doctors/editnews.html")
 
 
 #register / login / logout
