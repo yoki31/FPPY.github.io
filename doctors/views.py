@@ -50,7 +50,6 @@ def healthblog_content(request, pk):
 def news(request):
     news = News.objects.all()
     context = {"news": news}
-    print(context)
     return render(request, "doctors/news.html", context)
 
 
@@ -75,19 +74,35 @@ def umaps(request):
 
 
 def uhealthblog(request):
-    return render(request, "doctors/uhealthblog.html")
+    articles = Article.objects.all()
+    context = {"articles": articles}
+    return render(request, "doctors/uhealthblog.html", context)
 
 
 def uhealthblog_one(request):
     return render(request, "doctors/uhealthblog_one.html")
 
 
+def uhealthblog_content(request, pk):
+    article = Article.objects.filter(id=pk).first()
+    context = {"article": article}
+    return render(request, "doctors/uhealthblog_one.html" ,context)
+    
+    
 def unews(request):
-    return render(request, "doctors/unews.html")
+    news = News.objects.all()
+    context = {"news": news}
+    return render(request, "doctors/unews.html", context)
 
 
 def unews_one(request):
     return render(request, "doctors/unews_one.html")
+    
+    
+def unews_content(request, pk):
+    new = News.objects.filter(id=pk).first()
+    context = {"new": new}
+    return render(request, "doctors/unews_one.html" ,context)
 
 # admin
 

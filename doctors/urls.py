@@ -18,8 +18,10 @@ urlpatterns = [
     path('userhome', views.userhome, name="userhome"),
     path('umaps', views.umaps, name="umaps"),
     path('uhealthblog', views.uhealthblog, name="uhealthblog"),
+    path('uhealthblog_one/<pk>', views.uhealthblog_content, name="uhealthblog_content"),
     path('uhealthblog_one', views.uhealthblog_one, name="uhealthblog_one"),
     path('unews', views.unews, name="unews"),
+    path('unews_one/<pk>', views.unews_content, name="unews_content"),
     path('unews_one', views.unews_one, name="unews_one"),
 
     # admin
