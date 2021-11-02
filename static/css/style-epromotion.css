@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap");
+/* mhealthblog and uhealthblog and healthblog and mnews and unews and news */
+.area-content {
+  background-color: #f4f4f4;
+  display: flex;
+  height: 91vh;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  flex-direction: column; }
+  .area-content .header-promotion {
+    display: flex;
+    margin: 15px;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 10px; }
+    .area-content .header-promotion h2 {
+      color: #63bc8a; }
+    .area-content .header-promotion a {
+      position: relative;
+      display: inline-block;
+      padding: 5px 20px;
+      background: #63bc8a;
+      color: white;
+      border-radius: 15px;
+      text-decoration: none;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      transition: 100ms; }
+    .area-content .header-promotion a:hover {
+      background: #56cc89; }
+  .area-content .content-area-epromotion {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    text-align: center; }
+    .area-content .content-area-epromotion img {
+      width: 80%;
+      min-width: 300px;
+      border-radius: 15px; }
+    .area-content .content-area-epromotion .price-and-button {
+      display: flex;
+      width: 80%;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      margin: 10px; }
+      .area-content .content-area-epromotion .price-and-button .promotion-button {
+        padding-right: 10px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center; }
+        .area-content .content-area-epromotion .price-and-button .promotion-button .edit-button {
+          position: relative;
+          display: inline-block;
+          padding: 10px 20px;
+          background: #63bc8a;
+          color: white;
+          border-radius: 15px;
+          text-decoration: none;
+          margin: 5px;
+          transition: 100ms;
+          font-weight: bold; }
+        .area-content .content-area-epromotion .price-and-button .promotion-button .edit-button:hover {
+          background-color: #56cc89; }
+        .area-content .content-area-epromotion .price-and-button .promotion-button .delete-button {
+          position: relative;
+          display: inline-block;
+          padding: 10px 20px;
+          color: #63bc8a;
+          border-radius: 15px;
+          text-decoration: none;
+          margin: 5px;
+          transition: 100ms;
+          border: 2px solid #63bc8a;
+          font-weight: bold; }
+        .area-content .content-area-epromotion .price-and-button .promotion-button .delete-button:hover {
+          background-color: #ebebeb; }
+      .area-content .content-area-epromotion .price-and-button h3 {
+        color: #63bc8a;
+        padding-left: 20px; }
+    .area-content .content-area-epromotion .detail-promotion {
+      width: 85%;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      border-bottom: 2px solid #dadada; }
+      .area-content .content-area-epromotion .detail-promotion p {
+        width: 95%;
+        margin: 10px;
+        color: #63bc8a;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: left; }
+    .area-content .content-area-epromotion .condition-zone {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      text-align: left;
+      justify-content: start;
+      margin: 20px; }
+      .area-content .content-area-epromotion .condition-zone .condition-header {
+        width: 95%;
+        display: flex;
+        align-items: left;
+        color: #63bc8a; }
+      .area-content .content-area-epromotion .condition-zone p {
+        margin: 2px;
+        color: gray;
+        padding-left: 30px; }
+
+/*# sourceMappingURL=style-epromotion.css.map */

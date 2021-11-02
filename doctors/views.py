@@ -206,3 +206,6 @@ def logoutPLS(request):
 
 def mcustomer(request):
     return render(request, "doctors/mcustomer.html")
+
+def editpromotion(request):
+    return render(request, "doctors/editpromotion.html")
