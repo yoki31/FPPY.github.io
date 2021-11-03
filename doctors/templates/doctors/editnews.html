@@ -15,8 +15,10 @@
 
     <div class="button-group">
         <a href="#" class="edit-button"><h3>แก้ไข</h3></a>
-
-        <a href="#" class="remove-button"><h3>ลบ</h3></a>
+        
+        <form action= "{% url 'doctors:deleteNews' new.id %}" method="POST">
+            {% csrf_token %}
+        <button  type="submit" class="remove-button"><h3>ลบ</h3></button>
     </div>
 
     <p class="content-blog">{{ new.context }}</p>
