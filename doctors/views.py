@@ -104,6 +104,9 @@ def unews_content(request, pk):
     context = {"new": new}
     return render(request, "doctors/unews_one.html" ,context)
 
+def udpromotion(request):
+    return render(request, "doctors/udpromotion.html")
+
 # admin
 
 
@@ -149,6 +152,10 @@ def mdoctor(request):
 
 def mpromotion(request):
     return render(request, "doctors/mpromotion.html")
+
+
+def dpromotion(request):
+    return render(request, "doctors/dpromotion.html")
 
 # มันต้องแตกตามหน้าย่อย ต้องส่งหัวข้อ รูป เนื้อหาเข้าไป จำไม่ได้ ฝากทำหน่อย
 #หมายถึงลบ เพิ่ม แก้ไขหรอวะ

@@ -13,6 +13,7 @@ urlpatterns = [
     path('news', views.news, name="news"),
     path('news_one/<pk>', views.news_content, name="news_content"),
     path('news_one', views.news_one, name="news_one"),
+    path('dpromotion', views.dpromotion, name="dpromotion"),
 
     # user
     path('userhome', views.userhome, name="userhome"),
@@ -23,6 +24,7 @@ urlpatterns = [
     path('unews', views.unews, name="unews"),
     path('unews_one/<pk>', views.unews_content, name="unews_content"),
     path('unews_one', views.unews_one, name="unews_one"),
+    path('udpromotion', views.udpromotion, name="udpromotion"),
 
     # admin
     path('adminhome', views.adminhome, name="adminhome"),

@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
+
+/* mhealthblog and uhealthblog and healthblog and mnews and unews and news */
+
+// $BGcolor:#63bc8a;
+$BGcolor:#f4f4f4;
+$Cardcolor:white;
+$labelcolor:#F2DC99;
+$Topiccolor: #63bc8a;
+// * {
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+//     font-family: 'Prompt', sans-serif;
+// }
+
+.area-content {
+    background-color: $BGcolor;
+    display: flex;
+    height: 91vh;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    // position: relative;
+    flex-direction: column;
+
+    .header-promotion {
+        display: flex;
+        margin: 15px;
+        width: 90%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+        h2 {
+            color: $Topiccolor;
+        }
+        a {
+            position: relative;
+            display: inline-block;
+            padding: 5px 20px;
+            background: $Topiccolor;
+            color: $Cardcolor;
+            border-radius: 15px;
+            text-decoration: none;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            transition: 100ms;
+        }
+
+        a:hover {
+            background: #56cc89;
+        }
+    }
+
+    .content-area-epromotion {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        text-align: center;
+
+        img {
+            width: 80%;
+            min-width: 300px;
+            border-radius: 15px;
+        }
+
+        .price-and-button {
+            display: flex;
+            width: 80%;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            margin: 10px;
+
+            .promotion-button  {
+                padding-right: 10px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+
+                .edit-button {
+                    position: relative;
+                    display: inline-block;
+                    padding: 10px 20px;
+                    background: $Topiccolor;
+                    color: $Cardcolor;
+                    border-radius: 15px;
+                    text-decoration: none;
+                    margin: 5px;
+                    transition: 100ms;
+                    font-weight: bold;
+                }
+
+                .edit-button:hover {
+                    background-color: #56cc89;
+                }
+
+                .delete-button {
+                    position: relative;
+                    display: inline-block;
+                    padding: 10px 20px;
+                    // background: $Cardcolor;
+                    color: $Topiccolor;
+                    border-radius: 15px;
+                    text-decoration: none;
+                    margin: 5px;
+                    transition: 100ms;
+                    border: 2px solid #63bc8a;
+                    font-weight: bold;
+                }
+
+                .delete-button:hover {
+                    background-color: #ebebeb;
+                }
+            }
+
+            h3 {
+                color: $Topiccolor;
+                padding-left: 20px;
+
+            }
+        }
+
+        .detail-promotion {
+            width: 85%;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            border-bottom: 2px solid rgb(218, 218, 218);
+
+            p {
+                width: 95%;
+                margin: 10px;
+                color: $Topiccolor;
+                font-weight: bold;
+                margin-bottom: 20px;
+                text-align: left;
+            }
+        }
+
+        .condition-zone {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            text-align: left;
+            justify-content: start;
+            margin: 20px;
+
+            .condition-header {
+                width: 95%;
+
+                display: flex;
+                align-items: left;
+                color: $Topiccolor;
+            }
+
+            p {
+                margin: 2px;
+                color: gray;
+                padding-left: 30px;
+            }
+        }
+    }
+}
