@@ -128,6 +128,11 @@ def edithealthblog_content(request, pk):
     article = Article.objects.filter(id=pk).first()
     context = {"article": article}
     return render(request, "doctors/edithealthblog.html" ,context)
+    
+    
+def deleteArticle(request, pk):
+    article = Article.objects.filter(id=pk)
+    
 
 
 def mnews(request):
@@ -144,6 +149,15 @@ def editnews_content(request, pk):
     new = News.objects.filter(id=pk).first()
     context = {"new": new}
     return render(request, "doctors/editnews.html" ,context)
+
+
+def deleteNews(request, pk):
+    new = News.objects.filter(id=pk)
+    if request.method == "POST":
+        new.delete()
+        news = News.objects.all()
+        context = {"news": news}
+        return redirect("doctors:mnews")
 
 
 def mdoctor(request):
