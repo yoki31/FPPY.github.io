@@ -132,8 +132,12 @@ def edithealthblog_content(request, pk):
     
 def deleteArticle(request, pk):
     article = Article.objects.filter(id=pk)
+    if request.method == "POST":
+        article.delete()
+        articles = Article.objects.all()
+        context = {"articles": articles}
+        return redirect("doctors:mhealthblog")
     
-
 
 def mnews(request):
     news = News.objects.all()

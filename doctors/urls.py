@@ -31,6 +31,7 @@ urlpatterns = [
     path('mhealthblog', views.mhealthblog, name="mhealthblog"),
     path('edithealthblog', views.edithealthblog, name="edithealthblog"),
     path('edithealthblog/<pk>', views.edithealthblog_content, name="edithealthblog_content"),
+    path('deleteArticles/<pk>', views.deleteArticle, name="deleteArticle"),
     path('mnews', views.mnews, name="mnews"),
     path('editnews', views.editnews, name="editnews"),
     path('editnews/<pk>', views.editnews_content, name="editnews_content"),
