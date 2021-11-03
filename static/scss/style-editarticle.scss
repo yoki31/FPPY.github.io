@@ -73,7 +73,8 @@ $Topiccolor: #63bc8a;
             padding: 10px 20px;
             background: $BGcolor;
             color: $Topiccolor;
-            stroke-width: 2px;
+            border: 2px solid #63bc8a;
+            // stroke-width: 2px;
             border-radius: 15px;
             text-decoration: none;
             margin: 10px;
@@ -83,6 +84,7 @@ $Topiccolor: #63bc8a;
         .remove-button:hover {
             background: rgb(255, 54, 54);
             color: $Cardcolor;
+            border: 2px solid transparent;
         }
     }
     

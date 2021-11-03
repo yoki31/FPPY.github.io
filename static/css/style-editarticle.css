@@ -48,14 +48,15 @@
       padding: 10px 20px;
       background: #f4f4f4;
       color: #63bc8a;
-      stroke-width: 2px;
+      border: 2px solid #63bc8a;
       border-radius: 15px;
       text-decoration: none;
       margin: 10px;
       transition: 200ms; }
     .area-content .button-group .remove-button:hover {
       background: #ff3636;
-      color: white; }
+      color: white;
+      border: 2px solid transparent; }
   .area-content .content-blog {
     color: #a1a1a1;
     width: 75%;
@@ -64,4 +65,4 @@
     text-align: justify;
     font-size: 20px; }
 
-/*# sourceMappingURL=style-editblog.css.map */
+/*# sourceMappingURL=style-editarticle.css.map */
