@@ -1,0 +1,16 @@
+{% extends "doctors/layout.html" %}
+{% load static %}
+
+{% block content %}
+
+    {% if data.profile_pic %}
+                <img src="/media/{{data.profile_pic}}" style="height:150px;width:150px;border-radius:50%">
+                {% else %}
+                <img src="{% static 'images/.jpg' %}" style="height:150px;width:150px;border-radius:50%">
+                {% endif %}
+    {{ request.user.first_name }}
+    {{ request.user.last_name }}
+    {{ request.user.email }}
+
+<a href="{% url 'doctors:editprofile' %}" >Edit Profile</a>
+{% endblock %}

@@ -128,8 +128,8 @@ def edithealthblog_content(request, pk):
     article = Article.objects.filter(id=pk).first()
     context = {"article": article}
     return render(request, "doctors/edithealthblog.html" ,context)
-    
-    
+
+
 def deleteArticle(request, pk):
     article = Article.objects.filter(id=pk)
     if request.method == "POST":
@@ -137,7 +137,7 @@ def deleteArticle(request, pk):
         articles = Article.objects.all()
         context = {"articles": articles}
         return redirect("doctors:mhealthblog")
-    
+
 
 def mnews(request):
     news = News.objects.all()
@@ -234,20 +234,18 @@ def mcustomer(request):
 
 def editpromotion(request):
     return render(request, "doctors/editpromotion.html")
-    
+
 
 def editprofile(request):
     context = {}
     check = Patient.objects.filter(user__id=request.user.id)
     if len(check)>0:
         data = Patient.objects.get(user__id=request.user.id)
-        context["data"]=data    
+        context["data"]=data
     if request.method=="POST":
-        fn = request.POST["First_name"]
-        ln = request.POST["Last_name"]
+        fn = request.POST["fname"]
+        ln = request.POST["lname"]
         em = request.POST["email"]
-        uid = request.POST["Patient_id"]
-        pic = request.POST["profile_pic"]
 
         usr = User.objects.get(id=request.user.id)
         usr.first_name = fn
@@ -264,8 +262,8 @@ def editprofile(request):
 
         context["status"] = "Changes Saved Successfully"
     return render(request,"doctors/editprofile.html" ,context)
-    
-    
+
+
 
 def profile(request):
     return render(request, "doctors/profile.html")
