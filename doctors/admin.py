@@ -4,7 +4,7 @@ from .models import *
 
 admin.site.register(Package)
 admin.site.register(ProofDonation)
-admin.site.register(Article)
+admin.site.register(Articles)
 admin.site.register(News)
 admin.site.register(Doctor)
 admin.site.register(Patient)
