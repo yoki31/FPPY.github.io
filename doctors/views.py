@@ -264,3 +264,8 @@ def editprofile(request):
 
         context["status"] = "Changes Saved Successfully"
     return render(request,"doctors/editprofile.html" ,context)
+    
+    
+
+def profile(request):
+    return render(request, "doctors/profile.html")
