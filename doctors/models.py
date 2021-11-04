@@ -27,14 +27,15 @@ class Doctor(models.Model):
         return f"{self.Doctor_id}: {self.First_name} {self.Last_name}"
 
 #เบล็ดเตล็ด
-class Article(models.Model):
+class Articles(models.Model):
     Doctor_id = models.ForeignKey(Doctor, null = True, on_delete=models.CASCADE)
     header = models.CharField(max_length=150, null = True,)
     context = models.CharField(max_length=300, null = True,)
 
-
     def __str__(self):
         return f"{self.header} \n {self.context}"
+
+
 
 class News(models.Model):
     Doctor_id = models.ForeignKey(Doctor, null = True, on_delete=models.CASCADE)
