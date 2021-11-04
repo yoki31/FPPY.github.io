@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from doctors.decorator import unauthenticated_user, allowed_users
 from doctors.models import *
-from .forms import CreateUserForm
+from .forms import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -28,7 +28,7 @@ def project_requirement(request):
 
 
 def healthblog(request):
-    articles = Article.objects.all()
+    articles = Articles.objects.all()
     context = {"articles": articles}
     print(context)
     return render(request, "doctors/healthblog.html", context)
@@ -42,7 +42,7 @@ def healthblog_one(request):
 
 
 def healthblog_content(request, pk):
-    article = Article.objects.filter(id=pk).first()
+    article = Articles.objects.filter(id=pk).first()
     context = {"article": article}
     return render(request, "doctors/healthblog_one.html" ,context)
 
@@ -74,7 +74,7 @@ def umaps(request):
 
 
 def uhealthblog(request):
-    articles = Article.objects.all()
+    articles = Articles.objects.all()
     context = {"articles": articles}
     return render(request, "doctors/uhealthblog.html", context)
 
@@ -84,7 +84,7 @@ def uhealthblog_one(request):
 
 
 def uhealthblog_content(request, pk):
-    article = Article.objects.filter(id=pk).first()
+    article = Articles.objects.filter(id=pk).first()
     context = {"article": article}
     return render(request, "doctors/uhealthblog_one.html" ,context)
 
@@ -115,7 +115,7 @@ def adminhome(request):
 
 
 def mhealthblog(request):
-    articles = Article.objects.all()
+    articles = Articles.objects.all()
     context = {"articles": articles}
     return render(request, "doctors/mhealthblog.html", context)
 
@@ -125,18 +125,28 @@ def edithealthblog(request):
 
 
 def edithealthblog_content(request, pk):
-    article = Article.objects.filter(id=pk).first()
+    article = Articles.objects.filter(id=pk).first()
     context = {"article": article}
     return render(request, "doctors/edithealthblog.html" ,context)
 
 
 def deleteArticle(request, pk):
-    article = Article.objects.filter(id=pk)
+    article = Articles.objects.filter(id=pk)
     if request.method == "POST":
         article.delete()
-        articles = Article.objects.all()
-        context = {"articles": articles}
         return redirect("doctors:mhealthblog")
+
+
+def addArticle(request):
+    form = CreateArticleForm()
+    if request.method == 'POST':
+        createArticleForm = CreateArticleForm(request.POST)
+        if createArticleForm.is_valid():
+            createArticleForm.save()
+            article = Articles.objects.values('id').order_by('-id').first()
+            id_last = article['id']
+            return redirect("doctors:edithealthblog_content", pk=id_last)    #อยากให้ไดเรกไปหน้าที่พึ่ง
+    return render(request, "doctors/addhealthblog.html", {"form": form})
 
 
 def mnews(request):
