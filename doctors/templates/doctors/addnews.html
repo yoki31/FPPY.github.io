@@ -1,0 +1,27 @@
+{% extends "doctors/adlayout.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="Stylesheet" href="{% static 'css/style-editblog.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="header-news">
+        <h2>Add News</h2>
+    </div>
+
+    <img src="{% static 'images/pic.jpg' %}" alt="" class="img-blog">
+
+        <form method="POST" action="">
+            {% csrf_token %}
+
+
+            <p class="content-blog">Header: {{ form.header }}</p>
+            <p class="content-blog">Doctor_id: {{ form.Doctor_id }}</p>
+            <p class="content-blog">Context: {{ form.context }}</p>
+
+            <input type="submit" name="Create User">
+        </form>
+
+{% endblock %}

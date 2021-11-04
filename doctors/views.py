@@ -174,6 +174,18 @@ def deleteNews(request, pk):
         return redirect("doctors:mnews")
 
 
+def addNews(request):
+    form = CreateNewsForm()
+    if request.method == 'POST':
+        createNewsForm = CreateNewsForm(request.POST)
+        if createNewsForm.is_valid():
+            createNewsForm.save()
+            news = News.objects.values('id').order_by('-id').first()
+            id_last = news['id']
+            return redirect("doctors:editnews_content", pk=id_last)    #อยากให้ไดเรกไปหน้าที่พึ่ง
+    return render(request, "doctors/addnews.html", {"form": form})
+    
+    
 def mdoctor(request):
     return render(request, "doctors/mdoctor.html")
 
