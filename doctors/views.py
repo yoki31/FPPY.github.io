@@ -234,3 +234,33 @@ def mcustomer(request):
 
 def editpromotion(request):
     return render(request, "doctors/editpromotion.html")
+    
+
+def editprofile(request):
+    context = {}
+    check = Patient.objects.filter(user__id=request.user.id)
+    if len(check)>0:
+        data = Patient.objects.get(user__id=request.user.id)
+        context["data"]=data    
+    if request.method=="POST":
+        fn = request.POST["First_name"]
+        ln = request.POST["Last_name"]
+        em = request.POST["email"]
+        uid = request.POST["Patient_id"]
+        pic = request.POST["profile_pic"]
+
+        usr = User.objects.get(id=request.user.id)
+        usr.first_name = fn
+        usr.last_name = ln
+        usr.email = em
+        usr.save()
+
+
+        if "image" in request.FILES:
+            img = request.FILES["image"]
+            data.profile_pic = img
+            data.save()
+
+
+        context["status"] = "Changes Saved Successfully"
+    return render(request,"doctors/editprofile.html" ,context)

@@ -1,0 +1,31 @@
+{% extends "doctors/layout.html" %}
+{% load static %}
+
+{% block content %}
+
+            <h1>Edit Profile</h1>
+                {% if data.profile_pic %}
+                <img src="/media/{{data.profile_pic}}" style="height:150px;width:150px;border-radius:50%">
+                {% else %}
+                <img src="{% static 'images/user.png' %}" style="height:150px;width:150px;border-radius:50%">
+                {% endif %}
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                            <label>First Name</label>
+                            <input type="text" class="form-control" name="fname" placeholder="Enter First Name" value="{{user.First_name}}">
+
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" name="lname" placeholder="Enter Last Name" value="{{user.Last_name}}">
+
+                            <label>Email</label>
+                            <input type="email" class="form-control" name="email" placeholder="Enter Email" value="{{user.email}}">
+
+                            <label>Profile Picture</label>
+                            <input type="file" class="form-control" name="image">
+
+
+                    <input type="submit" name="changeprofile" value="Save Changes" style="width:50%;border-radius:20px;">
+            </form>
+
+{% endblock %}

@@ -25,6 +25,7 @@ urlpatterns = [
     path('unews_one/<pk>', views.unews_content, name="unews_content"),
     path('unews_one', views.unews_one, name="unews_one"),
     path('udpromotion', views.udpromotion, name="udpromotion"),
+    path('editprofile', views.editprofile, name="editprofile"),
 
     # admin
     path('adminhome', views.adminhome, name="adminhome"),
