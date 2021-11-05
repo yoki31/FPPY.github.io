@@ -27,98 +27,19 @@ def project_requirement(request):
     return render(request, "doctors/requirement.html")
 
 
+
+#ARTICLE
+
 def healthblog(request):
     articles = Articles.objects.all()
     context = {"articles": articles}
     print(context)
     return render(request, "doctors/healthblog.html", context)
 
-
-def healthblog_one(request):
-    # article = Article.objects.filter(id=pk)
-    # context = {"article": article}
-    # print(context)
-    return render(request, "doctors/healthblog_one.html")
-
-
 def healthblog_content(request, pk):
     article = Articles.objects.filter(id=pk).first()
     context = {"article": article}
     return render(request, "doctors/healthblog_one.html" ,context)
-
-
-def news(request):
-    news = News.objects.all()
-    context = {"news": news}
-    return render(request, "doctors/news.html", context)
-
-
-def news_one(request):
-    return render(request, "doctors/news_one.html")
-
-
-def news_content(request, pk):
-    new = News.objects.filter(id=pk).first()
-    context = {"new": new}
-    return render(request, "doctors/news_one.html" ,context)
-
-# user
-
-
-def userhome(request):
-    return render(request, "doctors/userhome.html")
-
-
-def umaps(request):
-    return render(request, "doctors/umaps.html")
-
-
-def uhealthblog(request):
-    articles = Articles.objects.all()
-    context = {"articles": articles}
-    return render(request, "doctors/uhealthblog.html", context)
-
-
-def uhealthblog_one(request):
-    return render(request, "doctors/uhealthblog_one.html")
-
-
-def uhealthblog_content(request, pk):
-    article = Articles.objects.filter(id=pk).first()
-    context = {"article": article}
-    return render(request, "doctors/uhealthblog_one.html" ,context)
-
-
-def unews(request):
-    news = News.objects.all()
-    context = {"news": news}
-    return render(request, "doctors/unews.html", context)
-
-
-def unews_one(request):
-    return render(request, "doctors/unews_one.html")
-
-
-def unews_content(request, pk):
-    new = News.objects.filter(id=pk).first()
-    context = {"new": new}
-    return render(request, "doctors/unews_one.html" ,context)
-
-def udpromotion(request):
-    return render(request, "doctors/udpromotion.html")
-
-# admin
-
-
-def adminhome(request):
-    return render(request, "doctors/adminhome.html")
-
-
-def mhealthblog(request):
-    articles = Articles.objects.all()
-    context = {"articles": articles}
-    return render(request, "doctors/mhealthblog.html", context)
-
 
 def edithealthblog(request):
     return render(request, "doctors/edithealthblog.html")
@@ -149,11 +70,17 @@ def addArticle(request):
     return render(request, "doctors/addhealthblog.html", {"form": form})
 
 
-def mnews(request):
+
+#NEW
+def news(request):
     news = News.objects.all()
     context = {"news": news}
-    return render(request, "doctors/mnews.html", context)
+    return render(request, "doctors/news.html", context)
 
+def news_content(request, pk):
+    new = News.objects.filter(id=pk).first()
+    context = {"new": new}
+    return render(request, "doctors/news_one.html" ,context)
 
 def editnews(request):
     return render(request, "doctors/editnews.html")
@@ -185,30 +112,27 @@ def addNews(request):
             return redirect("doctors:editnews_content", pk=id_last)    #อยากให้ไดเรกไปหน้าที่พึ่ง
     return render(request, "doctors/addnews.html", {"form": form})
     
-    
-def mdoctor(request):
-    return render(request, "doctors/mdoctor.html")
 
 
+#PACKAGE
 def mpromotion(request):
     return render(request, "doctors/mpromotion.html")
 
 
-def dpromotion(request):
-    return render(request, "doctors/dpromotion.html")
-
-# มันต้องแตกตามหน้าย่อย ต้องส่งหัวข้อ รูป เนื้อหาเข้าไป จำไม่ได้ ฝากทำหน่อย
-#หมายถึงลบ เพิ่ม แก้ไขหรอวะ
-
-# def edithealthblog(request, pk):
-#     article = Article.objects.filter(id=pk).first()
-#     context = {"article": article}
-#     return render(request, "doctors/edithealthblog.html" ,context)
+def editpromotion(request):
+    return render(request, "doctors/editpromotion.html")
 
 
-# def editnews(request):
-#     return render(request, "doctors/editnews.html")
 
+
+
+
+
+
+
+
+def mdoctor(request):
+    return render(request, "doctors/mdoctor.html")
 
 #register / login / logout
 
@@ -254,8 +178,6 @@ def logoutPLS(request):
 def mcustomer(request):
     return render(request, "doctors/mcustomer.html")
 
-def editpromotion(request):
-    return render(request, "doctors/editpromotion.html")
 
 
 def editprofile(request):

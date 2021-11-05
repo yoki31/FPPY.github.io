@@ -9,7 +9,9 @@
 
     <div class="header-news-menu">
         <h2>ข่าวทั้งหมด</h2>
-        <!-- <a href="#"><h3>เพิ่ม</h3></a> -->
+        {% if request.user.is_superuser %}
+        <a href="{% url 'doctors:addNews' %}"><h3>เพิ่ม</h3></a>
+        {% endif %}
     </div>
 
     <div class="news-card-area-all">

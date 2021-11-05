@@ -61,23 +61,31 @@
                 <a href="{% url 'doctors:index' %}"><img src="{% static 'images/logo.png' %}"></img></a>
             </div>
             <div class="nav-section">
-                <!-- <li class="nav-text"><a href="#">ค้นหาแพทย์</a></li>
-                <li class="nav-text"><a href="#"></a></li>
-                <li class="nav-text"><a href="#">บริการสำหรับผู้ป่วย</a></li>
-                <li class="nav-text"><a href="#">แพ็คเกจ</a></li>
-                <li class="nav-text"><a href="#">ติดต่อเรา</a></li> -->
+                {% if request.user.is_superuser %} 
+                <a class="nav-text" href="{% url 'doctors:healthblog' %}"><li>บทความทั้งหมด</li></a>
+                <a class="nav-text" href="{% url 'doctors:news' %}"><li>จัดการข่าว</li></a>
+                <a class="nav-text" href="{% url 'doctors:mpromotion' %}"><li>แพ็คเกจ</li></a>
                 <a class="nav-text" href="{% url 'doctors:index' %}"><li>หน้าแรก</li></a>
                 <a class="nav-text" href="{% url 'doctors:about' %}"><li>เกี่ยวกับเรา</li></a>
                 <a class="nav-text" href="{% url 'doctors:healthblog' %}"><li>บทความทั้งหมด</li></a>
                 <a class="nav-text" href="{% url 'doctors:news' %}"><li>ข่าวสาร</li></a>
                 <a class="nav-text" href="{% url 'doctors:maps' %}"><li>แผนที่</li></a>
-                <!-- <li class="nav-text"><a href="#">ข่าวสาร</a></li>
-                <li class="nav-text"><a href="#">ปุ่ม1</a></li>
-                <li class="nav-text"><a href="#">ปุ่ม2</a></li>
-                <li class="nav-text"><a href="#">ปุ่ม3</a></li>
-                <li class="nav-text"><a href="#">ปุ่ม4</a></li>
-                <li class="nav-text"><a href="#">ปุ่ม5</a></li>
-                <li class="nav-text"><a href="#">ปุ่ม6</a></li> -->
+                {% elif request.user.is_active %}
+                <a class="nav-text" href="{% url 'doctors:index' %}"><li>หน้าแรก</li></a>
+                <a class="nav-text" href="{% url 'doctors:about' %}"><li>เกี่ยวกับเรา</li></a>
+                <a class="nav-text" href="{% url 'doctors:healthblog' %}"><li>บทความทั้งหมด</li></a>
+                <a class="nav-text" href="{% url 'doctors:news' %}"><li>ข่าวสาร</li></a>
+                <a class="nav-text" href="{% url 'doctors:mpromotion' %}"><li>แพ็คเกจ</li></a>
+                <a class="nav-text" href="{% url 'doctors:maps' %}"><li>แผนที่</li></a>
+                <a class="nav-text" href="#"><li>นัดหมาย</li></a>
+                {% else %}
+                <a class="nav-text" href="{% url 'doctors:index' %}"><li>หน้าแรก</li></a>
+                <a class="nav-text" href="{% url 'doctors:about' %}"><li>เกี่ยวกับเรา</li></a>
+                <a class="nav-text" href="{% url 'doctors:healthblog' %}"><li>บทความทั้งหมด</li></a>
+                <a class="nav-text" href="{% url 'doctors:mpromotion' %}"><li>แพ็คเกจ</li></a>
+                <a class="nav-text" href="{% url 'doctors:news' %}"><li>ข่าวสาร</li></a>
+                <a class="nav-text" href="{% url 'doctors:maps' %}"><li>แผนที่</li></a>
+                {% endif %}
         </div>
         </ul>
     </nav>
@@ -127,7 +135,7 @@
     </div>
 
     <div class="more-options" id="more-options">
-        <a href= {% url "doctors:profile" %} class="more-profile-item">
+        <a href= "{% url 'doctors:profile' %}" class="more-profile-item">
             <img src="{% static 'images/pie.jpg' %}">
             <div class="profile-detail">
                 <h3>{{request.user.username}}</h3>
@@ -146,7 +154,7 @@
             </div>
         </a>
 
-        <a href = {% url "doctors:logout" %} class="more-item">
+        <a href = "{% url 'doctors:logout' %}" class="more-item">
             <div class="normal-a">
                 <ion-icon name="log-out-outline"></ion-icon>
             </div>
