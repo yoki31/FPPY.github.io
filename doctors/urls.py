@@ -54,3 +54,4 @@ urlpatterns = [
     path('editprofile', views.editprofile, name="editprofile"),
 
 ]
+
