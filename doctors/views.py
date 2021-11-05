@@ -31,13 +31,13 @@ def project_requirement(request):
 #ARTICLE
 
 def healthblog(request):
-    articles = Articles.objects.all()
+    articles = Article.objects.all()
     context = {"articles": articles}
     print(context)
     return render(request, "doctors/healthblog.html", context)
 
 def healthblog_content(request, pk):
-    article = Articles.objects.filter(id=pk).first()
+    article = Article.objects.filter(id=pk).first()
     context = {"article": article}
     return render(request, "doctors/healthblog_one.html" ,context)
 
@@ -46,13 +46,13 @@ def edithealthblog(request):
 
 
 def edithealthblog_content(request, pk):
-    article = Articles.objects.filter(id=pk).first()
+    article = Article.objects.filter(id=pk).first()
     context = {"article": article}
     return render(request, "doctors/edithealthblog.html" ,context)
 
 
 def deleteArticle(request, pk):
-    article = Articles.objects.filter(id=pk)
+    article = Article.objects.filter(id=pk)
     if request.method == "POST":
         article.delete()
         return redirect("doctors:mhealthblog")
@@ -64,7 +64,7 @@ def addArticle(request):
         createArticleForm = CreateArticleForm(request.POST)
         if createArticleForm.is_valid():
             createArticleForm.save()
-            article = Articles.objects.values('id').order_by('-id').first()
+            article = Article.objects.values('id').order_by('-id').first()
             id_last = article['id']
             return redirect("doctors:edithealthblog_content", pk=id_last)    #อยากให้ไดเรกไปหน้าที่พึ่ง
     return render(request, "doctors/addhealthblog.html", {"form": form})
@@ -73,12 +73,12 @@ def addArticle(request):
 
 #NEW
 def news(request):
-    news = News.objects.all()
+    news = New.objects.all()
     context = {"news": news}
     return render(request, "doctors/news.html", context)
 
 def news_content(request, pk):
-    new = News.objects.filter(id=pk).first()
+    new = New.objects.filter(id=pk).first()
     context = {"new": new}
     return render(request, "doctors/news_one.html" ,context)
 
@@ -87,16 +87,16 @@ def editnews(request):
 
 
 def editnews_content(request, pk):
-    new = News.objects.filter(id=pk).first()
+    new = New.objects.filter(id=pk).first()
     context = {"new": new}
     return render(request, "doctors/editnews.html" ,context)
 
 
 def deleteNews(request, pk):
-    new = News.objects.filter(id=pk)
+    new = New.objects.filter(id=pk)
     if request.method == "POST":
         new.delete()
-        news = News.objects.all()
+        news = New.objects.all()
         context = {"news": news}
         return redirect("doctors:mnews")
 
@@ -107,7 +107,7 @@ def addNews(request):
         createNewsForm = CreateNewsForm(request.POST)
         if createNewsForm.is_valid():
             createNewsForm.save()
-            news = News.objects.values('id').order_by('-id').first()
+            news = New.objects.values('id').order_by('-id').first()
             id_last = news['id']
             return redirect("doctors:editnews_content", pk=id_last)    #อยากให้ไดเรกไปหน้าที่พึ่ง
     return render(request, "doctors/addnews.html", {"form": form})
@@ -121,14 +121,6 @@ def mpromotion(request):
 
 def editpromotion(request):
     return render(request, "doctors/editpromotion.html")
-
-
-
-
-
-
-
-
 
 
 def mdoctor(request):

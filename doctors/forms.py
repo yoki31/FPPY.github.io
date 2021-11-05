@@ -4,7 +4,7 @@ from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import Articles, News 
+from .models import *
 
 class CreateUserForm(UserCreationForm):
     class Meta:
@@ -14,11 +14,11 @@ class CreateUserForm(UserCreationForm):
         
 class CreateArticleForm(ModelForm):
     class Meta:
-        model = Articles
+        model = Article
         fields = '__all__'
         
         
 class CreateNewsForm(ModelForm):
     class Meta:
-        model = News
+        model = New
         fields = '__all__'

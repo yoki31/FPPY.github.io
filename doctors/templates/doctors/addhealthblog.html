@@ -16,15 +16,12 @@
         <form method="POST" action="">
             {% csrf_token %}
     
-    <!--{{form.username.label}}-->
   
             <tr></tr><p class="content-blog">Header: {{ form.header }}</p>
-            <p class="content-blog">Doctor_id: {{ form.Doctor_id }}</p>
+            <p class="content-blog">by doctor: {{ form.doctor }}</p>
             <p class="content-blog">Context: {{ form.context }}</p>
 
             <input type="submit" name="Create User">
         </form>
-
-    <!--<a href="#" >Confirm</a>-->
     
 {% endblock %}
