@@ -40,11 +40,11 @@ urlpatterns = [
 #    path('editnews', views.editnews, name="editnews"), #เดี๋ยวต้องมาแก้pathให้ตามในรายงาน มันแบ่งตามหน้าย่อยนี่จำไม่ได้ว่าเขียนยังไง
 
     # register, login profile
-    path('register', views.registerPage, name="register"),
-    path('login', views.loginPage, name="login"),
-    path('logout', views.logoutPLS, name="logout"),
+    path('register/', views.registerPage, name="register"),
+    path('login/', views.loginPage, name="login"),
+    path('logout/', views.logoutPLS, name="logout"),
     path('profile', views.profile, name="profile"),
-    path('editprofile', views.editprofile, name="editprofile"),
+    path('accsetting', views.account, name="accsetting"),
 
 ]
 

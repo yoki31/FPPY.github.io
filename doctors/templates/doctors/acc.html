@@ -3,7 +3,14 @@
 
 {% block content %}
 
-            <h1>Edit Profile</h1>
+<img src =" {{request.user.patient.profile_pic.url}}" style="height:150px;width:150px;border-radius:50%" >
+
+<form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+</form>
+
+            <!-- <h1>Edit Profile</h1>
                 {% if data.profile_pic %}
                 <img src="{{data.profile_pic}}" style="height:150px;width:150px;border-radius:50%">
                 {% else %}
@@ -27,6 +34,6 @@
 
                     <input type="submit" name="changeprofile" value="Save Changes" href="{% url 'doctors:profile' %}">
                     <a href="{% url 'doctors:profile' %}" >Back to Profile</a>
-            </form>
+            </form> -->
 
 {% endblock %}

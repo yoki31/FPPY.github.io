@@ -22,3 +22,9 @@ class CreateNewsForm(ModelForm):
     class Meta:
         model = New
         fields = '__all__'
+
+class accForm(ModelForm):
+    class Meta:
+        model = Patient
+        fields = '__all__'
+        exclude = ['user', 'date_created']

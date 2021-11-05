@@ -30,10 +30,21 @@ def allowed_users(allowed_roles=[]):
 def admin_only(view_func):
     def wrapper_func(request, *args, **kwargs):
             group = None
-            if group == 'Patient':
+            if group == 'patient':
                 return redirect('doctors:index')
-            if group == 'Doctor':
+            if group == 'doctor':
                 return redirect('doctors:index')
-            if group == 'Admin':
+            if group == 'admin':
+                return view_func(request, *args, **kwargs)
+    return wrapper_func
+
+def doctor_only(view_func):
+    def wrapper_func(request, *args, **kwargs):
+            group = None
+            if group == 'patient':
+                return redirect('doctors:index')
+            if group == 'doctor':
+                return view_func(request, *args, **kwargs)
+            if group == 'admin':
                 return view_func(request, *args, **kwargs)
     return wrapper_func

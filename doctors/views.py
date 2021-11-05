@@ -136,9 +136,11 @@ def registerPage(request):
         if form.is_valid():
             user = form.save()
             username = form.cleaned_data.get('username')
-
-            group = Group.objects.get(name='Patient')
+            group = Group.objects.get(name='patient')
             user.groups.add(group)
+            Patient.objects.create(
+                user=user
+            )
 
             messages.success(request, 'Account was created for ' + username)
             return redirect('doctors:login')
@@ -172,32 +174,18 @@ def mcustomer(request):
 
 
 
-def editprofile(request):
-    context = {}
-    check = Patient.objects.filter(user__id=request.user.id)
-    if len(check)>0:
-        data = Patient.objects.get(user__id=request.user.id)
-        context["data"]=data
-    if request.method=="POST":
-        fn = request.POST["fname"]
-        ln = request.POST["lname"]
-        em = request.POST["email"]
+@login_required(login_url='doctors:login')
+def account(request):
+    patient = request.user.patient
+    form = accForm(instance=patient)
 
-        usr = User.objects.get(id=request.user.id)
-        usr.first_name = fn
-        usr.last_name = ln
-        usr.email = em
-        usr.save()
+    if request.method == 'POST':
+        form = accForm(request.POST, request.FILES, instance=patient)
+        if form.is_valid():
+            form.save()
 
+    return render (request, 'doctors/acc.html', {'form': form})
 
-        if "image" in request.FILES:
-            img = request.FILES["image"]
-            data.profile_pic = img
-            data.save()
-
-
-        context["status"] = "Changes Saved Successfully"
-    return render(request,"doctors/editprofile.html" ,context)
 
 
 
