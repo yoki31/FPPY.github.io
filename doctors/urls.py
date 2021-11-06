@@ -12,8 +12,8 @@ urlpatterns = [
 #NEW
     path('news', views.news, name="news"),
     path('news/<pk>', views.news_content, name="news_content"),
-    path('editnews', views.editnews, name="editnews"),
-    path('editnews/<pk>', views.editnews_content, name="editnews_content"),
+    # path('editnews', views.editnews, name="editnews"),
+    # path('editnews/<pk>', views.editnews_content, name="editnews_content"),
     path('deleteNews/<pk>', views.deleteNews, name="deleteNews"),
     path('addnews', views.addNews, name="addNews"),
 

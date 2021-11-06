@@ -10,18 +10,18 @@ class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
-        
-        
+
+
 class CreateArticleForm(ModelForm):
     class Meta:
         model = Article
         fields = ['header', 'doctor', 'context']
-        
-        
+
+
 class CreateNewsForm(ModelForm):
     class Meta:
         model = New
-        fields = ['header', 'doctor', 'context']
+        fields = ['header', 'context']
 
 class accForm(ModelForm):
     class Meta:

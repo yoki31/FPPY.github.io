@@ -81,14 +81,14 @@ def news_content(request, pk):
     context = {"new": new}
     return render(request, "doctors/news_one.html" ,context)
 
-def editnews(request):
-    return render(request, "doctors/editnews.html")
+# def editnews(request):
+#     return render(request, "doctors/editnews.html")
 
 
-def editnews_content(request, pk):
-    new = New.objects.filter(id=pk).first()
-    context = {"new": new}
-    return render(request, "doctors/editnews.html" ,context)
+# def editnews_content(request, pk):
+#     new = New.objects.filter(id=pk).first()
+#     context = {"new": new}
+#     return render(request, "doctors/editnews.html" ,context)
 
 
 def deleteNews(request, pk):
@@ -97,7 +97,7 @@ def deleteNews(request, pk):
         new.delete()
         news = New.objects.all()
         context = {"news": news}
-        return redirect("doctors:mnews")
+        return redirect("doctors:news")
 
 
 def addNews(request):
@@ -108,7 +108,7 @@ def addNews(request):
             createNewsForm.save()
             news = New.objects.values('id').order_by('-id').first()
             id_last = news['id']
-            return redirect("doctors:editnews_content", pk=id_last)    #อยากให้ไดเรกไปหน้าที่พึ่ง
+            return redirect("doctors:news_content", pk=id_last)    #อยากให้ไดเรกไปหน้าที่พึ่ง
     return render(request, "doctors/addnews.html", {"form": form})
     
 

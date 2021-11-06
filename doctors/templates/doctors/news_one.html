@@ -1,3 +1,4 @@
+
 {% extends "doctors/layout.html" %}
 {% load static %}
 
@@ -12,8 +13,15 @@
     </div>
 
     <img src="{% static 'images/pic.jpg' %}" alt="" class="img-blog">
-
-
+    {% if request.user.is_superuser %}
+    <div class="button-group">
+        <a href="#" class="edit-button"><h3>แก้ไข</h3></a>
+        
+        <form action= "{% url 'doctors:deleteNews' new.id %}" method="POST">
+            {% csrf_token %}
+        <button  type="submit" class="remove-button"><h3>ลบ</h3></button>
+    </div>
+    {% endif %}
     <p class="content-blog">{{ new.context }}</p>
 
 {% endblock %}
