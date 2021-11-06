@@ -40,21 +40,21 @@ def healthblog_content(request, pk):
     context = {"article": article}
     return render(request, "doctors/healthblog_one.html" ,context)
 
-def edithealthblog(request):
-    return render(request, "doctors/edithealthblog.html")
+# def edithealthblog(request):
+#     return render(request, "doctors/edithealthblog.html")
 
 
-def edithealthblog_content(request, pk):
-    article = Article.objects.filter(id=pk).first()
-    context = {"article": article}
-    return render(request, "doctors/edithealthblog.html" ,context)
+# def edithealthblog_content(request, pk):
+#     article = Article.objects.filter(id=pk).first()
+#     context = {"article": article}
+#     return render(request, "doctors/edithealthblog.html" ,context)
 
 
 def deleteArticle(request, pk):
     article = Article.objects.filter(id=pk)
     if request.method == "POST":
         article.delete()
-        return redirect("doctors:mhealthblog")
+        return redirect("doctors:healthblog")
 
 
 def addArticle(request):
@@ -65,7 +65,7 @@ def addArticle(request):
             createArticleForm.save()
             article = Article.objects.values('id').order_by('-id').first()
             id_last = article['id']
-            return redirect("doctors:edithealthblog_content", pk=id_last)    #อยากให้ไดเรกไปหน้าที่พึ่ง
+            return redirect("doctors:healthblog_content", pk=id_last)    #อยากให้ไดเรกไปหน้าที่พึ่ง
     return render(request, "doctors/addhealthblog.html", {"form": form})
 
 

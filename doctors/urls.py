@@ -20,8 +20,8 @@ urlpatterns = [
 #ARTICLE
     path('healthblog', views.healthblog, name="healthblog"),
     path('healthblog/<pk>', views.healthblog_content, name="healthblog_content"),
-    path('edithealthblog', views.edithealthblog, name="edithealthblog"),
-    path('edithealthblog/<pk>', views.edithealthblog_content, name="edithealthblog_content"),
+    # path('edithealthblog', views.edithealthblog, name="edithealthblog"),
+    # path('edithealthblog/<pk>', views.edithealthblog_content, name="edithealthblog_content"),
     path('deletehealthblog/<pk>', views.deleteArticle, name="deleteArticle"),
     path('addhealthblog', views.addArticle, name="addArticle"),
     
