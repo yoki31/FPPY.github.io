@@ -27,7 +27,7 @@ urlpatterns = [
     
     
 #PACKAGE
-    path('mpromotion', views.mpromotion, name="mpromotion"),
+    path('package/', views.package, name="package"),
     
     
     

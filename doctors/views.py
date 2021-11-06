@@ -114,8 +114,9 @@ def addNews(request):
 
 
 #PACKAGE
-def mpromotion(request):
-    return render(request, "doctors/mpromotion.html")
+def package(request):
+    packages = Package.objects.all()
+    return render(request, "doctors/package.html", {"packages": packages} )
 
 
 def editpromotion(request):
