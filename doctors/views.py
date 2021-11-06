@@ -33,7 +33,6 @@ def project_requirement(request):
 def healthblog(request):
     articles = Article.objects.all()
     context = {"articles": articles}
-    print(context)
     return render(request, "doctors/healthblog.html", context)
 
 def healthblog_content(request, pk):
