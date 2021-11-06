@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block head %}
-    <link rel="Stylesheet" href="{% static 'css/style-editblog.css' %}">
+    <link rel="Stylesheet" href="{% static 'css/style-addarticle.css' %}">
 {% endblock %}
 
 {% block content %}
     
-    <div class="header-news">
+    <!-- <div class="header-news">
         <h2>Add Article</h2>
     </div>
 
@@ -22,6 +22,45 @@
             <p class="content-blog">Context: {{ form.context }}</p>
 
             <input type="submit" name="Create User">
-        </form>
+        </form> -->
     
+        <div class="add-healthblog-card">
+            <div class="header-addhb">
+                <h2>Add Article</h2>
+            </div>
+        
+            <!-- <img src="{% static 'images/pic.jpg' %}" alt="" class="img-blog"> -->
+        
+                <form method="POST" action="">
+                    {% csrf_token %}
+            
+            <!--{{form.username.label}}-->
+          
+                    <div class="addhead-blog">
+                        <h5>Header</h5> 
+                        <!-- {{ form.header }} -->
+                        <input type="text" name="header">
+                    </div>
+        
+                    <div class="addhead-blog">
+                        <h5>Doctor</h5>
+                        {{ form.doctor }}
+                    </div>
+
+                    <div class="addcontent-blog">
+                        <h5>Content</h5> 
+                        <!-- {{ form.header }} -->
+                        <textarea rows="60" cols="100" name="context" class="content">
+                        </textarea>
+                    </div>
+                    <!-- <tr></tr><p class="content-blog">Header: {{ form.header }}</p>
+                    <p class="content-blog">Doctor_id: {{ form.Doctor_id }}</p>
+                    <p class="content-blog">Context: {{ form.context }}</p> -->
+        
+                    <input type="submit" name="Create User" class="btn">
+                </form>
+        
+            <!--<a href="#" >Confirm</a>-->
+            
+            </div>
 {% endblock %}

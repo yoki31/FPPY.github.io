@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap");
+/* mhealthblog and uhealthblog and healthblog and mnews and unews and news */
+.area-content {
+  background-color: #f4f4f4;
+  display: flex;
+  height: 91vh;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column; }
+  .area-content .add-healthblog-card {
+    width: 80%;
+    height: 70vh;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center; }
+    .area-content .add-healthblog-card .header-addhb {
+      display: flex;
+      margin: 15px;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 10px;
+      font-size: 20px;
+      border-bottom: 2px solid #dfdfdf; }
+      .area-content .add-healthblog-card .header-addhb h2 {
+        color: #63bc8a; }
+    .area-content .add-healthblog-card form {
+      width: 100%; }
+      .area-content .add-healthblog-card form .addhead-blog {
+        display: flex;
+        width: 100%;
+        padding: 10px;
+        padding-top: 0px;
+        justify-content: left;
+        align-items: center;
+        text-align: center; }
+        .area-content .add-healthblog-card form .addhead-blog h5 {
+          margin-right: 10px;
+          color: #63bc8a;
+          font-size: 1.2rem; }
+        .area-content .add-healthblog-card form .addhead-blog input {
+          width: 100%;
+          height: 5vh;
+          border: transparent;
+          background-color: #f4f4f4;
+          border-radius: 20px;
+          padding: 20px;
+          font-size: 16px; }
+        .area-content .add-healthblog-card form .addhead-blog select {
+          width: 100%;
+          height: 5vh;
+          border: transparent;
+          padding-left: 20px;
+          background-color: #f4f4f4;
+          border-radius: 20px;
+          font-size: 16px; }
+      .area-content .add-healthblog-card form .addcontent-blog {
+        display: flex;
+        width: 100%;
+        padding: 10px;
+        padding-top: 0px;
+        justify-content: top;
+        align-items: center;
+        text-align: center; }
+        .area-content .add-healthblog-card form .addcontent-blog h5 {
+          margin-right: 10px;
+          color: #63bc8a;
+          font-size: 1.2rem; }
+        .area-content .add-healthblog-card form .addcontent-blog .content {
+          height: 34vh;
+          width: 100%;
+          border: transparent;
+          background-color: #f4f4f4;
+          border-radius: 20px;
+          padding: 20px;
+          font-size: 16px; }
+      .area-content .add-healthblog-card form .btn {
+        padding: 5px 30px;
+        border-radius: 20px;
+        background-color: #63bc8a;
+        color: white;
+        font-weight: bolder;
+        border: transparent;
+        transition: 150ms; }
+      .area-content .add-healthblog-card form .btn:hover {
+        background-color: #50aa77; }
+
+/*# sourceMappingURL=style-addarticle.css.map */
