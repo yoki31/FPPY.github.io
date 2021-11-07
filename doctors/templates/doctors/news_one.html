@@ -1,4 +1,3 @@
-
 {% extends "doctors/layout.html" %}
 {% load static %}
 
@@ -11,12 +10,16 @@
     <div class="header-news">
         <h2>{{ new.header }}</h2>
     </div>
-
+    {% ifequal new.img None %}
     <img src="{% static 'images/pic.jpg' %}" alt="" class="img-blog">
+    {% else %}
+    <img src="{{ new.img.url }}" alt="" class="img-blog">
+    {% endifequal %}
+
     {% if request.user.is_superuser %}
     <div class="button-group">
-        <a href="#" class="edit-button"><h3>แก้ไข</h3></a>
-        
+        <a href="{% url 'doctors:updateNew' new.id %}" class="edit-button"><h3>แก้ไข</h3></a>
+
         <form action= "{% url 'doctors:deleteNews' new.id %}" method="POST">
             {% csrf_token %}
         <button  type="submit" class="remove-button"><h3>ลบ</h3></button>

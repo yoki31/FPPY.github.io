@@ -83,34 +83,25 @@ def news(request):
     context = {"news": news}
     return render(request, "doctors/news.html", context)
 
+
 def news_content(request, pk):
     new = New.objects.filter(id=pk).first()
     context = {"new": new}
     return render(request, "doctors/news_one.html" ,context)
 
-# def editnews(request):
-#     return render(request, "doctors/editnews.html")
-
-
-# def editnews_content(request, pk):
-#     new = New.objects.filter(id=pk).first()
-#     context = {"new": new}
-#     return render(request, "doctors/editnews.html" ,context)
-
 
 def deleteNews(request, pk):
-    new = New.objects.filter(id=pk)
+    new = New.objects.get(id=pk)
     if request.method == "POST":
         new.delete()
-        news = New.objects.all()
-        context = {"news": news}
+        os.remove(new.img.path)
         return redirect("doctors:news")
 
 
 def addNews(request):
     form = CreateNewsForm()
     if request.method == 'POST':
-        createNewsForm = CreateNewsForm(request.POST)
+        createNewsForm = CreateNewsForm(request.POST, request.FILES)
         if createNewsForm.is_valid():
             createNewsForm.save()
             news = New.objects.values('id').order_by('-id').first()
@@ -119,6 +110,18 @@ def addNews(request):
     return render(request, "doctors/addnews.html", {"form": form})
 
 
+def updateNew(request, pk):
+    new = New.objects.get(id=pk)
+    form = CreateNewsForm(instance=new)
+    if request.method == 'POST':
+        createNewsForm = CreateNewsForm(request.POST, instance=new)
+        if createNewsForm.is_valid():
+            createNewsForm.save()
+            new = New.objects.values('id').order_by('-id').first()
+            id_last = new['id']
+            return redirect("doctors:news_content", pk=id_last)
+    context = {"form": form, "new": new}
+    return render(request, "doctors/updatenews.html", context)
 
 #PACKAGE
 def package(request):
