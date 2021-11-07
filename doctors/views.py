@@ -164,10 +164,9 @@ def buy(request ,pk):
 	pack = Package.objects.get(id=pk)
 	pat = Patient.objects.get(user=request.user)
 	if request.method == 'POST':
-	    Buy.objects.create(patient=pat, package=pack)
-	    return redirect('doctors:index')
-
-	return redirect('doctors:package')   
+	    Buy.objects.create(patient=pat, package=pack, status="NOT PAID")
+        return redirect('doctors:index')  
+        
 
 
 def mdoctor(request):
