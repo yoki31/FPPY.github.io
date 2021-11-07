@@ -7,8 +7,8 @@ urlpatterns = [
     path('about', views.about, name="about"),
     path('maps', views.maps, name="maps"),
     path('project_requirement', views.project_requirement, name="project_requirement"),
-    
-   
+
+
 #NEW
     path('news', views.news, name="news"),
     path('news/<pk>', views.news_content, name="news_content"),
@@ -20,18 +20,17 @@ urlpatterns = [
 #ARTICLE
     path('healthblog', views.healthblog, name="healthblog"),
     path('healthblog/<pk>', views.healthblog_content, name="healthblog_content"),
-    # path('edithealthblog', views.edithealthblog, name="edithealthblog"),
-    # path('edithealthblog/<pk>', views.edithealthblog_content, name="edithealthblog_content"),
     path('deletehealthblog/<pk>', views.deleteArticle, name="deleteArticle"),
     path('addhealthblog', views.addArticle, name="addArticle"),
-    
-    
+    path('updatehealthblog/<pk>', views.updateArticle, name="updateArticle"),
+
+
 #PACKAGE
     path('package/', views.package, name="package"),
-    
-    
-    
-    
+
+
+
+
     path('mdoctor', views.mdoctor, name="mdoctor"),
     path('editpromotion', views.editpromotion, name="editpromotion"),
     path('mcustomer', views.mcustomer, name="mcustomer"),

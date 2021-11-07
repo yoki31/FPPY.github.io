@@ -10,11 +10,15 @@
     <div class="header-news">
         <h2>{{ article.header }}</h2>
     </div>
-
+    {% ifequal article.img None %}
+    <img src="{% static 'images/pic.jpg' %}" alt="" class="img-blog">
+    {% else %}
     <img src="{{ article.img.url }}" alt="" class="img-blog">
+    {% endifequal %}
+    
     {% if request.user.is_superuser %} 
     <div class="button-group">
-        <a href="#" class="edit-button"><h3>แก้ไข</h3></a>
+        <a href="{% url 'doctors:updateArticle' article.id %}" class="edit-button"><h3>แก้ไข</h3></a>
         
         <form action= "{% url 'doctors:deleteArticle' article.id %}" method="POST">
             {% csrf_token %}
