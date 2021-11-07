@@ -31,6 +31,9 @@ urlpatterns = [
     path('editpackage/<str:pk>', views.editpackage, name="editpackage"),
     path('addpackage', views.addPackage, name="addPackage"),
     path('buy/<str:pk>', views.buy, name="buy"),
+    path('mypack', views.mypack, name="mypack" ),
+
+
 
     path('mdoctor', views.mdoctor, name="mdoctor"),
     

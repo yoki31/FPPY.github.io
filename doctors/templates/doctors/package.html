@@ -9,7 +9,9 @@
 
     <div class="header-promotion-menu">
         <h2>แพ็คเกจและโปรโมชั่น</h2>
+        {% if request.user.is_superuser %}
         <a href="#"><h3>เพิ่ม</h3></a>
+        {% endif %}
     </div>
 
     <div class="promotion-card-area-all">

@@ -22,6 +22,8 @@
             </div>
             <p class="phone">{{ request.user.patient.phone }}</p>
             <p class="mail">{{ request.user.patient.email }}</p>
+
+            <a href="{% url 'doctors:mypack' %}">My pack</a>
         </div>
         </div>
         </div>
