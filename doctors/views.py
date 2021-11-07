@@ -51,8 +51,9 @@ def healthblog_content(request, pk):
 
 
 def deleteArticle(request, pk):
-    article = Article.objects.filter(id=pk)
+    article = Article.objects.get(id=pk)
     if request.method == "POST":
+        os.remove(article.img.path)
         article.delete()
         return redirect("doctors:healthblog")
 
@@ -60,7 +61,7 @@ def deleteArticle(request, pk):
 def addArticle(request):
     form = CreateArticleForm()
     if request.method == 'POST':
-        createArticleForm = CreateArticleForm(request.POST)
+        createArticleForm = CreateArticleForm(request.POST, request.FILES)
         if createArticleForm.is_valid():
             createArticleForm.save()
             article = Article.objects.values('id').order_by('-id').first()
@@ -110,7 +111,7 @@ def addNews(request):
             id_last = news['id']
             return redirect("doctors:news_content", pk=id_last)    #อยากให้ไดเรกไปหน้าที่พึ่ง
     return render(request, "doctors/addnews.html", {"form": form})
-    
+
 
 
 #PACKAGE

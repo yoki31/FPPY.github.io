@@ -15,13 +15,13 @@ class CreateUserForm(UserCreationForm):
 class CreateArticleForm(ModelForm):
     class Meta:
         model = Article
-        fields = ['header', 'doctor', 'context']
+        fields = ['header', 'doctor', 'context', 'img']
 
 
 class CreateNewsForm(ModelForm):
     class Meta:
         model = New
-        fields = ['header', 'context']
+        fields = ['header', 'context', 'img']
 
 class accForm(ModelForm):
     class Meta:
