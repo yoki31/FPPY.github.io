@@ -34,6 +34,7 @@ class Article(models.Model):
     doctor = models.ForeignKey(Doctor, null = True, on_delete=models.CASCADE)
     header = models.CharField(max_length=150, null = True,)
     context = models.TextField()
+    img = models.ImageField(upload_to='images/articles', null=True)
     date_created = models.DateTimeField(default=timezone.now)
 
 
@@ -44,6 +45,7 @@ class New(models.Model):
     doctor = models.ForeignKey(Doctor, null = True, on_delete=models.CASCADE)
     header = models.CharField(max_length=150, null = True,)
     context = models.TextField()
+    img = models.ImageField(upload_to='images/news', null=True)
     date_created = models.DateTimeField(default=timezone.now)
 
 
