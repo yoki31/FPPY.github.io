@@ -163,12 +163,12 @@ def addPackage(request):
             return redirect("doctors:package_content", pk=id_last)  
     return render(request, "doctors/addpackage.html", {"form": form})
 
-def buy(request ,pk):
+# def buy(request ,pk):
 	# pack = Package.objects.get(id=pk)
 	# pat = Patient.objects.get(user=request.user.patient)
 	# if request.method == 'POST':
     #     Buy.objects.add(patient=pat, package=pack,)
-        return redirect('doctors:index')
+        # return redirect('doctors:index')
     
 def mypack(request):
     patient = request.user.patient.buy_set.all()

@@ -29,6 +29,7 @@ urlpatterns = [
     path('package/', views.package, name="package"),
     path('package/<str:pk>', views.package_content, name="package_content"),
     path('editpackage/<str:pk>', views.editpackage, name="editpackage"),
+    path('deletepackage/<str:pk>', views.deletePackage, name="deletepackage"),
     path('addpackage', views.addPackage, name="addPackage"),
     path('buy/<str:pk>', views.buy, name="buy"),
     path('mypack', views.mypack, name="mypack" ),

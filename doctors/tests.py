@@ -188,12 +188,12 @@ class TestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'doctors/healthblog.html', 'doctors/layout.html')
         
-    # def test_newscontent(self):
-    #     self.c = Client()
-    #     news1 = New.objects.first()
-    #     response = self.c.get(reverse('doctors:news_content', args=(str(news1.id),)), follow=True)
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, 'doctors/news_one.html', 'doctors/layout.html')
+    def test_newscontent(self):
+        self.c = Client()
+        news1 = New.objects.first()
+        response = self.c.get(reverse('doctors:news_content', args=(str(news1.id),)), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'doctors/news_one.html', 'doctors/layout.html')
 
     # def test_deletenews(self):
     #     self.c = Client()
@@ -201,4 +201,52 @@ class TestCase(TestCase):
     #     response = self.c.post(reverse('doctors:deleteNews', args=(str(news1.id),)), follow=True)
     #     self.assertEqual(response.status_code, 200)
     #     self.assertTemplateUsed(response, 'doctors/news.html', 'doctors/layout.html')
+    
+    def test_package(self):
+        self.c = Client()
+        response = self.c.get(reverse('doctors:package'), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'doctors/package.html', 'doctors/layout.html')
+
+    def test_packagecontent(self):
+        self.c = Client()
+        package1 = Package.objects.first()
+        response = self.c.get(reverse('doctors:package_content', args=(str(package1.id),)), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'doctors/package_one.html', 'doctors/layout.html')
+
+    def test_deletePackage(self):
+        self.c = Client()
+        package1 = Package.objects.first()
+        response = self.c.post(reverse('doctors:deletepackage', args=(str(package1.id),)), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'doctors/package.html', 'doctors/layout.html')
         
+    
+    # not work
+    def test_mypack(self):
+        self.c = Client()
+        self.c.login(username='test', password='test')
+        package1 = Package.objects.create(name="Package_name", price=3000, desc="detail", cond="condition")
+        Buy.objects.create(self.patient, package1, "NOT PAID")
+        response = self.c.get(reverse('doctors:mypack'), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'doctors/mypack.html', 'doctors/layout.html')
+
+    def test_login(self):
+        self.c = Client()
+        response = self.c.post(reverse('doctors:login'), {'username': "test", 'password': "test"}, follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'doctors/index.html', 'doctors/layout.html')
+
+    def test_login_invalid(self):
+        self.c = Client()
+        response = self.c.post(reverse('doctors:login'), {'username': "test", 'password': "test1"}, follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'doctors/login.html', 'doctors/layout.html')
+
+    def test_logout(self):
+        c = Client()
+        c.force_login(User.objects.first())
+        response = c.get(reverse('doctors:logout'), follow=True)
+        self.assertEqual(response.status_code, 200)
