@@ -14,18 +14,14 @@
                 Edit Profile
             </a>
             <div class="profile-content">
-        {% if data.profile_pic %}
-            <img src="/media/{{data.profile_pic}}" style="height:150px;width:150px;border-radius:50%">
-        {% else %}
-            <img src="{% static 'images/pie.jpg' %}" style="height:150px;width:150px;border-radius:50%">
-        {% endif %}
+        <img src =" {{request.user.patient.profile_pic.url}}" style="height:150px;width:150px;border-radius:50%" >      
         <div class="pro-d">
             <div class="name-group">
-                <h2>{{ request.user.first_name }}</h2>
-                <h2>{{ request.user.last_name }}</h2>
+                <h2>{{ request.user.patient.First_name }} 
+                    {{ request.user.patient.Last_name }}</h2>
             </div>
-
-            <p class="mail">{{ request.user.email }}</p>
+            <p class="phone">{{ request.user.patient.phone }}</p>
+            <p class="mail">{{ request.user.patient.email }}</p>
         </div>
         </div>
         </div>

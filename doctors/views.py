@@ -164,11 +164,11 @@ def addPackage(request):
     return render(request, "doctors/addpackage.html", {"form": form})
 
 def buy(request ,pk):
-	pack = Package.objects.get(id=pk)
-	pat = Patient.objects.get(user=request.user)
-	if request.method == 'POST':
-	    Buy.objects.create(patient=pat, package=pack, status="NOT PAID")
-        return redirect('doctors:index')  
+	# pack = Package.objects.get(id=pk)
+	# pat = Patient.objects.get(user=request.user)
+	# if request.method == 'POST':
+	#     Buy.objects.create(patient=pat, package=pack, status="NOT PAID")
+    return redirect('doctors:index')  
         
 
 

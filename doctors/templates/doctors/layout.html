@@ -20,9 +20,9 @@
         </div>
         {% if request.user.is_active %}
         <div class="nav-box-r">
-            <a href="#" class="user-profile">
-                <img src="{% static 'images/pie.jpg' %}">
-                <p>{{request.user.username}}</p>
+            <a href="{% url 'doctors:profile' %}" class="user-profile">
+                <img src =" {{request.user.patient.profile_pic.url}}" >
+                <p>{{request.user.patient.First_name}} {{request.user.patient.Last_name}} </p>
             </a>
 
             <div class="normal-a">
@@ -62,13 +62,10 @@
             </div>
             <div class="nav-section">
                 {% if request.user.is_superuser %} 
-                <a class="nav-text" href="{% url 'doctors:healthblog' %}"><li>บทความทั้งหมด</li></a>
+                <a class="nav-text" href="{% url 'doctors:healthblog' %}"><li>จัดการบทความ</li></a>
                 <a class="nav-text" href="{% url 'doctors:news' %}"><li>จัดการข่าว</li></a>
-                <a class="nav-text" href="{% url 'doctors:package' %}"><li>แพ็คเกจ</li></a>
-                <a class="nav-text" href="{% url 'doctors:index' %}"><li>หน้าแรก</li></a>
+                <a class="nav-text" href="{% url 'doctors:package' %}"><li>จัดการแพ็คเกจ</li></a>
                 <a class="nav-text" href="{% url 'doctors:about' %}"><li>เกี่ยวกับเรา</li></a>
-                <a class="nav-text" href="{% url 'doctors:healthblog' %}"><li>บทความทั้งหมด</li></a>
-                <a class="nav-text" href="{% url 'doctors:news' %}"><li>ข่าวสาร</li></a>
                 <a class="nav-text" href="{% url 'doctors:maps' %}"><li>แผนที่</li></a>
                 {% elif request.user.is_active %}
                 <a class="nav-text" href="{% url 'doctors:index' %}"><li>หน้าแรก</li></a>
@@ -136,9 +133,9 @@
 
     <div class="more-options" id="more-options">
         <a href= "{% url 'doctors:profile' %}" class="more-profile-item">
-            <img src="{% static 'images/pie.jpg' %}">
+            <img src=" {{request.user.patient.profile_pic.url}}">
             <div class="profile-detail">
-                <h3>{{request.user.username}}</h3>
+                <h3>{{request.user.patient.First_name}} {{request.user.patient.Last_name}}</h3>
                 <p>ดูโปรไฟล์ของคุณ</p>
             </div>
         </a>
