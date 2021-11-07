@@ -34,7 +34,7 @@ class Article(models.Model):
     doctor = models.ForeignKey(Doctor, null = True, on_delete=models.CASCADE)
     header = models.CharField(max_length=150, null = True,)
     context = models.TextField()
-    img = models.ImageField(upload_to='images/articles', null=True)
+    img = models.ImageField(default='pic.jpg', null=True)
     date_created = models.DateTimeField(default=timezone.now)
 
 
@@ -45,7 +45,7 @@ class New(models.Model):
     doctor = models.ForeignKey(Doctor, null = True, on_delete=models.CASCADE)
     header = models.CharField(max_length=150, null = True,)
     context = models.TextField()
-    img = models.ImageField(upload_to='images/news', null=True)
+    img = models.ImageField(default='pic.jpg', null=True)
     date_created = models.DateTimeField(default=timezone.now)
 
 
@@ -63,7 +63,7 @@ class Package(models.Model):
     price = models.IntegerField(null = True)
     desc =models.CharField(max_length=200, null = True)
     cond =models.CharField(max_length=200, null = True)
-    img = models.ImageField(upload_to='images/packages', null=True)
+    img = models.ImageField(default='pic.jpg', null=True)
     date_created = models.DateTimeField(default=timezone.now) 
 
     def __str__(self) :

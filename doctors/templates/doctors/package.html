@@ -10,7 +10,7 @@
     <div class="header-promotion-menu">
         <h2>แพ็คเกจและโปรโมชั่น</h2>
         {% if request.user.is_superuser %}
-        <a href="#"><h3>เพิ่ม</h3></a>
+        <a href="{% url 'doctors:addPackage' %}"><h3>เพิ่ม</h3></a>
         {% endif %}
     </div>
 
@@ -18,7 +18,7 @@
         {% for i in packages %}
             <a href="{% url 'doctors:package_content' i.id %}" class="promotion-card">
                 <!-- <i>Hot</i> -->
-                <img src="{% static 'images/pic.jpg' %}">
+                <img src="{{i.img.url}}">
                 <h3>{{i.name}}</h3>
                 <div class="details">
                     <p>{{i.desc}}</p>

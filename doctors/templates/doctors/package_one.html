@@ -12,17 +12,24 @@
     </div>
 
     <div class="content-area-epromotion">
-        <img src="{% static 'images/pic.jpg' %}" alt="">
+        <img src="{{pack.img.url}}" alt="">
 
         <div class="price-and-button">
             <h3>ราคา {{pack.price}}บาท</h3>
-
+            
+            
+            {% if request.user.is_superuser %}
+            <div class="promotion-button">
+                <a href="#" class="edit-button">แก้ไข</a>
+                <a href="#" class="delete-button">ลบ</a>
+            </div>
+            {% else %}
             <div class="promotion-button">
                 <a href="{%url 'doctors:buy' pack.id %}" class="edit-button">ซื้อเลย</a>
                 <a href="#" class="edit-button">เพิ่มลงในตระกร้า</a>
                 <a href="#" class="edit-button">สอบถามเพิ่มเติม</a>
-                <!-- <a href="#" class="delete-button">ลบ</a> -->
             </div>
+            {% endif %}
         </div>
 
         <div class="detail-promotion">

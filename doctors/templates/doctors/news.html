@@ -18,7 +18,7 @@
         {% for new in news %}
         <!-- <div class="row"> -->
             <div class="news-card">
-                <img src="{% static 'images/pic.jpg' %}">
+                <img src="{{new.img.url}}">
                 <div class="news-topic">
                     <h3>{{ new.header }}</h3>
                 </div>

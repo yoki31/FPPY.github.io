@@ -158,7 +158,7 @@ def addPackage(request):
         newform = CreatePackageForm(request.POST, request.FILES)
         if newform.is_valid():
             newform.save()
-            pack = package.objects.values('id').order_by('-id').first()
+            pack = Package.objects.values('id').order_by('-id').first()
             id_last = pack['id']
             return redirect("doctors:package_content", pk=id_last)  
     return render(request, "doctors/addpackage.html", {"form": form})
