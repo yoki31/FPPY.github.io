@@ -8,14 +8,14 @@
 {% block content %}
 
     <div class="header-promotion">
-        <h2>แพ็คเกจ</h2>
+        <h2>{{pack.name}}</h2>
     </div>
 
     <div class="content-area-epromotion">
         <img src="{% static 'images/pic.jpg' %}" alt="">
 
         <div class="price-and-button">
-            <h3>ราคา x,xxx บาท</h3>
+            <h3>ราคา {{pack.price}}บาท</h3>
 
             <div class="promotion-button">
                 <a href="#" class="edit-button">ซื้อเลย</a>
@@ -26,15 +26,14 @@
         </div>
 
         <div class="detail-promotion">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus voluptatem tempore consectetur placeat beatae non, sunt odio sequi omnis? Nihil at voluptatem nesciunt necessitatibus! Non nesciunt eligendi veniam. Inventore, nobis.</p>
+            <p>{{pack.desc}}</p>
         </div>
 
         <div class="condition-zone">
             <div class="condition-header">
                 <h3>เงื่อนไข</h3>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, sapiente.</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, sapiente.</p>
+            <p>{{pack.cond}}</p>
         </div>
     </div>
 

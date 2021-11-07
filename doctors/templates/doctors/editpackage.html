@@ -6,17 +6,18 @@
 {% endblock %}
 
 {% block content %}
-
+<form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
     <div class="header-promotion">
-        <h2>แพ็คเกจ</h2>
+        <h2>{{form.name}}</h2>
         <a href="#"><h3>ข้อมูลผู้ซื้อ</h3></a>
     </div>
 
     <div class="content-area-epromotion">
-        <img src="{% static 'images/pic.jpg' %}" alt="">
-
+        <!-- <img src="{% static 'images/pic.jpg' %}" alt=""> -->
+        
         <div class="price-and-button">
-            <h3>ราคา x,xxx บาท</h3>
+            <h3>{{form.price}}</h3>
 
             <div class="promotion-button">
                 <a href="#" class="edit-button">แก้ไข</a>
@@ -25,16 +26,17 @@
         </div>
 
         <div class="detail-promotion">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus voluptatem tempore consectetur placeat beatae non, sunt odio sequi omnis? Nihil at voluptatem nesciunt necessitatibus! Non nesciunt eligendi veniam. Inventore, nobis.</p>
+            <p>{{form.desc}}</p>
         </div>
 
         <div class="condition-zone">
             <div class="condition-header">
                 <h3>เงื่อนไข</h3>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, sapiente.</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, sapiente.</p>
+            <p>{{form.cond}}</p>
+
+            {{ form.img }}
         </div>
     </div>
-
+</form>
 {% endblock %}

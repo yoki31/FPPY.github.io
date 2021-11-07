@@ -14,7 +14,7 @@
 
     <div class="promotion-card-area-all">
         {% for i in packages %}
-            <a href="#" class="promotion-card">
+            <a href="{% url 'doctors:package_content' i.id %}" class="promotion-card">
                 <!-- <i>Hot</i> -->
                 <img src="{% static 'images/pic.jpg' %}">
                 <h3>{{i.name}}</h3>

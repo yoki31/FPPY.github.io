@@ -27,12 +27,12 @@ urlpatterns = [
 
 #PACKAGE
     path('package/', views.package, name="package"),
-
-
-
+    path('package/<str:pk>', views.package_content, name="package_content"),
+    path('editpackage/<str:pk>', views.editpackage, name="editpackage"),
+    path('addpackage', views.addPackage, name="addPackage"),
 
     path('mdoctor', views.mdoctor, name="mdoctor"),
-    path('editpromotion', views.editpromotion, name="editpromotion"),
+    
     path('mcustomer', views.mcustomer, name="mcustomer"),
 
 #    path('edithealthblog', views.edithealthblog, name="edithealthblog"), #เดี๋ยวต้องมาแก้pathให้ตามในรายงาน มันแบ่งตามหน้าย่อยนี่จำไม่ได้ว่าเขียนยังไง

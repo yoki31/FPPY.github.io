@@ -28,3 +28,9 @@ class accForm(ModelForm):
         model = Patient
         fields = '__all__'
         exclude = ['user', 'date_created']
+
+class CreatePackageForm(ModelForm):
+    class Meta:
+        model = Package
+        fields = '__all__'
+        exclude = ['date_created']

@@ -126,8 +126,48 @@ def package(request):
     return render(request, "doctors/package.html", {"packages": packages} )
 
 
-def editpromotion(request):
-    return render(request, "doctors/editpromotion.html")
+def package_content(request, pk):
+    pack = Package.objects.filter(id=pk).first()
+    return render(request, "doctors/package_one.html", {'pack':pack})
+
+def editpackage(request, pk):
+    pack = Package.objects.get(id=pk)
+    form = CreatePackageForm(instance=pack)
+    if request.method == 'POST':
+        createNewsForm = CreatePackageForm(request.POST, instance=pack)
+        if createNewsForm.is_valid():
+            createNewsForm.save()
+            pack = Package.objects.values('id').order_by('-id').first()
+            id_last = pack['id']
+            return redirect("doctors:healthblog_content", pk=id_last)
+    context = {"form": form, "pack":pack}    
+    return render(request, "doctors/editpackage.html", context)
+
+def deletePackage(request, pk):
+    pack = Package.objects.filter(id=pk)
+    if request.method == "POST":
+        pack.delete()
+        return redirect("doctors:package")
+
+def addPackage(request):
+    form = CreatePackageForm()
+    if request.method == 'POST':
+        newform = CreatePackageForm(request.POST, request.FILES)
+        if newform.is_valid():
+            newform.save()
+            pack = package.objects.values('id').order_by('-id').first()
+            id_last = pack['id']
+            return redirect("doctors:package_content", pk=id_last)  
+    return render(request, "doctors/addpackage.html", {"form": form})
+
+def buy(request ,pk):
+	pack = Package.objects.get(id=pk)
+	pat = Patient.objects.get(user=request.user)
+	if request.method == 'POST':
+	    Buy.objects.create(patient=pat, package=pack)
+	    return redirect('doctors:index')
+
+	return redirect('doctors:package')   
 
 
 def mdoctor(request):
