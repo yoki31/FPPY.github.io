@@ -31,17 +31,14 @@ urlpatterns = [
     path('editpackage/<str:pk>', views.editpackage, name="editpackage"),
     path('deletepackage/<str:pk>', views.deletePackage, name="deletepackage"),
     path('addpackage', views.addPackage, name="addPackage"),
-    path('buy/<str:pk>', views.buy, name="buy"),
+    #path('buy/<str:pk>', views.buy, name="buy"),
     path('mypack', views.mypack, name="mypack" ),
 
 
 
     path('mdoctor', views.mdoctor, name="mdoctor"),
-    
     path('mcustomer', views.mcustomer, name="mcustomer"),
 
-#    path('edithealthblog', views.edithealthblog, name="edithealthblog"), #เดี๋ยวต้องมาแก้pathให้ตามในรายงาน มันแบ่งตามหน้าย่อยนี่จำไม่ได้ว่าเขียนยังไง
-#    path('editnews', views.editnews, name="editnews"), #เดี๋ยวต้องมาแก้pathให้ตามในรายงาน มันแบ่งตามหน้าย่อยนี่จำไม่ได้ว่าเขียนยังไง
 
     # register, login profile
     path('register/', views.registerPage, name="register"),
