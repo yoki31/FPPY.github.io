@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import Group
 import os
+# from django.contrib.admin.widgets import  AdminDateWidget
 # Create your views here.
 
 
@@ -190,6 +191,28 @@ def mypack(request):
 def mdoctor(request):
     return render(request, "doctors/mdoctor.html")
 
+
+
+#Appointment
+
+def appointment(request):
+    # form = CreateAppointmentForm()    #ข้อมูลของหมอและคน
+    form = AppointmentForm()
+    if request.method == 'POST':
+        symptom_input = request.POST.get("symptom")
+        date_input = request.POST.get("date_input")
+        appointment = Appointment.objects.create(
+            Patient_id=request.user.patient,
+            Doctor_id=Doctor.objects.get(id=1),
+            symptom=symptom_input
+            )
+        appointment.dateapp = date_input
+        # print(appointment)
+        appointment.save()
+        return redirect("doctors:profile")
+    context = {"form": form}
+    return render(request, "doctors/appointment_patient.html", context)
+
 #register / login / logout
 
 
@@ -254,4 +277,5 @@ def account(request):
 
 
 def profile(request):
-    return render(request, "doctors/profile.html")
+    appointment = Appointment.objects.filter(Patient_id=request.user.patient)
+    return render(request, "doctors/profile.html", {"appointment": appointment})

@@ -64,7 +64,7 @@ class Package(models.Model):
     desc =models.CharField(max_length=200, null = True)
     cond =models.CharField(max_length=200, null = True)
     img = models.ImageField(default='pic.jpg', null=True)
-    date_created = models.DateTimeField(default=timezone.now) 
+    date_created = models.DateTimeField(default=timezone.now)
 
     def __str__(self) :
         return self.name
@@ -80,21 +80,21 @@ class Package(models.Model):
 #     def __str__(self):
 #         return f"{self.Patient_id} เลือก {self.spec} หมอมีดังนี้ {self.Doctor_id} "
 
-# class Appointment(models.Model):
-#     Patient_id = models.OneToOneField(Patient, null=True, on_delete=models.CASCADE)
-#     Doctor_id = models.OneToOneField(Doctor, null = True, on_delete=models.CASCADE)
-#     symptom = models.CharField(max_length=100, null = True)
-#     dateapp = models.DateTimeField(null=True,)
+class Appointment(models.Model):
+    Patient_id = models.ForeignKey(Patient, null=True, on_delete=models.CASCADE)
+    Doctor_id = models.ForeignKey(Doctor, null = True, on_delete=models.CASCADE)
+    symptom = models.CharField(max_length=100, null = True)
+    dateapp = models.DateField(null=True,)
 
-#     def __str__(self):
-#         return f"หมอ {self.Patient_id} นัด {self.Patient_id} วัน {self.dateapp} "
+    def __str__(self):
+        return f"หมอ {self.Patient_id} นัด {self.Patient_id} วัน {self.dateapp} "
 
 class Buy(models.Model):
     STATUS = (
             ('NOT PAID', 'NOT PAID'),
             ('PAID', 'PAID'),
     )
-    
+
     patient = models.ForeignKey(Patient, null=True, on_delete= models.SET_NULL)
     package = models.ForeignKey(Package, null=True, on_delete= models.SET_NULL)
     date_created = models.DateTimeField(default=timezone.now)

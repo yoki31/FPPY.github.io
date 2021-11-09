@@ -39,6 +39,8 @@ urlpatterns = [
     path('mdoctor', views.mdoctor, name="mdoctor"),
     path('mcustomer', views.mcustomer, name="mcustomer"),
 
+#Appointment
+    path('appointment', views.appointment, name="appointment"),
 
     # register, login profile
     path('register/', views.registerPage, name="register"),

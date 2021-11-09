@@ -9,23 +9,45 @@
 
     <div class="profile-zone">
         <div class="box">
-            <a href="{% url 'doctors:accsetting' %}" class="edit-pro">
-                <ion-icon name="create-outline"></ion-icon>
-                Edit Profile
-            </a>
+                <a href="{% url 'doctors:accsetting' %}" class="edit-pro">
+                    <ion-icon name="create-outline"></ion-icon>
+                    Edit Profile
+                </a>
             <div class="profile-content">
-        <img src =" {{request.user.patient.profile_pic.url}}" style="height:150px;width:150px;border-radius:50%" >      
-        <div class="pro-d">
-            <div class="name-group">
-                <h2>{{ request.user.patient.First_name }} 
-                    {{ request.user.patient.Last_name }}</h2>
-            </div>
-            <p class="phone">{{ request.user.patient.phone }}</p>
-            <p class="mail">{{ request.user.patient.email }}</p>
+                <img src =" {{request.user.patient.profile_pic.url}}" style="height:150px;width:150px;border-radius:50%" >
+                <div class="pro-d">
+                    <div class="name-group">
+                        <h2>{{ request.user.patient.First_name }}
+                            {{ request.user.patient.Last_name }}</h2>
+                    </div>
+                    <p class="phone">{{ request.user.patient.phone }}</p>
+                    <p class="mail">{{ request.user.patient.email }}</p>
 
-            <a href="{% url 'doctors:mypack' %}">My pack</a>
+                    <a href="{% url 'doctors:mypack' %}">My pack</a>
+                    
+                    
+                    <div class="news-card-area-all">
+                        {% for app in appointment %}
+                        <!-- <div class="row"> -->
+                            <div class="news-card">
+                                <img src="{{new.img.url}}">
+                                <div class="news-topic">
+                                    <h3>Appointment</h3>
+                                </div>
+                                <div class="details">
+                                    <p>{{ app.dateapp }}</p>
+                                </div>
+                                <a href="#" class="read-more">อ่านเพิ่มเติม</a>
+                            </div>
+                        {% endfor %}
+                    
+                        
+                
+                </div>
+            </div>
+
         </div>
-        </div>
-        </div>
+
+
     </div>
 {% endblock %}

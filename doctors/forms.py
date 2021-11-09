@@ -4,6 +4,7 @@ from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
+from django.contrib.admin.widgets import  AdminDateWidget, AdminTimeWidget, AdminSplitDateTime
 from .models import *
 
 class CreateUserForm(UserCreationForm):
@@ -34,3 +35,18 @@ class CreatePackageForm(ModelForm):
         model = Package
         fields = '__all__'
         exclude = ['date_created']
+
+# class CreateAppointmentForm(ModelForm):
+#     class Meta:
+#         model = Appointment
+#         fields = '__all__'
+#         exclude = ['Patient_id', 'Doctor_id']
+
+
+
+class AppointmentForm(forms.Form):
+    # your_name = forms.CharField(max_length=64)
+    symptom = forms.CharField(max_length=100)
+    date_input = forms.DateField(widget=AdminDateWidget())
+    # time_input = forms.DateField(widget=AdminTimeWidget())
+    # date_time_input = forms.DateField(widget=AdminSplitDateTime())
