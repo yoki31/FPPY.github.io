@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
+$BGcolor:#f4f4f4;
+$Cardcolor: white;
+$Topiccolor: #63bc8a;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family: 'Prompt', sans-serif;
+}
+
+
+.area-content {
+    background-color: $BGcolor;
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    // justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+
+    // ================================================================
+
+    .login-btn {
+        margin-top: 20px;
+        font-size: 1.3rem;
+    }
+
+    .signup-card {
+        background-color: $Cardcolor;
+        // background-color: red;
+        width: 75vw;
+        min-width: 450px;
+        max-width: 1000px;
+        height: 50vh;
+        border-radius: 20px;
+        padding: 20px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        // justify-content: flex-start;
+        justify-content: space-around;
+        box-shadow: 1px 1px 20px rgba(0,0,0,0.1);
+
+        .card-header {
+            color: $Topiccolor;
+        }
+        form {
+            width: 100%;
+            // background-color: pink;
+
+            .group {
+                display: flex;
+                // background-color: plum;
+                width: 100%;
+                margin: 10px;
+                padding: 3px;
+                justify-content: space-between;
+                align-items: center;
+                text-align: center;
+
+
+                h4 {
+                    color: $Topiccolor;
+                    // padding-left: 10px;
+                }
+
+                input {
+                    background-color: $BGcolor;
+                    height: 5vh;
+                    border-radius: 30px;
+                    border: transparent;
+                    width: 65%;
+                    padding: 10px;
+                }
+            }
+            input {
+                border: transparent;
+
+            }
+        }
+        
+    }
+}
+a{
+	display: block;
+	text-align: right;
+	text-decoration: none;
+	color: #999;
+	// font-size: 0.9rem;
+	transition: .3s;
+}
+
+a:hover{
+	color: #38d39f;
+}
+
+.btn{
+	display: inline-block;
+	// width: 100%;
+    padding: 10px 50px;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+	background-size: 200%;
+	font-size: 1.2rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 0.5rem 0;
+	cursor: pointer;
+	transition: .5s;
+}
+.btn:hover{
+	background-position: right;
+}

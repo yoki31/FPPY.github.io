@@ -1,4 +1,4 @@
-<h3>Register</h3>
+<!-- <h3>Register</h3>
 
 <form method="POST" action="">
     {% csrf_token %}
@@ -19,4 +19,55 @@
     <input type="submit" name="Create User">
 </form>
 
-<a href="{% url 'doctors:login' %}" >login</a>
+<a href="{% url 'doctors:login' %}" >login</a> -->
+
+<!-- ================================================== -->
+
+{% load static %}
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="Stylesheet" href="{% static 'css/style-signup.css' %}">
+    </head>
+    <body>
+        <div class="area-content">
+            <div class="signup-card">
+                
+                <h2 class="card-header">Register</h2>
+
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    
+                    <div class="group">
+                        <h4>{{form.username.label}}</h4>
+                        {{form.username }}
+                    </div>
+                    
+                    <div class="group">
+                        <h4>{{form.email.label}}</h4>
+                        {{form.email}}
+                    </div>
+
+                    <div class="group">
+                        <h4>{{form.password1.label}}</h4>
+                        {{form.password1}}
+                    </div>
+
+                    <div class="group">
+                        <h4>{{form.password2.label}}</h4>
+                        {{form.password2}}
+                    </div>
+
+                    {{form.errors}}
+                    <input type="submit" name="Create User" class="btn">
+                </form>
+            
+            </div>
+            <a href="{% url 'doctors:login' %}" class="login-btn">login</a>
+        </div>
+    </body>
+</html>

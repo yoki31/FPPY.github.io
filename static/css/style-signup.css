@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: 'Prompt', sans-serif; }
+
+.area-content {
+  background-color: #f4f4f4;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column; }
+  .area-content .login-btn {
+    margin-top: 20px;
+    font-size: 1.3rem; }
+  .area-content .signup-card {
+    background-color: white;
+    width: 75vw;
+    min-width: 450px;
+    max-width: 1000px;
+    height: 50vh;
+    border-radius: 20px;
+    padding: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1); }
+    .area-content .signup-card .card-header {
+      color: #63bc8a; }
+    .area-content .signup-card form {
+      width: 100%; }
+      .area-content .signup-card form .group {
+        display: flex;
+        width: 100%;
+        margin: 10px;
+        padding: 3px;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center; }
+        .area-content .signup-card form .group h4 {
+          color: #63bc8a; }
+        .area-content .signup-card form .group input {
+          background-color: #f4f4f4;
+          height: 5vh;
+          border-radius: 30px;
+          border: transparent;
+          width: 65%;
+          padding: 10px; }
+      .area-content .signup-card form input {
+        border: transparent; }
+
+a {
+  display: block;
+  text-align: right;
+  text-decoration: none;
+  color: #999;
+  transition: .3s; }
+
+a:hover {
+  color: #38d39f; }
+
+.btn {
+  display: inline-block;
+  padding: 10px 50px;
+  height: 50px;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+  background-size: 200%;
+  font-size: 1.2rem;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  transition: .5s; }
+
+.btn:hover {
+  background-position: right; }
+
+/*# sourceMappingURL=style-signup.css.map */
