@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
+$BGcolor:#f4f4f4;
+$Cardcolor: white;
+$Topiccolor: #63bc8a;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family: 'Prompt', sans-serif;
+}
+
+
+.area-content {
+    background-color: $BGcolor;
+    display: flex;
+    height: 91vh;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    // justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+
+    // ================================================================
+
+    .doctor-card {
+        background-color: $Cardcolor;
+        // background-color: red;
+        // width: 500px;
+        width: 90%;
+        max-width: 100vh;
+        min-width: 450px;
+        min-height: 300px;
+        // height: 350px;
+        max-height: 75vh;
+        height: 67.5vw;
+        border-radius: 20px;
+        overflow: hidden;
+        display: flex;
+        justify-content: flex-start;
+        box-shadow: 1px 1px 20px rgba(0,0,0,0.1);
+
+        .zone-l {
+            width: 40%;
+            height: 100%;
+            padding: 10px;
+            .doc-img {
+                height: 75%;
+                width: 100%;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                border-top-left-radius: 20px;
+
+                img {
+                    height: 100%;
+                }
+            }
+
+            .button-zone {
+                // background-color: grey;
+                width: 100%;
+                height: 25%;
+                border-bottom-left-radius: 20px;
+                padding-top: 5px;
+                overflow: hidden;
+
+                .app-butt {
+                    width: 100%;
+                    height: 100%;
+                    background-color: #ffffff;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    color: $Topiccolor;
+                    text-decoration: none;
+                    transition: 150ms;
+
+                    ion-icon {
+                        font-size: 2.2rem;
+                    }
+
+                    p {
+                        font-weight: bolder;    
+                    }
+                }
+
+                .app-butt:hover {
+                    background-color: #f4f4f4;
+                }
+            }
+        }
+
+        .zone-r {
+            width: 60%;
+            height: 100%;
+            padding: 10px;
+            padding-left: 0px;
+            overflow: hidden;
+            overflow-y: scroll;
+
+            .name {
+                width: 100%;
+                padding: 10px;
+                padding-left: 20px;
+                border-top-right-radius: 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-align: center;
+                // background-color: pink;
+                border-bottom: 2px solid rgb(202, 202, 202);
+
+                h3 {
+                    color: #56cc89;
+                }
+
+                a {
+                    position: relative;
+                    display: inline-block;
+                    padding: 10px 20px;
+                    background: $Topiccolor;
+                    color: $Cardcolor;
+                    border-radius: 15px;
+                    text-decoration: none;
+                    transition: 100ms;
+                    font-weight: bold;
+                }
+
+                a:hover {
+                    background: #56cc89;
+                }
+            }
+
+            .xpert {
+                width: 100%;
+                padding: 10px;
+                padding-left: 20px;
+                display: flex;
+                flex-direction: column;
+                text-align: left;
+                border-bottom: 2px solid rgb(202, 202, 202);
+
+                h3 {
+                    color: $Topiccolor;
+                }
+
+                p {
+                    padding-left: 20px;
+                }
+            }
+
+            .lang {
+                width: 100%;
+                padding: 10px;
+                padding-left: 20px;
+                display: flex;
+                flex-direction: column;
+                text-align: left;
+                border-bottom: 2px solid rgb(202, 202, 202);
+
+                h3 {
+                    color: $Topiccolor;
+                }
+
+                p {
+                    padding-left: 20px;
+                }
+            }
+
+            .schedule {
+                margin-top: 5px;
+                width: 100%;
+                height: 30vh;
+                // background-color: pink;
+                // overflow: hidden;
+                // overflow-y: scroll;
+
+                .content-table {
+                    border-collapse: collapse;
+                    // margin: 25px 0;
+                    font-size: 0.9rem;
+                    width: 100%;
+                    border-radius: 20px; /* 15px 15px 0 0 */
+                    overflow: hidden;
+                    // box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        
+                    thead tr {
+                        height: 3vh;
+                        background-color: $Topiccolor;
+                        color: #ffffff;
+                        text-align: center;
+                        font-weight: bold;
+                    }
+        
+                    tbody tr {
+                        padding-top: 2px;
+                        padding-bottom: 2px;
+                        border-bottom: 1px solid #dddddd;
+                        background-color: white;
+                        font-weight: bold;
+                        color: #63bc8a;
+                    }
+
+                    tbody tr:nth-of-type(even) {
+                        background-color: #f3f3f3;
+                    }
+
+                    tbody tr:last-of-type {
+                        border-bottom: 2px solid $Topiccolor;
+                    }
+                }
+            }
+        }
+    }
+}
+.schedule .content-table th,
+.schedule .content-table td {
+    padding: 12px 15px;
+}

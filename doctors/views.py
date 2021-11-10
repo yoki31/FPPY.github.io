@@ -279,3 +279,7 @@ def account(request):
 def profile(request):
     appointment = Appointment.objects.filter(Patient_id=request.user.patient)
     return render(request, "doctors/profile.html", {"appointment": appointment})
+
+
+def doctor(request):
+    return render(request, "doctors/doctor.html")

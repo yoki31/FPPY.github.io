@@ -22,7 +22,7 @@
         <div class="nav-box-r">
             <a href="{% url 'doctors:profile' %}" class="user-profile">
                 <img src =" {{request.user.patient.profile_pic.url}}" >
-                <p>{{request.user.patient.First_name}} {{request.user.patient.Last_name}} </p>
+                <p>{{request.user.patient.First_name}}</p> <!-- {{request.user.patient.Last_name}} -->
             </a>
 
             <div class="normal-a">

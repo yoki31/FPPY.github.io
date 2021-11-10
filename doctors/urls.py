@@ -49,5 +49,8 @@ urlpatterns = [
     path('profile', views.profile, name="profile"),
     path('accsetting', views.account, name="accsetting"),
 
+
+    path('doctor', views.doctor, name="doctor"),
+    
 ]
 
