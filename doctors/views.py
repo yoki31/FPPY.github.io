@@ -69,7 +69,7 @@ def updateArticle(request, pk):
     article = Article.objects.get(id=pk)
     form = CreateArticleForm(instance=article)
     if request.method == 'POST':
-        createNewsForm = CreateArticleForm(request.POST, instance=article)
+        createNewsForm = CreateArticleForm(request.POST, request.FILES, instance=article)
         if createNewsForm.is_valid():
             createNewsForm.save()
             article = Article.objects.values('id').order_by('-id').first()
@@ -117,7 +117,7 @@ def updateNew(request, pk):
     new = New.objects.get(id=pk)
     form = CreateNewsForm(instance=new)
     if request.method == 'POST':
-        createNewsForm = CreateNewsForm(request.POST, instance=new)
+        createNewsForm = CreateNewsForm(request.POST, request.FILES, instance=new)
         if createNewsForm.is_valid():
             createNewsForm.save()
             new = New.objects.values('id').order_by('-id').first()
