@@ -51,9 +51,9 @@ def deleteArticle(request, pk):
 def addArticle(request):
     form = CreateArticleForm()
     if request.method == 'POST':
-        createArticleForm = CreateArticleForm(request.POST, request.FILES)
-        if createArticleForm.is_valid():
-            createArticleForm.save()
+        form = CreateArticleForm(request.POST, request.FILES, instance=article)
+        if form.is_valid():
+            form.save()
             article = Article.objects.values('id').order_by('-id').first()
             id_last = article['id']
             # อยากให้ไดเรกไปหน้าที่พึ่ง
@@ -110,10 +110,9 @@ def updateNew(request, pk):
     new = New.objects.get(id=pk)
     form = CreateNewsForm(instance=new)
     if request.method == 'POST':
-        createNewsForm = CreateNewsForm(
-            request.POST, request.FILES, instance=new)
-        if createNewsForm.is_valid():
-            createNewsForm.save()
+        form = CreateNewsForm(request.POST, request.FILES, instance=new)
+        if form.is_valid():
+            form.save()
             new = New.objects.values('id').order_by('-id').first()
             id_last = new['id']
             return redirect("doctors:news_content", pk=id_last)
@@ -268,10 +267,8 @@ def docprofile(request, pk):
     doctor = Doctor.objects.filter(id=pk).first()
     return render(request, "doctors/docprofile.html", {"doctor": doctor})
 
-
 def doctor(request):
     return render(request, "doctors/doctor.html")
-
 
 def finddoc(request):
     if 'q' in request.GET:
@@ -281,3 +278,11 @@ def finddoc(request):
     else:
         doctors = Doctor.objects.all()
     return render(request, "doctors/finddoc.html", {'doctors': doctors})
+
+# ยังไม่ได้ใช้
+
+def mcustomer(request):
+    return render(request, "doctors/mcustomer.html")
+
+def mdoctor(request):
+    return render(request, "doctors/mdoctor.html")
