@@ -69,14 +69,13 @@ def updateArticle(request, pk):
     article = Article.objects.get(id=pk)
     form = CreateArticleForm(instance=article)
     if request.method == 'POST':
-        createNewsForm = CreateArticleForm(request.POST, request.FILES, instance=article)
-        if createNewsForm.is_valid():
-            createNewsForm.save()
+        form = CreateArticleForm(request.POST, request.FILES, instance=article)
+        if form.is_valid():
+            form.save()
             article = Article.objects.values('id').order_by('-id').first()
             id_last = article['id']
             return redirect("doctors:healthblog_content", pk=id_last)
-    context = {"form": form, "article": article}
-    return render(request, "doctors/updatehealthblog.html", context)
+    return render(request, "doctors/updatehealthblog.html", {"form": form})
 
 
 # NEW
@@ -117,14 +116,13 @@ def updateNew(request, pk):
     new = New.objects.get(id=pk)
     form = CreateNewsForm(instance=new)
     if request.method == 'POST':
-        createNewsForm = CreateNewsForm(request.POST, request.FILES, instance=new)
-        if createNewsForm.is_valid():
-            createNewsForm.save()
+        form = CreateNewsForm(request.POST, request.FILES, instance=new)
+        if form.is_valid():
+            form.save()
             new = New.objects.values('id').order_by('-id').first()
             id_last = new['id']
             return redirect("doctors:news_content", pk=id_last)
-    context = {"form": form, "new": new}
-    return render(request, "doctors/updatenews.html", context)
+    return render(request, "doctors/updatenews.html", {"form": form})
 
 # PACKAGE
 
@@ -143,21 +141,21 @@ def editpackage(request, pk):
     pack = Package.objects.get(id=pk)
     form = CreatePackageForm(instance=pack)
     if request.method == 'POST':
-        createNewsForm = CreatePackageForm(request.POST, instance=pack)
-        if createNewsForm.is_valid():
-            createNewsForm.save()
-            pack = Package.objects.values('id').order_by('-id').first()
-            id_last = pack['id']
+        form = CreatePackageForm(request.POST, request.FILES, instance=pack)
+        if form.is_valid():
+            form.save()
+            new = Package.objects.values('id').order_by('-id').first()
+            id_last = new['id']
             return redirect("doctors:package_content", pk=id_last)
-    context = {"form": form, "pack": pack}
+    context = {"form": form}
     return render(request, "doctors/editpackage.html", context)
 
 
 def deletePackage(request, pk):
     pack = Package.objects.get(id=pk)
-    if request.method == "POST":
-        pack.delete()
-        return redirect("doctors:package")
+    pack.delete()
+    os.remove(pack.img.path)
+    return redirect("doctors:package")
 
 
 def addPackage(request):
@@ -174,10 +172,10 @@ def addPackage(request):
 
 def buy(request , pk):
     pack = Package.objects.get(id=pk)
-    pat = Patient.objects.get(user=request.user)
-    if request.method == 'POST':
-        Buy.objects.create(patient=pat, package=pack)
+    pat = request.user.patient
+    Buy.objects.create(patient=pat, package=pack)
     return redirect("doctors:package")
+    
 
 
 def packbuy(request):
