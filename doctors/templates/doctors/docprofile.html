@@ -1,0 +1,17 @@
+{% extends "doctors/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="Stylesheet" href="{% static 'css/style-epromotion.css' %}">
+{% endblock %}
+
+{% block content %}
+        <h3>INFOMATION</h3>
+        <img src="{{doctor.profile_pic.url}}">
+        <h5>{{doctor.First_name}} {{doctor.Last_name}}</h5>
+        <h5>{{doctor.phone}}</h5>
+        <h5>{{doctor.email}}</h5>
+        {% if request.user.is_superuser %} 
+        
+        {% endif %}
+{% endblock %}

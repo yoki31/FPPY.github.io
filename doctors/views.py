@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import Group
 import os
+from django.db.models import Q
 # from django.contrib.admin.widgets import  AdminDateWidget
 # Create your views here.
 
@@ -15,20 +16,18 @@ import os
 def index(request):
     articles = Article.objects.all()
     news = New.objects.all()
-    return render(request, "doctors/index.html", {"articles": articles , "news": news})
-
+    return render(request, "doctors/index.html", {"articles": articles, "news": news})
 
 def about(request):
     return render(request, "doctors/about.html")
 
-
 def maps(request):
     return render(request, "doctors/maps.html")
-
 
 def project_requirement(request):
     return render(request, "doctors/requirement.html")
 
+#-----------------------------------------------------------------------------------
 
 # ARTICLE
 
@@ -37,12 +36,10 @@ def healthblog(request):
     context = {"articles": articles}
     return render(request, "doctors/healthblog.html", context)
 
-
 def healthblog_content(request, pk):
     article = Article.objects.filter(id=pk).first()
     context = {"article": article}
     return render(request, "doctors/healthblog_one.html", context)
-
 
 def deleteArticle(request, pk):
     article = Article.objects.get(id=pk)
@@ -50,7 +47,6 @@ def deleteArticle(request, pk):
         os.remove(article.img.path)
         article.delete()
         return redirect("doctors:healthblog")
-
 
 def addArticle(request):
     form = CreateArticleForm()
@@ -64,19 +60,21 @@ def addArticle(request):
             return redirect("doctors:healthblog_content", pk=id_last)
     return render(request, "doctors/addhealthblog.html", {"form": form})
 
-
 def updateArticle(request, pk):
     article = Article.objects.get(id=pk)
     form = CreateArticleForm(instance=article)
     if request.method == 'POST':
-        form = CreateArticleForm(request.POST, request.FILES, instance=article)
-        if form.is_valid():
-            form.save()
+        createNewsForm = CreateArticleForm(
+            request.POST, request.FILES, instance=article)
+        if createNewsForm.is_valid():
+            createNewsForm.save()
             article = Article.objects.values('id').order_by('-id').first()
             id_last = article['id']
             return redirect("doctors:healthblog_content", pk=id_last)
-    return render(request, "doctors/updatehealthblog.html", {"form": form})
+    context = {"form": form, "article": article}
+    return render(request, "doctors/updatehealthblog.html", context)
 
+#-----------------------------------------------------------------------------------
 
 # NEW
 def news(request):
@@ -84,12 +82,10 @@ def news(request):
     context = {"news": news}
     return render(request, "doctors/news.html", context)
 
-
 def news_content(request, pk):
     new = New.objects.filter(id=pk).first()
     context = {"new": new}
     return render(request, "doctors/news_one.html", context)
-
 
 def deleteNews(request, pk):
     new = New.objects.get(id=pk)
@@ -97,7 +93,6 @@ def deleteNews(request, pk):
         new.delete()
         os.remove(new.img.path)
         return redirect("doctors:news")
-
 
 def addNews(request):
     form = CreateNewsForm()
@@ -111,18 +106,21 @@ def addNews(request):
             return redirect("doctors:news_content", pk=id_last)
     return render(request, "doctors/addnews.html", {"form": form})
 
-
 def updateNew(request, pk):
     new = New.objects.get(id=pk)
     form = CreateNewsForm(instance=new)
     if request.method == 'POST':
-        form = CreateNewsForm(request.POST, request.FILES, instance=new)
-        if form.is_valid():
-            form.save()
+        createNewsForm = CreateNewsForm(
+            request.POST, request.FILES, instance=new)
+        if createNewsForm.is_valid():
+            createNewsForm.save()
             new = New.objects.values('id').order_by('-id').first()
             id_last = new['id']
             return redirect("doctors:news_content", pk=id_last)
-    return render(request, "doctors/updatenews.html", {"form": form})
+    context = {"form": form, "new": new}
+    return render(request, "doctors/updatenews.html", context)
+
+#-----------------------------------------------------------------------------------
 
 # PACKAGE
 
@@ -131,11 +129,9 @@ def package(request):
     packages = Package.objects.all()
     return render(request, "doctors/package.html", {"packages": packages})
 
-
 def package_content(request, pk):
     pack = Package.objects.filter(id=pk).first()
     return render(request, "doctors/package_one.html", {'pack': pack})
-
 
 def editpackage(request, pk):
     pack = Package.objects.get(id=pk)
@@ -150,13 +146,11 @@ def editpackage(request, pk):
     context = {"form": form}
     return render(request, "doctors/editpackage.html", context)
 
-
 def deletePackage(request, pk):
     pack = Package.objects.get(id=pk)
     pack.delete()
     os.remove(pack.img.path)
     return redirect("doctors:package")
-
 
 def addPackage(request):
     form = CreatePackageForm()
@@ -169,14 +163,11 @@ def addPackage(request):
             return redirect("doctors:package_content", pk=id_last)
     return render(request, "doctors/addpackage.html", {"form": form})
 
-
 def buy(request , pk):
     pack = Package.objects.get(id=pk)
     pat = request.user.patient
     Buy.objects.create(patient=pat, package=pack)
     return redirect("doctors:package")
-    
-
 
 def packbuy(request):
     buy = Buy.objects.all()
@@ -188,12 +179,9 @@ def mypack(request):
     return render(request, "doctors/mypack.html", {'patient': patient})
 
 
-def mdoctor(request):
-    return render(request, "doctors/mdoctor.html")
+#-----------------------------------------------------------------------------------
 
-
-
-#Appointment
+# Appointment profile
 
 def appointment(request):
     # form = CreateAppointmentForm()    #ข้อมูลของหมอและคน
@@ -205,7 +193,7 @@ def appointment(request):
             Patient_id=request.user.patient,
             Doctor_id=Doctor.objects.get(id=1),
             symptom=symptom_input
-            )
+        )
         appointment.dateapp = date_input
         # print(appointment)
         appointment.save()
@@ -213,8 +201,13 @@ def appointment(request):
     context = {"form": form}
     return render(request, "doctors/appointment_patient.html", context)
 
-#register / login / logout
+def profile(request):
+    appointment = Appointment.objects.filter(Patient_id=request.user.patient)
+    return render(request, "doctors/profile.html", {"appointment": appointment})
 
+#-----------------------------------------------------------------------------------
+
+#register / login / logout
 
 @unauthenticated_user
 def registerPage(request):
@@ -234,7 +227,6 @@ def registerPage(request):
             return redirect('doctors:login')
     return render(request, 'doctors/register.html', {'form': form})
 
-
 @unauthenticated_user
 def loginPage(request):
     if request.method == 'POST':
@@ -250,18 +242,12 @@ def loginPage(request):
             messages.info(request, 'Username or Password is invalid')
     return render(request, 'doctors/login.html')
 
-
 def logoutPLS(request):
     logout(request)
     return redirect('doctors:login')
 
 # @login_required(login_url='doctors:login') อยากให้ login ตรงไหนก็เอาไปใส่ช้างบน def นะ
 # @allowed_users(allowed_roles=['xxxxx'])   กลุ่มของบท
-
-
-def mcustomer(request):
-    return render(request, "doctors/mcustomer.html")
-
 
 @login_required(login_url='doctors:login')
 def account(request):
@@ -275,11 +261,23 @@ def account(request):
 
     return render(request, 'doctors/acc.html', {'form': form})
 
+#-----------------------------------------------------------------------------------
 
-def profile(request):
-    appointment = Appointment.objects.filter(Patient_id=request.user.patient)
-    return render(request, "doctors/profile.html", {"appointment": appointment})
+# Doctor
+def docprofile(request, pk):
+    doctor = Doctor.objects.filter(id=pk).first()
+    return render(request, "doctors/docprofile.html", {"doctor": doctor})
 
 
 def doctor(request):
     return render(request, "doctors/doctor.html")
+
+
+def finddoc(request):
+    if 'q' in request.GET:
+        q = request.GET['q']
+        mulq = Q(Q(First_name__icontains=q) | Q(Last_name__icontains=q))
+        doctors = Doctor.objects.filter(mulq)
+    else:
+        doctors = Doctor.objects.all()
+    return render(request, "doctors/finddoc.html", {'doctors': doctors})

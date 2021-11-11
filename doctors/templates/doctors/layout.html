@@ -67,6 +67,7 @@
                 <a class="nav-text" href="{% url 'doctors:package' %}"><li>จัดการแพ็คเกจ</li></a>
                 <a class="nav-text" href="{% url 'doctors:about' %}"><li>เกี่ยวกับเรา</li></a>
                 <a class="nav-text" href="{% url 'doctors:maps' %}"><li>แผนที่</li></a>
+                <a class="nav-text" href="{% url 'doctors:finddoc' %}"><li>ค้นหาแพทย์</li></a>
                 {% elif request.user.is_active %}
                 <a class="nav-text" href="{% url 'doctors:index' %}"><li>หน้าแรก</li></a>
                 <a class="nav-text" href="{% url 'doctors:about' %}"><li>เกี่ยวกับเรา</li></a>
@@ -75,6 +76,7 @@
                 <a class="nav-text" href="{% url 'doctors:package' %}"><li>แพ็คเกจ</li></a>
                 <a class="nav-text" href="{% url 'doctors:maps' %}"><li>แผนที่</li></a>
                 <a class="nav-text" href="#"><li>นัดหมาย</li></a>
+                <a class="nav-text" href="{% url 'doctors:finddoc' %}"><li>ค้นหาแพทย์</li></a>
                 {% else %}
                 <a class="nav-text" href="{% url 'doctors:index' %}"><li>หน้าแรก</li></a>
                 <a class="nav-text" href="{% url 'doctors:about' %}"><li>เกี่ยวกับเรา</li></a>
@@ -82,6 +84,7 @@
                 <a class="nav-text" href="{% url 'doctors:package' %}"><li>แพ็คเกจ</li></a>
                 <a class="nav-text" href="{% url 'doctors:news' %}"><li>ข่าวสาร</li></a>
                 <a class="nav-text" href="{% url 'doctors:maps' %}"><li>แผนที่</li></a>
+                <a class="nav-text" href="{% url 'doctors:finddoc' %}"><li>ค้นหาแพทย์</li></a>
                 {% endif %}
         </div>
         </ul>
