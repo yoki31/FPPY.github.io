@@ -20,8 +20,8 @@
             
             {% if request.user.is_superuser %}
             <div class="promotion-button">
-                <a href="#" class="edit-button">แก้ไข</a>
-                <a href="#" class="delete-button">ลบ</a>
+                <a href="{%url 'doctors:editpackage' pack.id %}" class="edit-button">แก้ไข</a>
+                <a href="{%url 'doctors:deletepackage' pack.id %}" class="delete-button">ลบ</a>
             </div>
             {% else %}
             <div class="promotion-button">
@@ -44,4 +44,5 @@
         </div>
     </div>
 
+    
 {% endblock %}

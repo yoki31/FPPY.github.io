@@ -10,6 +10,7 @@
     <div class="header-promotion-menu">
         <h2>แพ็คเกจและโปรโมชั่น</h2>
         {% if request.user.is_superuser %}
+        <a href="{% url 'doctors:packbuy' %}"><h3>ข้อมูลผู้ซื้อ</h3></a>
         <a href="{% url 'doctors:addPackage' %}"><h3>เพิ่ม</h3></a>
         {% endif %}
     </div>

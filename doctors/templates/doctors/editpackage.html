@@ -6,37 +6,33 @@
 {% endblock %}
 
 {% block content %}
-<form method="POST" action="" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="header-promotion">
-        <h2>{{form.name}}</h2>
-        <a href="#"><h3>ข้อมูลผู้ซื้อ</h3></a>
+<div class="add-healthblog-card">
+    <div class="header-addhb">
+        <h2>Edit Package</h2>
     </div>
 
-    <div class="content-area-epromotion">
-        <!-- <img src="{% static 'images/pic.jpg' %}" alt=""> -->
-        
-        <div class="price-and-button">
-            <h3>{{form.price}}</h3>
-
-            <div class="promotion-button">
-                <a href="#" class="edit-button">แก้ไข</a>
-                <a href="#" class="delete-button">ลบ</a>
+        <form method="POST" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="addhead-blog">
+                <h5>Header</h5>
+                {{ form.name }}
+                {{ form.price }}
             </div>
-        </div>
 
-        <div class="detail-promotion">
-            <p>{{form.desc}}</p>
-        </div>
 
-        <div class="condition-zone">
-            <div class="condition-header">
-                <h3>เงื่อนไข</h3>
+            <div class="addhead-blog">
+                <h5>Content</h5>
+                {{ form.desc }}
+                {{ form.cond }}
+              
             </div>
-            <p>{{form.cond}}</p>
+            <div class="addcontent-blog">
+                {{ form.img }}
+            </div>
+           
 
-            {{ form.img }}
-        </div>
+            <input type="submit" name="Create User" class="btn">
+        </form>
+
     </div>
-</form>
 {% endblock %}

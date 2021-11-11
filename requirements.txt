@@ -8,3 +8,4 @@ gunicorn
 django-heroku
 whitenoise
 coverage==5.5
+pillow
