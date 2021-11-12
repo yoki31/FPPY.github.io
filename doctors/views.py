@@ -285,11 +285,28 @@ def finddoc(request):
         doctors = Doctor.objects.filter(mulq)
     else:
         doctors = Doctor.objects.all()
-
-    return render(request, "doctors/finddoc.html", {'doctors': doctors })
+    list1 = Doctor.objects.filter(spec='อายุรศาสตร์ทั่วไป')
+    list2 = Doctor.objects.filter(spec='ศัลยแพทย์ออร์โธปิดิกส์')
+    list3 = Doctor.objects.filter(spec='จักษุแพทย์')
+    list4 = Doctor.objects.filter(spec='จิตแพทย์')
+    list5 = Doctor.objects.filter(spec='สูตินรีแพทย์')
+    list6 = Doctor.objects.filter(spec='ทันตแพทย์')
+    list7 = Doctor.objects.filter(spec='กุมารแพทย์')
+    context = {'list1': list1 ,'list2': list2 ,'list3': list3 ,'list4': list4 
+               ,'list5': list5 ,'list6': list6 ,'list7': list7 ,'doctors': doctors}
+    return render(request, "doctors/finddoc.html", context)
 
 def spec(request):
-    return render(request, "doctors/spec.html")
+    list1 = Doctor.objects.filter(spec='อายุรศาสตร์ทั่วไป')
+    list2 = Doctor.objects.filter(spec='ศัลยแพทย์ออร์โธปิดิกส์')
+    list3 = Doctor.objects.filter(spec='จักษุแพทย์')
+    list4 = Doctor.objects.filter(spec='จิตแพทย์')
+    list5 = Doctor.objects.filter(spec='สูตินรีแพทย์')
+    list6 = Doctor.objects.filter(spec='ทันตแพทย์')
+    list7 = Doctor.objects.filter(spec='กุมารแพทย์')
+    context = {'list1': list1 ,'list2': list2 ,'list3': list3 ,'list4': list4 
+               ,'list5': list5 ,'list6': list6 ,'list7': list7 }
+    return render(request, "doctors/spec.html", context)
 
 # ยังไม่ได้ใช้
 

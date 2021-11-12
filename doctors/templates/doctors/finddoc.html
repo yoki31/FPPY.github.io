@@ -8,7 +8,6 @@
 {% block content %}
 <div class="header-mhor-menu">
     <h2>ค้นหาแพทย์โดยชื่อ</h2>    
-    <a href="{% url 'doctors:spec' %}" class="read-more">ค้นหาแพทย์จากด้านที่เชี่ยวชาญ</a>
     <form>
         <input name="q" type="text" placeholder="doctor name or lastname" />
             <button>Search</button>
@@ -30,5 +29,6 @@
     </div>
     {% endfor %}
 </div>
+
 
 {% endblock %}

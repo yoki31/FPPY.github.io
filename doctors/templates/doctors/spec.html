@@ -6,27 +6,16 @@
 {% endblock %}
 
 {% block content %}
-<div class="header-mhor-menu">
-<h2>ค้นหาแพทย์จากด้านที่เชี่ยวชาญ</h2>
-<a href="{% url 'doctors:finddoc' %}" class="read-more">ค้นหาแพทย์โดยชื่อ</a>
-</div>
-<form >
-  <label>Specialization</label>
-  <select name="docname" >
-    <option value="อายุรศาสตร์ทั่วไป">อายุรศาสตร์ทั่วไป</option>
-    <option value="x">ศัลยแพทย์</option>
-    <option value="x">จักษุแพทย์</option>
-    <option value="x">จิตแพทย์</option>
-    <option value="x">สูตินรีแพทย์</option>
-    <option value="x">กุมารแพทย์</option>
-    <option value="x">ทันตแพทย์</option>
-    <option value="x">ศัลยแพทย์ออร์โธปิดิกส์</option>
-  </select>
-  <br><br>
-  <input type="submit" value="Submit">
-</form>
-<!--<div class="mhor-card-area-all">
-    {% for doctor in doctors %}
+<h2>รายชื่อแพทย์ตามสาขา</h2>
+<a href="{% url 'doctors:finddoc' %}"><li>ค้นหาแพทย์จากชื่อ</li></a>
+
+{% if request.user.is_superuser %}
+<a href=#><li>แก้ไขรายชื่อ</li></a>
+{% endif %}
+
+<p class="bold">อายุรศาสตร์ทั่วไป</p>
+<div class="mhor-card-area-all">
+    {% for doctor in list1 %}
     <div class="mhor-card">
         <img src="{{doctor.profile_pic.url}}">
         <div class="news-topic">
@@ -39,5 +28,108 @@
         <a href="{% url 'doctors:docprofile' doctor.id %}" class="read-more">ข้อมูลแพทย์</a>
     </div>
     {% endfor %}
-</div>-->
+</div>
+
+<p class="bold">ศัลยแพทย์ออร์โธปิดิกส์</p>
+<div class="mhor-card-area-all">
+    {% for doctor in list2 %}
+    <div class="mhor-card">
+        <img src="{{doctor.profile_pic.url}}">
+        <div class="news-topic">
+            <h3>{{doctor.First_name}} {{doctor.Last_name}}</h3>
+        </div>
+        <div class="details">
+            <p class="bold">ความเชี่ยวชาญ</p>
+            <p>{{doctor.spec}}</p>
+        </div>
+        <a href="{% url 'doctors:docprofile' doctor.id %}" class="read-more">ข้อมูลแพทย์</a>
+    </div>
+    {% endfor %}
+</div>
+
+<p class="bold">จักษุแพทย์</p>
+<div class="mhor-card-area-all">
+    {% for doctor in list3 %}
+    <div class="mhor-card">
+        <img src="{{doctor.profile_pic.url}}">
+        <div class="news-topic">
+            <h3>{{doctor.First_name}} {{doctor.Last_name}}</h3>
+        </div>
+        <div class="details">
+            <p class="bold">ความเชี่ยวชาญ</p>
+            <p>{{doctor.spec}}</p>
+        </div>
+        <a href="{% url 'doctors:docprofile' doctor.id %}" class="read-more">ข้อมูลแพทย์</a>
+    </div>
+    {% endfor %}
+</div>
+
+<p class="bold">จิตแพทย์'</p>
+<div class="mhor-card-area-all">
+    {% for doctor in list4 %}
+    <div class="mhor-card">
+        <img src="{{doctor.profile_pic.url}}">
+        <div class="news-topic">
+            <h3>{{doctor.First_name}} {{doctor.Last_name}}</h3>
+        </div>
+        <div class="details">
+            <p class="bold">ความเชี่ยวชาญ</p>
+            <p>{{doctor.spec}}</p>
+        </div>
+        <a href="{% url 'doctors:docprofile' doctor.id %}" class="read-more">ข้อมูลแพทย์</a>
+    </div>
+    {% endfor %}
+
+</div>
+<p class="bold">ทันตแพทย์</p>
+<div class="mhor-card-area-all">
+    {% for doctor in list6 %}
+    <div class="mhor-card">
+        <img src="{{doctor.profile_pic.url}}">
+        <div class="news-topic">
+            <h3>{{doctor.First_name}} {{doctor.Last_name}}</h3>
+        </div>
+        <div class="details">
+            <p class="bold">ความเชี่ยวชาญ</p>
+            <p>{{doctor.spec}}</p>
+        </div>
+        <a href="{% url 'doctors:docprofile' doctor.id %}" class="read-more">ข้อมูลแพทย์</a>
+    </div>
+    {% endfor %}
+</div>
+
+<p class="bold">สูตินรีแพทย์</p>
+<div class="mhor-card-area-all">
+    {% for doctor in list5 %}
+    <div class="mhor-card">
+        <img src="{{doctor.profile_pic.url}}">
+        <div class="news-topic">
+            <h3>{{doctor.First_name}} {{doctor.Last_name}}</h3>
+        </div>
+        <div class="details">
+            <p class="bold">ความเชี่ยวชาญ</p>
+            <p>{{doctor.spec}}</p>
+        </div>
+        <a href="{% url 'doctors:docprofile' doctor.id %}" class="read-more">ข้อมูลแพทย์</a>
+    </div>
+    {% endfor %}
+</div>
+
+<p class="bold">กุมารแพทย์</p>
+<div class="mhor-card-area-all">
+    {% for doctor in list7 %}
+    <div class="mhor-card">
+        <img src="{{doctor.profile_pic.url}}">
+        <div class="news-topic">
+            <h3>{{doctor.First_name}} {{doctor.Last_name}}</h3>
+        </div>
+        <div class="details">
+            <p class="bold">ความเชี่ยวชาญ</p>
+            <p>{{doctor.spec}}</p>
+        </div>
+        <a href="{% url 'doctors:docprofile' doctor.id %}" class="read-more">ข้อมูลแพทย์</a>
+    </div>
+    {% endfor %}
+</div>
+
 {% endblock %}
