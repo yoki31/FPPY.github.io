@@ -2,7 +2,8 @@
 {% load static %}
 
 {% block head %}
-    <link rel="Stylesheet" href="{% static 'css/style-profile.css' %}">
+    <!-- <link rel="Stylesheet" href="{% static 'css/style-profile.css' %}"> -->
+    <link rel="Stylesheet" href="{% static 'css/style-myprofile.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -17,37 +18,85 @@
                 <img src =" {{request.user.patient.profile_pic.url}}" style="height:150px;width:150px;border-radius:50%" >
                 <div class="pro-d">
                     <div class="name-group">
-                        <h2>{{ request.user.patient.First_name }}
-                            {{ request.user.patient.Last_name }}</h2>
+                        <h2>{{ request.user.patient.First_name }}</h2> 
+                        <h2>{{ request.user.patient.Last_name }}</h2>
                     </div>
                     <p class="phone">{{ request.user.patient.phone }}</p>
                     <p class="mail">{{ request.user.patient.email }}</p>
 
-                    <a href="{% url 'doctors:mypack' %}">My pack</a>
-                    
-                    
-                    <div class="news-card-area-all">
-                        {% for app in appointment %}
-                        <!-- <div class="row"> -->
-                            <div class="news-card">
-                                <img src="{{new.img.url}}">
-                                <div class="news-topic">
-                                    <h3>Appointment</h3>
-                                </div>
-                                <div class="details">
-                                    <p>{{ app.dateapp }}</p>
-                                </div>
-                                <a href="#" class="read-more">อ่านเพิ่มเติม</a>
-                            </div>
-                        {% endfor %}
-                    
-                        
-                
                 </div>
             </div>
+            <a href="{% url 'doctors:mypack' %}" class="mypack">
+                <ion-icon src="{% static 'svg/gift.svg' %}"></ion-icon>
+                My pack
+            </a>
+        </div>
+    </div>
 
+    <div class="app-card-area-all">
+        <!-- <div class="app-topic">
+            <h2>Appointment</h2>
+        </div> -->
+
+        <div class="app-item">
+            <div class="head">
+                <div class="group-l">
+                    <h3 class="doc-name">หมอ: Kodchamol Auk</h3>
+                    <p class="date">นัดวันที่: 12 Nov 2021</p>
+                </div>
+                <button type="submit"  class="group-r">
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+            </div>
+            <div class="details">อาการ: Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium praesentium hic tenetur quaerat! Asperiores ab quaerat laboriosam corporis animi, maiores totam doloribus, omnis molestias minima cupiditate laborum voluptatum, vero delectus? Sint officiis neque laborum, praesentium quae mollitia sunt nesciunt adipisci.</div>
         </div>
 
+        <div class="app-item">
+            <div class="head">
+                <div class="group-l">
+                    <h3 class="doc-name">หมอ: Kodchamol Auk</h3>
+                    <p class="date">นัดวันที่: 12 Nov 2021</p>
+                </div>
+                <button type="submit"  class="group-r">
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+            </div>
+            <div class="details">อาการ: Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium praesentium hic tenetur quaerat! Asperiores ab quaerat laboriosam corporis animi, maiores totam doloribus, omnis molestias minima cupiditate laborum voluptatum, vero delectus? Sint officiis neque laborum, praesentium quae mollitia sunt nesciunt adipisci.</div>
+        </div>
 
+        <div class="app-item">
+            <div class="head">
+                <div class="group-l">
+                    <h3 class="doc-name">หมอ: Kodchamol Auk</h3>
+                    <p class="date">นัดวันที่: 12 Nov 2021</p>
+                </div>
+                <button type="submit"  class="group-r">
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+            </div>
+            <div class="details">อาการ: Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium praesentium hic tenetur quaerat! Asperiores ab quaerat laboriosam corporis animi, maiores totam doloribus, omnis molestias minima cupiditate laborum voluptatum, vero delectus? Sint officiis neque laborum, praesentium quae mollitia sunt nesciunt adipisci.</div>
+        </div>
+
+        <div class="app-item">
+            <div class="head">
+                <div class="group-l">
+                    <h3 class="doc-name">หมอ: Kodchamol Auk</h3>
+                    <p class="date">นัดวันที่: 12 Nov 2021</p>
+                </div>
+                <button type="submit"  class="group-r">
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+            </div>
+            <div class="details">อาการ: Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium praesentium hic tenetur quaerat! Asperiores ab quaerat laboriosam corporis animi, maiores totam doloribus, omnis molestias minima cupiditate laborum voluptatum, vero delectus? Sint officiis neque laborum, praesentium quae mollitia sunt nesciunt adipisci.</div>
+        </div>
+
+        <!-- {% for app in appointment %}
+            <div class="app-card">
+                <div class="details">
+                    <p>{{ app.dateapp }}</p>
+                </div>
+            </div>
+        {% endfor %} -->
     </div>
+
 {% endblock %}

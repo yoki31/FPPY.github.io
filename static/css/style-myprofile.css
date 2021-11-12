@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap");
+.area-content {
+  background-color: #f4f4f4;
+  display: flex;
+  height: 91vh;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  flex-direction: column; }
+  .area-content .profile-zone {
+    width: 90%;
+    background-color: white;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    min-height: 250px; }
+    .area-content .profile-zone .box {
+      width: 100%;
+      height: 20vh;
+      background-color: #63bc8a;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      position: relative; }
+      .area-content .profile-zone .box .edit-pro {
+        position: absolute;
+        right: 2vw;
+        top: 2vh;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+        background-color: #f4f4f4;
+        padding: 5px;
+        padding-right: 10px;
+        border-radius: 20px;
+        font-weight: bold;
+        transition: 300ms;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.25); }
+        .area-content .profile-zone .box .edit-pro ion-icon {
+          font-size: 1.3rem;
+          margin: 5px; }
+      .area-content .profile-zone .box .edit-pro:hover {
+        background-color: #e9e9e9; }
+      .area-content .profile-zone .box .profile-content {
+        position: absolute;
+        top: 8vh;
+        left: 10vw;
+        display: flex; }
+        .area-content .profile-zone .box .profile-content img {
+          border: 5px solid #f4f4f4; }
+        .area-content .profile-zone .box .profile-content .pro-d {
+          position: absolute;
+          top: 12vh;
+          left: 24vw;
+          margin-left: 20px; }
+          .area-content .profile-zone .box .profile-content .pro-d .name-group {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            text-align: center; }
+          .area-content .profile-zone .box .profile-content .pro-d h2 {
+            margin-left: 10px; }
+          .area-content .profile-zone .box .profile-content .pro-d .mail {
+            position: absolute;
+            top: 4vh;
+            padding-left: 10px; }
+          .area-content .profile-zone .box .profile-content .pro-d .phone {
+            position: absolute;
+            top: 6vh;
+            padding-left: 10px; }
+      .area-content .profile-zone .box .mypack {
+        position: absolute;
+        right: 2vw;
+        bottom: -13vh;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        background-color: #54a879;
+        padding: 5px;
+        padding-right: 10px;
+        border-radius: 20px;
+        font-weight: bold;
+        transition: 300ms;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15); }
+        .area-content .profile-zone .box .mypack ion-icon {
+          font-size: 1.3rem;
+          margin: 5px; }
+      .area-content .profile-zone .box .mypack:hover {
+        background-color: #63bc8a; }
+  .area-content .app-card-area-all {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 5px;
+    padding-bottom: 20px; }
+    .area-content .app-card-area-all .app-topic {
+      color: #63bc8a; }
+    .area-content .app-card-area-all .app-item {
+      width: 80%;
+      min-width: 400px;
+      max-width: 1000px;
+      min-height: 100px;
+      background-color: white;
+      padding: 10px;
+      border-radius: 10px;
+      margin: 5px; }
+      .area-content .app-card-area-all .app-item .head {
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: top;
+        text-align: center; }
+        .area-content .app-card-area-all .app-item .head .group-l {
+          padding-left: 5px;
+          justify-content: left;
+          text-align: left; }
+          .area-content .app-card-area-all .app-item .head .group-l h3 {
+            font-size: 1rem; }
+          .area-content .app-card-area-all .app-item .head .group-l p {
+            color: #a0a0a0;
+            font-size: 0.9rem; }
+        .area-content .app-card-area-all .app-item .head .group-r {
+          width: 25px;
+          height: 25px;
+          border-radius: 30px;
+          border: none;
+          background-color: white; }
+          .area-content .app-card-area-all .app-item .head .group-r ion-icon {
+            color: gray;
+            font-size: 1.7rem;
+            transition: 300ms; }
+        .area-content .app-card-area-all .app-item .head .group-r:hover ion-icon {
+          color: red; }
+      .area-content .app-card-area-all .app-item .details {
+        text-align: center;
+        padding: 10px; }
+
+/*# sourceMappingURL=style-myprofile.css.map */
