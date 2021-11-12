@@ -61,7 +61,7 @@
                 <a href="{% url 'doctors:index' %}"><img src="{% static 'images/logo.png' %}"></img></a>
             </div>
             <div class="nav-section">
-                {% if request.user.is_superuser %} 
+                {% if request.user.is_superuser %}
                 <a class="nav-text" href="{% url 'doctors:healthblog' %}"><li>จัดการบทความ</li></a>
                 <a class="nav-text" href="{% url 'doctors:news' %}"><li>จัดการข่าว</li></a>
                 <a class="nav-text" href="{% url 'doctors:package' %}"><li>จัดการแพ็คเกจ</li></a>
@@ -75,7 +75,6 @@
                 <a class="nav-text" href="{% url 'doctors:news' %}"><li>ข่าวสาร</li></a>
                 <a class="nav-text" href="{% url 'doctors:package' %}"><li>แพ็คเกจ</li></a>
                 <a class="nav-text" href="{% url 'doctors:maps' %}"><li>แผนที่</li></a>
-                <a class="nav-text" href="{% url 'doctors:appointment' %}"><li>นัดหมาย</li></a>
                 <a class="nav-text" href="{% url 'doctors:finddoc' %}"><li>ค้นหาแพทย์</li></a>
                 {% else %}
                 <a class="nav-text" href="{% url 'doctors:index' %}"><li>หน้าแรก</li></a>

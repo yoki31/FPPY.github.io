@@ -12,15 +12,21 @@
 
 {% block content %}
 
+{% for message in messages %}
+    <div class="#">{{message}} </div>
+{% endfor %}
+
+<h5>ชื่อแพทย์</h5>
+<h3>{{doctor.First_name}} {{doctor.Last_name}}</h3>
 
     <form method="POST" action="" >
             {% csrf_token %}
-
-        <!--<h5>name</h5>-->
-        <!--{{ date.your_name }}-->
+        
         <h5>วันเดือนปีที่นัด</h5>
         {{ form.media }}
         {{ form.date_input }}
+        <!-- {{ form.as_p }} -->
+
         <h5>อาการ</h5>
         {{ form.symptom }}
 

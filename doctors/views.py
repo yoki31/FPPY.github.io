@@ -8,7 +8,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import Group
 import os
+from django.contrib import messages
 from django.db.models import Q
+from datetime import date, datetime 
 # from django.contrib.admin.widgets import  AdminDateWidget
 # Create your views here.
 
@@ -182,24 +184,30 @@ def mypack(request):
 
 # Appointment profile
 
-def appointment(request):
-    # form = CreateAppointmentForm()    #ข้อมูลของหมอและคน
+def appointment(request, pk):
+    doctor = Doctor.objects.filter(id=pk).first()
     form = AppointmentForm()
+    date_now = datetime.now()
     if request.method == 'POST':
         symptom_input = request.POST.get("symptom")
         date_input = request.POST.get("date_input")
         appointment = Appointment.objects.create(
             Patient_id=request.user.patient,
-            Doctor_id=Doctor.objects.get(id=1),
+            Doctor_id=doctor,
             symptom=symptom_input
         )
+        print(date_input)
+        if datetime(int(date_input[:4]), int(date_input[5:7]), int(date_input[8:]),) <= date_now:
+            messages.add_message(request, messages.SUCCESS, f"ไม่สามารถนัดพบแพทย์ได้ กรุณาเลือกวันให้ถูกต้อง")   #กรณีนัดวันที่ผ่านมาแล้ว 
+            return redirect("doctors:appointment", pk)
+
         appointment.dateapp = date_input
-        # print(appointment)
         appointment.save()
         return redirect("doctors:profile")
-    context = {"form": form}
-    return render(request, "doctors/appointment_patient.html", context)
 
+    context = {"form": form, "doctor": doctor}
+    return render(request, "doctors/appointment_patient.html", context)
+    
 def profile(request):
     appointment = Appointment.objects.filter(Patient_id=request.user.patient)
     return render(request, "doctors/profile.html", {"appointment": appointment})

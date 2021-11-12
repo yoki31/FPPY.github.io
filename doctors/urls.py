@@ -41,7 +41,7 @@ urlpatterns = [
     path('mcustomer', views.mcustomer, name="mcustomer"),
 
 #Appointment
-    path('appointment', views.appointment, name="appointment"),
+    path('appointment/<pk>', views.appointment, name="appointment"),
 
     # register, login profile
     path('register/', views.registerPage, name="register"),

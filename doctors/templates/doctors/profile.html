@@ -18,7 +18,7 @@
                 <img src =" {{request.user.patient.profile_pic.url}}" style="height:150px;width:150px;border-radius:50%" >
                 <div class="pro-d">
                     <div class="name-group">
-                        <h2>{{ request.user.patient.First_name }}</h2> 
+                        <h2>{{ request.user.patient.First_name }}</h2>
                         <h2>{{ request.user.patient.Last_name }}</h2>
                     </div>
                     <p class="phone">{{ request.user.patient.phone }}</p>
@@ -38,57 +38,62 @@
             <h2>Appointment</h2>
         </div> -->
 
+        {% for app in appointment %}
         <div class="app-item">
             <div class="head">
                 <div class="group-l">
                     <h3 class="doc-name">หมอ: Kodchamol Auk</h3>
-                    <p class="date">นัดวันที่: 12 Nov 2021</p>
-                </div>
-                <button type="submit"  class="group-r">
-                    <ion-icon name="close-outline"></ion-icon>
-                </button>
-            </div>
-            <div class="details">อาการ: Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium praesentium hic tenetur quaerat! Asperiores ab quaerat laboriosam corporis animi, maiores totam doloribus, omnis molestias minima cupiditate laborum voluptatum, vero delectus? Sint officiis neque laborum, praesentium quae mollitia sunt nesciunt adipisci.</div>
-        </div>
+                    <p class="date">นัดวันที่: {{ app.dateapp }}</p>
 
-        <div class="app-item">
-            <div class="head">
-                <div class="group-l">
-                    <h3 class="doc-name">หมอ: Kodchamol Auk</h3>
-                    <p class="date">นัดวันที่: 12 Nov 2021</p>
                 </div>
+                <form action= "#" method="POST">
+                    {% csrf_token %}
                 <button type="submit"  class="group-r">
                     <ion-icon name="close-outline"></ion-icon>
                 </button>
             </div>
-            <div class="details">อาการ: Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium praesentium hic tenetur quaerat! Asperiores ab quaerat laboriosam corporis animi, maiores totam doloribus, omnis molestias minima cupiditate laborum voluptatum, vero delectus? Sint officiis neque laborum, praesentium quae mollitia sunt nesciunt adipisci.</div>
+            <div class="details">อาการ: {{ app.symptom }}</div>
         </div>
+        {% endfor %}
 
-        <div class="app-item">
-            <div class="head">
-                <div class="group-l">
-                    <h3 class="doc-name">หมอ: Kodchamol Auk</h3>
-                    <p class="date">นัดวันที่: 12 Nov 2021</p>
-                </div>
-                <button type="submit"  class="group-r">
-                    <ion-icon name="close-outline"></ion-icon>
-                </button>
-            </div>
-            <div class="details">อาการ: Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium praesentium hic tenetur quaerat! Asperiores ab quaerat laboriosam corporis animi, maiores totam doloribus, omnis molestias minima cupiditate laborum voluptatum, vero delectus? Sint officiis neque laborum, praesentium quae mollitia sunt nesciunt adipisci.</div>
-        </div>
+        <!--<div class="app-item">-->
+        <!--    <div class="head">-->
+        <!--        <div class="group-l">-->
+        <!--            <h3 class="doc-name">หมอ: Kodchamol Auk</h3>-->
+        <!--            <p class="date">นัดวันที่: 12 Nov 2021</p>-->
+        <!--        </div>-->
+        <!--        <button type="submit"  class="group-r">-->
+        <!--            <ion-icon name="close-outline"></ion-icon>-->
+        <!--        </button>-->
+        <!--    </div>-->
+        <!--    <div class="details">อาการ: Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium praesentium hic tenetur quaerat! Asperiores ab quaerat laboriosam corporis animi, maiores totam doloribus, omnis molestias minima cupiditate laborum voluptatum, vero delectus? Sint officiis neque laborum, praesentium quae mollitia sunt nesciunt adipisci.</div>-->
+        <!--</div>-->
 
-        <div class="app-item">
-            <div class="head">
-                <div class="group-l">
-                    <h3 class="doc-name">หมอ: Kodchamol Auk</h3>
-                    <p class="date">นัดวันที่: 12 Nov 2021</p>
-                </div>
-                <button type="submit"  class="group-r">
-                    <ion-icon name="close-outline"></ion-icon>
-                </button>
-            </div>
-            <div class="details">อาการ: Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium praesentium hic tenetur quaerat! Asperiores ab quaerat laboriosam corporis animi, maiores totam doloribus, omnis molestias minima cupiditate laborum voluptatum, vero delectus? Sint officiis neque laborum, praesentium quae mollitia sunt nesciunt adipisci.</div>
-        </div>
+        <!--<div class="app-item">-->
+        <!--    <div class="head">-->
+        <!--        <div class="group-l">-->
+        <!--            <h3 class="doc-name">หมอ: Kodchamol Auk</h3>-->
+        <!--            <p class="date">นัดวันที่: 12 Nov 2021</p>-->
+        <!--        </div>-->
+        <!--        <button type="submit"  class="group-r">-->
+        <!--            <ion-icon name="close-outline"></ion-icon>-->
+        <!--        </button>-->
+        <!--    </div>-->
+        <!--    <div class="details">อาการ: Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium praesentium hic tenetur quaerat! Asperiores ab quaerat laboriosam corporis animi, maiores totam doloribus, omnis molestias minima cupiditate laborum voluptatum, vero delectus? Sint officiis neque laborum, praesentium quae mollitia sunt nesciunt adipisci.</div>-->
+        <!--</div>-->
+
+        <!--<div class="app-item">-->
+        <!--    <div class="head">-->
+        <!--        <div class="group-l">-->
+        <!--            <h3 class="doc-name">หมอ: Kodchamol Auk</h3>-->
+        <!--            <p class="date">นัดวันที่: 12 Nov 2021</p>-->
+        <!--        </div>-->
+        <!--        <button type="submit"  class="group-r">-->
+        <!--            <ion-icon name="close-outline"></ion-icon>-->
+        <!--        </button>-->
+        <!--    </div>-->
+        <!--    <div class="details">อาการ: Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium praesentium hic tenetur quaerat! Asperiores ab quaerat laboriosam corporis animi, maiores totam doloribus, omnis molestias minima cupiditate laborum voluptatum, vero delectus? Sint officiis neque laborum, praesentium quae mollitia sunt nesciunt adipisci.</div>-->
+        <!--</div>-->
 
         <!-- {% for app in appointment %}
             <div class="app-card">
