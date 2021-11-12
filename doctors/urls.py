@@ -54,6 +54,7 @@ urlpatterns = [
     path('doctor', views.doctor, name="doctor"),
     path('finddoc', views.finddoc, name="finddoc"),
     path('docprofile/<pk>', views.docprofile, name="docprofile"),
+    path('spec', views.spec, name="spec"),
     
 ]
 

@@ -23,6 +23,7 @@ class Doctor(models.Model):
     Last_name = models.CharField(max_length=100, null = True)
     phone = models.CharField(max_length=100, null = True)
     email = models.CharField(max_length=200, null = True)
+    spec = models.CharField(max_length=100, null = True)
     date_created = models.DateTimeField(default=timezone.now)
     profile_pic = models.ImageField(default='person.jpg',null=True, blank=True)
 
@@ -68,17 +69,6 @@ class Package(models.Model):
 
     def __str__(self) :
         return self.name
-
-
-# ข้าวหลามตัด
-
-class Specialitie(models.Model):
-    doctor = models.ForeignKey(Doctor, null = True, on_delete=models.CASCADE)
-    spec = models.CharField(max_length=100, null = True)
-    date_created = models.DateTimeField(default=timezone.now)
-
-    def __str__(self):
-        return  self.spec
 
 class Appointment(models.Model):
     Patient_id = models.ForeignKey(Patient, null=True, on_delete=models.CASCADE)

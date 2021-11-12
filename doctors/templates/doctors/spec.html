@@ -1,0 +1,43 @@
+{% extends "doctors/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="Stylesheet" href="{% static 'css/style-mhor.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="header-mhor-menu">
+<h2>ค้นหาแพทย์จากด้านที่เชี่ยวชาญ</h2>
+<a href="{% url 'doctors:finddoc' %}" class="read-more">ค้นหาแพทย์โดยชื่อ</a>
+</div>
+<form >
+  <label>Specialization</label>
+  <select name="docname" >
+    <option value="อายุรศาสตร์ทั่วไป">อายุรศาสตร์ทั่วไป</option>
+    <option value="x">ศัลยแพทย์</option>
+    <option value="x">จักษุแพทย์</option>
+    <option value="x">จิตแพทย์</option>
+    <option value="x">สูตินรีแพทย์</option>
+    <option value="x">กุมารแพทย์</option>
+    <option value="x">ทันตแพทย์</option>
+    <option value="x">ศัลยแพทย์ออร์โธปิดิกส์</option>
+  </select>
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+<!--<div class="mhor-card-area-all">
+    {% for doctor in doctors %}
+    <div class="mhor-card">
+        <img src="{{doctor.profile_pic.url}}">
+        <div class="news-topic">
+            <h3>{{doctor.First_name}} {{doctor.Last_name}}</h3>
+        </div>
+        <div class="details">
+            <p class="bold">ความเชี่ยวชาญ</p>
+            <p>{{doctor.spec}}</p>
+        </div>
+        <a href="{% url 'doctors:docprofile' doctor.id %}" class="read-more">ข้อมูลแพทย์</a>
+    </div>
+    {% endfor %}
+</div>-->
+{% endblock %}

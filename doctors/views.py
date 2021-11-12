@@ -287,6 +287,9 @@ def finddoc(request):
         doctors = Doctor.objects.all()
     return render(request, "doctors/finddoc.html", {'doctors': doctors})
 
+def spec(request):
+    return render(request, "doctors/spec.html")
+
 # ยังไม่ได้ใช้
 
 def mcustomer(request):
