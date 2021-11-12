@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
+
+// $BGcolor:#63bc8a;
+$BGcolor:#f4f4f4;
+$Cardcolor:white;
+$labelcolor:#F2DC99;
+$Topiccolor: #63bc8a;
+// * {
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+//     font-family: 'Prompt', sans-serif;
+// }
+
+.area-content {
+    background-color: $BGcolor;
+    display: flex;
+    height: 91vh;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    // position: relative;
+    flex-direction: column;
+
+    .zone-edit-profile {
+        margin-top: 20px;
+        min-width: 400px;
+        max-width: 1200px;
+        background-color: $Cardcolor;
+        width: 85%;
+        border-radius: 15px;
+
+        img {
+            margin: 20px;
+        }
+
+        form {
+            width: 100%;
+
+            p {
+                width: 100%;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                justify-content: space-between;
+                color: $Topiccolor;
+                font-weight: bold;
+                input {
+                    width: 65%;
+                    border: transparent;
+                    background-color: $BGcolor;
+                    color: gray;
+                    border-radius: 50px;
+                    padding: 10px;
+                }
+
+                input:hover {
+                    background-color: #e7e7e7;
+                }
+
+                label {
+                    width: 40%;
+                    text-align: left;
+                    font-weight: bold;
+                    color: $Topiccolor;
+                }
+                a {
+                    width: 25%;
+                    text-decoration: none;
+                    color: gray;
+                    font-weight: 100;
+                }
+
+                #profile_pic-clear_id {
+                    width: 50px;
+                    border: transparent;
+                }
+
+                br {
+                    display: none;
+                }
+            }
+        }
+
+        input {
+            position: relative;
+            display: inline-block;
+            padding: 5px 20px;
+            background: $Topiccolor;
+            color: $Cardcolor;
+            border-radius: 15px;
+            text-decoration: none;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            transition: 100ms;
+            border: transparent;
+            font-weight: bold;
+        }
+
+        input:hover {
+            background: #56cc89;
+        }
+    }
+}

@@ -1,15 +1,19 @@
 {% extends "doctors/layout.html" %}
 {% load static %}
 
+{% block head %}
+    <link rel="Stylesheet" href="{% static 'css/style-editprofile.css' %}">
+{% endblock %}
+
 {% block content %}
 
-<img src =" {{request.user.patient.profile_pic.url}}" style="height:150px;width:150px;border-radius:50%" >
+<!-- <img src =" {{request.user.patient.profile_pic.url}}" style="height:150px;width:150px;border-radius:50%" >
 
 <form method="POST" action="" enctype="multipart/form-data">
     {% csrf_token %}
     {{form.as_p}}
     <input type="submit" name ="Update Information">
-</form>
+</form> -->
 
             <!-- <h1>Edit Profile</h1>
                 {% if data.profile_pic %}
@@ -36,5 +40,14 @@
                     <input type="submit" name="changeprofile" value="Save Changes" href="{% url 'doctors:profile' %}">
                     <a href="{% url 'doctors:profile' %}" >Back to Profile</a>
             </form> -->
+
+            <div class="zone-edit-profile">
+                <img src =" {{request.user.patient.profile_pic.url}}" style="height:150px;width:150px;border-radius:50%" >
+                <form method="POST" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <input type="submit" name ="Update Information">
+                </form>
+            </div>
 
 {% endblock %}
