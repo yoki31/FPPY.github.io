@@ -285,7 +285,8 @@ def finddoc(request):
         doctors = Doctor.objects.filter(mulq)
     else:
         doctors = Doctor.objects.all()
-    return render(request, "doctors/finddoc.html", {'doctors': doctors})
+
+    return render(request, "doctors/finddoc.html", {'doctors': doctors })
 
 def spec(request):
     return render(request, "doctors/spec.html")
