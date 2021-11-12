@@ -11,18 +11,22 @@
         <div class="doc-img">
             <img src="{{doctor.profile_pic.url}}" alt="" srcset="">
         </div>
+
+        {% if not request.user.is_superuser %}
         <div class="button-zone">
-            <a href="#" class="app-butt">
+            <a href="{% url 'doctors:appointment' doctor.id %}" class="app-butt">
                 <ion-icon name="calendar"></ion-icon>
                 <p>นัดหมายแพทย์</p>
             </a>
         </div>
+        {% endif %}
+
     </div>
     <div class="zone-r">
         <div class="name">
             <h3>{{doctor.First_name}} {{doctor.Last_name}}</h3>
-            {% if request.user.is_superuser %} 
-            <a href="#">แก้ไข</a>       
+            {% if request.user.is_superuser %}
+            <a href="#">แก้ไข</a>
             {% endif %}
         </div>
 
@@ -37,7 +41,7 @@
             <p>{{doctor.phone}}</p>
             <p>{{doctor.email}}</p>
         </div>
-
+<!--
         <div class="schedule">
             <table class="content-table">
                 <thead>
@@ -49,7 +53,7 @@
                 </thead>
 
                 <tbody>
-                    
+
                     <tr>
                         <td>MON</td>
                         <td>09.00-12.00</td>
@@ -113,7 +117,7 @@
             </table>
         </div>
     </div>
-</div>    
+</div>     -->
 
 {% endblock %}
 
@@ -123,6 +127,6 @@
         <h5>{{doctor.First_name}} {{doctor.Last_name}}</h5>
         <h5>{{doctor.phone}}</h5>
         <h5>{{doctor.email}}</h5>
-        {% if request.user.is_superuser %} 
-        
+        {% if request.user.is_superuser %}
+
         {% endif %} -->
