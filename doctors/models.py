@@ -77,7 +77,7 @@ class Appointment(models.Model):
     dateapp = models.DateField(null=True,)
 
     def __str__(self):
-        return f"หมอ {self.Patient_id} นัด {self.Patient_id} วัน {self.dateapp} "
+        return f"{self.Doctor_id.First_name} > {self.Patient_id.First_name}"
 
 class Buy(models.Model):
     STATUS = (
@@ -91,4 +91,4 @@ class Buy(models.Model):
     status = models.CharField(max_length=200, null = True, choices=STATUS, default='NOT PAID')
 
     def __str__(self) :
-        return f' {self.patient} >>>>> {self.package}'
+        return f'{self.patient.First_name} >>> {self.package}'

@@ -9,6 +9,6 @@ admin.site.register(New)
 admin.site.register(Doctor)
 admin.site.register(Patient)
 # admin.site.register(Specialitie)
-# admin.site.register(Appointment)
+admin.site.register(Appointment)
 admin.site.register(Buy)
 
