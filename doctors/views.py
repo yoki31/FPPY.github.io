@@ -46,14 +46,17 @@ def healthblog_content(request, pk):
 def deleteArticle(request, pk):
     article = Article.objects.get(id=pk)
     if request.method == "POST":
-        os.remove(article.img.path)
+        if article.img != "pic.jpg":
+            os.remove(article.img.path)
+            article.delete()
+            return redirect("doctors:healthblog")
         article.delete()
         return redirect("doctors:healthblog")
 
 def addArticle(request):
     form = CreateArticleForm()
     if request.method == 'POST':
-        form = CreateArticleForm(request.POST, request.FILES, instance=article)
+        form = CreateArticleForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             article = Article.objects.values('id').order_by('-id').first()
@@ -92,8 +95,11 @@ def news_content(request, pk):
 def deleteNews(request, pk):
     new = New.objects.get(id=pk)
     if request.method == "POST":
+        if new.img != "pic.jpg":
+            new.delete()
+            os.remove(new.img.path)
+            return redirect("doctors:news")
         new.delete()
-        os.remove(new.img.path)
         return redirect("doctors:news")
 
 def addNews(request):
@@ -149,9 +155,13 @@ def editpackage(request, pk):
 
 def deletePackage(request, pk):
     pack = Package.objects.get(id=pk)
+    if pack.img != "pic.jpg":
+        pack.delete()
+        os.remove(pack.img.path)
+        return redirect("doctors:package")
     pack.delete()
-    os.remove(pack.img.path)
     return redirect("doctors:package")
+    
 
 def addPackage(request):
     form = CreatePackageForm()
