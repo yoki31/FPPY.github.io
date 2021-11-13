@@ -250,7 +250,6 @@ class TestViewsCase(TestCase):
         self.c.login(username='test', password='test')
         response = self.c.get(reverse('doctors:mypack'), follow=True)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'doctors/packbuy.html', 'doctors/layout.html')
         
     # not work
     # def test_mypack(self):
