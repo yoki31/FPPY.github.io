@@ -11,6 +11,11 @@
   align-items: center;
   text-align: center;
   flex-direction: column; }
+  .area-content .bold {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #63bc8a; }
   .area-content .header-mhor-menu {
     display: flex;
     margin: 15px;
@@ -19,8 +24,43 @@
     align-items: center;
     text-align: center;
     padding: 10px; }
-    .area-content .header-mhor-menu h2 {
+    .area-content .header-mhor-menu .group-l h2 {
       color: #63bc8a; }
+    .area-content .header-mhor-menu .group-l .no-dec {
+      background-color: transparent; }
+      .area-content .header-mhor-menu .group-l .no-dec h4 {
+        color: #acacac;
+        transition: 100ms; }
+    .area-content .header-mhor-menu .group-l .no-dec:hover h4 {
+      color: gray; }
+    .area-content .header-mhor-menu form {
+      display: flex; }
+      .area-content .header-mhor-menu form input {
+        width: 20vw;
+        border: 2px solid #63bc8a;
+        border-right: transparent;
+        background-color: white;
+        border-bottom-left-radius: 20px;
+        border-top-left-radius: 20px;
+        padding: 5px; }
+      .area-content .header-mhor-menu form button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 5px;
+        padding-right: 10px;
+        background: #63bc8a;
+        color: white;
+        transition: 100ms;
+        border: 2px solid #63bc8a;
+        border-bottom-right-radius: 20px;
+        border-top-right-radius: 20px; }
+        .area-content .header-mhor-menu form button ion-icon {
+          font-size: 1.2rem; }
+      .area-content .header-mhor-menu form button:hover {
+        background: #56cc89;
+        border: 2px solid #56cc89; }
     .area-content .header-mhor-menu a {
       position: relative;
       display: inline-block;
@@ -39,7 +79,7 @@
     width: 80%;
     margin-bottom: 20px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 20px; }
     .area-content .mhor-card-area-all .mhor-card {
       background-color: white;
@@ -70,5 +110,12 @@
         transition: 100ms; }
       .area-content .mhor-card-area-all .mhor-card .read-more:hover {
         background: #56cc89; }
+
+@media screen and (min-width: 600px) {
+  .area-content .mhor-card-area-all {
+    grid-template-columns: repeat(2, 1fr); } }
+@media screen and (min-width: 900px) {
+  .area-content .mhor-card-area-all {
+    grid-template-columns: repeat(3, 1fr); } }
 
 /*# sourceMappingURL=style-mhor.css.map */

@@ -72,7 +72,7 @@ $Topiccolor: #63bc8a;
         max-width: 95%;
         margin-bottom: 20px;
         display: grid;
-        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: repeat(1,1fr);
         gap: 20px;
         // background-color: rgb(177, 138, 216);
 
@@ -156,6 +156,21 @@ $Topiccolor: #63bc8a;
         //         }
     
         //     }
+        }
+    }
+}
+@media screen and (min-width: 600px){
+    .area-content {
+        .news-card-area-all {
+            grid-template-columns: repeat(2,1fr);
+        }
+    }
+}
+
+@media screen and (min-width: 900px){
+    .area-content {
+        .news-card-area-all {
+            grid-template-columns: repeat(3,1fr);
         }
     }
 }

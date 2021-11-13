@@ -7,11 +7,15 @@
 
 {% block content %}
 <div class="header-mhor-menu">
-    <h2>ค้นหาแพทย์โดยชื่อ</h2>    
+    <div class="group-l">
+        <h2>ค้นหาแพทย์โดยชื่อ</h2>
+        <a href="{% url 'doctors:spec' %}" class="no-dec"><h4>รายชื่อแพทย์ตามสาขา</h4></a>
+    </div>
+    
     <form>
         <input name="q" type="text" placeholder="doctor name or lastname" />
-            <button>Search</button>
-            </form>
+        <button><ion-icon name="search"></ion-icon></button>
+    </form>
 </div>
 
 <div class="mhor-card-area-all">

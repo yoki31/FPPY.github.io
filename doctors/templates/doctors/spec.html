@@ -6,12 +6,16 @@
 {% endblock %}
 
 {% block content %}
-<h2>รายชื่อแพทย์ตามสาขา</h2>
-<a href="{% url 'doctors:finddoc' %}"><li>ค้นหาแพทย์จากชื่อ</li></a>
+<div class="header-mhor-menu">
+    <div class="group-l">
+        <h2>รายชื่อแพทย์ตามสาขา</h2>
+        <a href="{% url 'doctors:finddoc' %}" class="no-dec"><h4>ค้นหาแพทย์จากชื่อ</h4></a>
+    </div>
 
-{% if request.user.is_superuser %}
-<a href={% url 'doctors:addDoc' %}><li>เพิ่ม</li></a>
-{% endif %}
+    {% if request.user.is_superuser %}
+    <a href="{% url 'doctors:addDoc' %}"><h3>เพิ่ม</h3></a>
+    {% endif %}
+</div>
 
 <p class="bold">อายุรศาสตร์ทั่วไป</p>
 <div class="mhor-card-area-all">

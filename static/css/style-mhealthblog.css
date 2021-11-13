@@ -39,7 +39,7 @@
     max-width: 95%;
     margin-bottom: 20px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 20px; }
     .area-content .news-card-area-all .news-card {
       background-color: white;
@@ -65,5 +65,12 @@
         transition: 100ms; }
       .area-content .news-card-area-all .news-card .read-more:hover {
         background: #56cc89; }
+
+@media screen and (min-width: 600px) {
+  .area-content .news-card-area-all {
+    grid-template-columns: repeat(2, 1fr); } }
+@media screen and (min-width: 900px) {
+  .area-content .news-card-area-all {
+    grid-template-columns: repeat(3, 1fr); } }
 
 /*# sourceMappingURL=style-mhealthblog.css.map */
