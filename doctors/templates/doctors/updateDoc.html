@@ -1,0 +1,21 @@
+{% extends "doctors/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="Stylesheet" href="{% static 'css/style-addarticle.css' %}">
+{% endblock %}
+
+{% block content %}
+
+        <div class="add-healthblog-card">
+            <div class="header-addhb">
+                <h2>Edit Doctor Profile</h2>
+            </div>
+            <form method="POST" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <input type="submit" name ="Update Information">
+            </form>
+
+            </div>
+{% endblock %}

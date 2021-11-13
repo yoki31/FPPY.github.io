@@ -275,6 +275,27 @@ def docprofile(request, pk):
     doctor = Doctor.objects.filter(id=pk).first()
     return render(request, "doctors/docprofile.html", {"doctor": doctor})
 
+def deleteDoc(request, pk):
+    doc = Doctor.objects.get(id=pk)
+    if request.method == "POST":
+        doc.delete()
+        os.remove(doc.profile_pic.path)
+        return redirect("doctors:spec")
+    
+def updateDoc(request, pk):
+    doctor = Doctor.objects.get(id=pk)
+    form = CreateDocForm(instance=doctor)
+    if request.method == 'POST':
+        createDocForm = CreateDocForm(
+            request.POST, request.FILES, instance=doctor)
+        if createDocForm.is_valid():
+            createDocForm.save()
+            doc = Doctor.objects.values('id').order_by('-id').first()
+            id_last = doc['id']
+            return redirect("doctors:docprofile" , pk=id_last)
+    context = {"form": form, "doctor": doctor}
+    return render(request, "doctors/updateDoc.html", context)
+
 def doctor(request):
     return render(request, "doctors/doctor.html")
 
@@ -308,6 +329,7 @@ def addDoc(request):
             createDocForm.save()
         return redirect("doctors:spec")
     return render(request, "doctors/adddoc.html",{'form': form})
+
 
 # ยังไม่ได้ใช้
 

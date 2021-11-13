@@ -56,6 +56,8 @@ urlpatterns = [
     path('docprofile/<pk>', views.docprofile, name="docprofile"),
     path('spec', views.spec, name="spec"),
     path('addDoc', views.addDoc, name="addDoc"),
-    
+    path('deleteDoc/<pk>', views.deleteDoc, name="deleteDoc"),
+    path('updateDoc/<pk>', views.updateDoc, name="updateDoc"),
+
 ]
 
