@@ -10,7 +10,7 @@ from django.contrib.auth.models import Group
 import os
 from django.contrib import messages
 from django.db.models import Q
-from datetime import date, datetime 
+from datetime import date, datetime
 # from django.contrib.admin.widgets import  AdminDateWidget
 # Create your views here.
 
@@ -161,7 +161,7 @@ def deletePackage(request, pk):
         return redirect("doctors:package")
     pack.delete()
     return redirect("doctors:package")
-    
+
 
 def addPackage(request):
     form = CreatePackageForm()
@@ -201,23 +201,21 @@ def appointment(request, pk):
     if request.method == 'POST':
         symptom_input = request.POST.get("symptom")
         date_input = request.POST.get("date_input")
+        if datetime(int(date_input[:4]), int(date_input[5:7]), int(date_input[8:]),) <= date_now:
+            messages.add_message(request, messages.SUCCESS, f"ไม่สามารถนัดพบแพทย์ได้ กรุณาเลือกวันให้ถูกต้อง")   #กรณีนัดวันที่ผ่านมาแล้ว
+            return redirect("doctors:appointment", pk)
         appointment = Appointment.objects.create(
             Patient_id=request.user.patient,
             Doctor_id=doctor,
             symptom=symptom_input
         )
-        print(date_input)
-        if datetime(int(date_input[:4]), int(date_input[5:7]), int(date_input[8:]),) <= date_now:
-            messages.add_message(request, messages.SUCCESS, f"ไม่สามารถนัดพบแพทย์ได้ กรุณาเลือกวันให้ถูกต้อง")   #กรณีนัดวันที่ผ่านมาแล้ว 
-            return redirect("doctors:appointment", pk)
-
         appointment.dateapp = date_input
         appointment.save()
         return redirect("doctors:profile")
 
     context = {"form": form, "doctor": doctor}
     return render(request, "doctors/appointment_patient.html", context)
-    
+
 def profile(request):
     appointment = Appointment.objects.filter(Patient_id=request.user.patient)
     return render(request, "doctors/profile.html", {"appointment": appointment})
@@ -291,7 +289,7 @@ def deleteDoc(request, pk):
         doc.delete()
         os.remove(doc.profile_pic.path)
         return redirect("doctors:spec")
-    
+
 def updateDoc(request, pk):
     doctor = Doctor.objects.get(id=pk)
     form = CreateDocForm(instance=doctor)
@@ -327,7 +325,7 @@ def spec(request):
     list5 = Doctor.objects.filter(spec='สูตินรีแพทย์')
     list6 = Doctor.objects.filter(spec='ทันตแพทย์')
     list7 = Doctor.objects.filter(spec='กุมารแพทย์')
-    context = {'list1': list1 ,'list2': list2 ,'list3': list3 ,'list4': list4 
+    context = {'list1': list1 ,'list2': list2 ,'list3': list3 ,'list4': list4
                ,'list5': list5 ,'list6': list6 ,'list7': list7 }
     return render(request, "doctors/spec.html", context)
 
