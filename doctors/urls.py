@@ -37,7 +37,6 @@ urlpatterns = [
 
 
 
-    path('mdoctor', views.mdoctor, name="mdoctor"),
     path('mcustomer', views.mcustomer, name="mcustomer"),
 
 #Appointment
@@ -50,14 +49,10 @@ urlpatterns = [
     path('profile', views.profile, name="profile"),
     path('accsetting', views.account, name="accsetting"),
 
-# Doctor
+
     path('doctor', views.doctor, name="doctor"),
     path('finddoc', views.finddoc, name="finddoc"),
     path('docprofile/<pk>', views.docprofile, name="docprofile"),
-    path('spec', views.spec, name="spec"),
-    path('addDoc', views.addDoc, name="addDoc"),
-    path('deleteDoc/<pk>', views.deleteDoc, name="deleteDoc"),
-    path('updateDoc/<pk>', views.updateDoc, name="updateDoc"),
-
+    
 ]
 

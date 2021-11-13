@@ -344,5 +344,4 @@ def addDoc(request):
 def mcustomer(request):
     return render(request, "doctors/mcustomer.html")
 
-def mdoctor(request):
-    return render(request, "doctors/mdoctor.html")
+
