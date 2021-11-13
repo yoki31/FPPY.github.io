@@ -37,8 +37,11 @@ urlpatterns = [
 
 
 
+<<<<<<< Updated upstream
     path('mcustomer', views.mcustomer, name="mcustomer"),
 
+=======
+>>>>>>> Stashed changes
 #Appointment
     path('appointment/<pk>', views.appointment, name="appointment"),
 

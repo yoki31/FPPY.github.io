@@ -46,10 +46,6 @@ def healthblog_content(request, pk):
 def deleteArticle(request, pk):
     article = Article.objects.get(id=pk)
     if request.method == "POST":
-        if article.img != "pic.jpg":
-            os.remove(article.img.path)
-            article.delete()
-            return redirect("doctors:healthblog")
         article.delete()
         return redirect("doctors:healthblog")
 
@@ -95,10 +91,6 @@ def news_content(request, pk):
 def deleteNews(request, pk):
     new = New.objects.get(id=pk)
     if request.method == "POST":
-        if new.img != "pic.jpg":
-            new.delete()
-            os.remove(new.img.path)
-            return redirect("doctors:news")
         new.delete()
         return redirect("doctors:news")
 
@@ -155,10 +147,6 @@ def editpackage(request, pk):
 
 def deletePackage(request, pk):
     pack = Package.objects.get(id=pk)
-    if pack.img != "pic.jpg":
-        pack.delete()
-        os.remove(pack.img.path)
-        return redirect("doctors:package")
     pack.delete()
     return redirect("doctors:package")
 
@@ -287,7 +275,6 @@ def deleteDoc(request, pk):
     doc = Doctor.objects.get(id=pk)
     if request.method == "POST":
         doc.delete()
-        os.remove(doc.profile_pic.path)
         return redirect("doctors:spec")
 
 def updateDoc(request, pk):
@@ -341,7 +328,10 @@ def addDoc(request):
 
 # ยังไม่ได้ใช้
 
+<<<<<<< Updated upstream
 def mcustomer(request):
     return render(request, "doctors/mcustomer.html")
 
 
+=======
+>>>>>>> Stashed changes

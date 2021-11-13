@@ -2,6 +2,8 @@ from django.db.models.aggregates import Count
 from django.http import response
 from django.test import TestCase, Client
 from django.urls import reverse
+
+from doctors.views import appointment, package
 from .models import *
 from .forms import *
 from django.contrib.auth.models import User, Group
@@ -62,25 +64,22 @@ class TestViewsCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'doctors/about.html', 'doctors/layout.html')
         
-    def test_healthblog(self):
-        self.c = Client()
-        response = self.c.get(reverse('doctors:healthblog'), follow=True)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'doctors/healthblog.html', 'doctors/layout.html')
         
     def test_requirement(self):
         self.c = Client()
         response = self.c.get(reverse('doctors:project_requirement'), follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'doctors/requirement.html', 'doctors/layout.html')
-
-    def test_healthblog_one(self):
+    
+    
+    def test_healthblog(self):
         self.c = Client()
         response = self.c.get(reverse('doctors:healthblog'), follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'doctors/healthblog.html', 'doctors/layout.html')
-
-    def test_healthblog(self):
+    
+    
+    def test_healthblog_one(self):
         self.c = Client()
         article1 = Article.objects.first()
         response = self.c.get(reverse('doctors:healthblog_content', args=(str(article1.id),)), follow=True)
@@ -96,6 +95,7 @@ class TestViewsCase(TestCase):
         response = self.c.post(reverse('doctors:addArticle'), follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'doctors/addhealthblog.html', 'doctors/layout.html')
+
 
     """
     # Not work
@@ -127,11 +127,17 @@ class TestViewsCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'doctors/updatehealthblog.html', 'doctors/layout.html')
 
+    def test_profile(self):
+        self.c = Client()
+        self.c.login(username='test', password='test')
+        response = self.c.get(reverse('doctors:profile'), follow=True)
+        self.assertEqual(response.status_code, 200)
+
     def test_deleteArticle(self):
         self.c = Client()
         article1 = Article.objects.first()
         response = self.c.post(reverse('doctors:deleteArticle', args=(str(article1.id),)), follow=True)
-        self.assertEqual(response.status_code, 200)
+        
         self.assertTemplateUsed(response, 'doctors/healthblog.html', 'doctors/layout.html')
         
     def test_newscontent(self):
@@ -141,6 +147,7 @@ class TestViewsCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'doctors/news_one.html', 'doctors/layout.html')
 
+<<<<<<< Updated upstream
     # def test_deletenews(self):
     #     self.c = Client()
     #     news1 = New.objects.first()
@@ -169,6 +176,15 @@ class TestViewsCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'doctors/updatenews.html', 'doctors/layout.html')
 
+=======
+    def test_deletenews(self):
+        self.c = Client()
+        news1 = New.objects.first()
+        response = self.c.post(reverse('doctors:deleteNews', args=(str(news1.id),)), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'doctors/news.html', 'doctors/layout.html')
+    
+>>>>>>> Stashed changes
     def test_package(self):
         self.c = Client()
         response = self.c.get(reverse('doctors:package'), follow=True)
@@ -206,6 +222,7 @@ class TestViewsCase(TestCase):
         self.assertTemplateUsed(response, 'doctors/addpackage.html', 'doctors/layout.html')
         self.assertEqual(Package.objects.all().count(), 1)
     
+<<<<<<< Updated upstream
     def test_buy(self): 
         self.c = Client()
         self.c.login(username='test', password='test')
@@ -220,6 +237,24 @@ class TestViewsCase(TestCase):
         self.c = Client()
         self.c.login(username='test', password='test')
         response = self.c.post(reverse('doctors:packbuy'), follow=True)
+=======
+    def test_packbuy(self):
+        self.c = Client()
+        response = self.c.get(reverse('doctors:packbuy'), follow=True)
+        self.assertEqual(response.status_code, 200)
+    
+    def test_buy(self):
+        self.c = Client()
+        self.c.login(username='test', password='test')
+        package1 = Package.objects.first()
+        response = self.c.get(reverse('doctors:buy', args=(str(package1.id),)), follow=True)
+        self.assertEqual(response.status_code, 200)
+
+    def test_mypack(self):
+        self.c = Client()
+        self.c.login(username='test', password='test')
+        response = self.c.get(reverse('doctors:mypack'), follow=True)
+>>>>>>> Stashed changes
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'doctors/packbuy.html', 'doctors/layout.html')
         
@@ -269,3 +304,32 @@ class TestViewsCase(TestCase):
         c.force_login(User.objects.first())
         response = c.get(reverse('doctors:logout'), follow=True)
         self.assertEqual(response.status_code, 200)
+    
+    def test_register(self):
+        self.c = Client()
+        response = self.c.post(reverse('doctors:register'), {'username': "test", 'email': "test@testtest.com", 'password1': "testtesttest", 'password2': "testtesttest"}, follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'doctors/register.html')
+    
+
+    def test_doctor(self):
+        self.c = Client()
+        response = self.c.get(reverse('doctors:doctor'), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'doctors/doctor.html', 'doctors/layout.html')
+    
+    
+    def test_doctor_one(self):
+        self.c = Client()
+        doctor1 = Doctor.objects.first()
+        response = self.c.get(reverse('doctors:docprofile', args=(str(doctor1.id),)), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'doctors/docprofile.html', 'doctors/layout.html')
+    
+    def test_deleteDoc(self):
+        self.c = Client()
+        doctor1 = Doctor.objects.first()
+        response = self.c.post(reverse('doctors:deleteDoc', args=(str(doctor1.id),)), follow=True)
+        self.assertEqual(response.status_code, 200)
+
+        
