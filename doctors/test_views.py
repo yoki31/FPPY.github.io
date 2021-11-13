@@ -147,7 +147,6 @@ class TestViewsCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'doctors/news_one.html', 'doctors/layout.html')
 
-<<<<<<< Updated upstream
     # def test_deletenews(self):
     #     self.c = Client()
     #     news1 = New.objects.first()
@@ -176,7 +175,6 @@ class TestViewsCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'doctors/updatenews.html', 'doctors/layout.html')
 
-=======
     def test_deletenews(self):
         self.c = Client()
         news1 = New.objects.first()
@@ -184,7 +182,6 @@ class TestViewsCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'doctors/news.html', 'doctors/layout.html')
     
->>>>>>> Stashed changes
     def test_package(self):
         self.c = Client()
         response = self.c.get(reverse('doctors:package'), follow=True)
@@ -222,22 +219,20 @@ class TestViewsCase(TestCase):
         self.assertTemplateUsed(response, 'doctors/addpackage.html', 'doctors/layout.html')
         self.assertEqual(Package.objects.all().count(), 1)
     
-<<<<<<< Updated upstream
-    def test_buy(self): 
-        self.c = Client()
-        self.c.login(username='test', password='test')
-        package1 = Package.objects.first()
-        response = self.c.post(reverse('doctors:buy', args=(str(package1.id),)), follow=True)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'doctors/package.html', 'doctors/layout.html')
+    # def test_buy(self): 
+    #     self.c = Client()
+    #     self.c.login(username='test', password='test')
+    #     package1 = Package.objects.first()
+    #     response = self.c.post(reverse('doctors:buy', args=(str(package1.id),)), follow=True)
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertTemplateUsed(response, 'doctors/package.html', 'doctors/layout.html')
         # patient_id = Patient.objects.filter(user=self.c).id
         # self.assertEqual(Buy.objects.filter(patient=patient_id).count(), 1)   #จะเช็คว่ามีการซื้อแพ็คเกจแล้วจริงๆ
         
-    def test_packbuy(self):
-        self.c = Client()
-        self.c.login(username='test', password='test')
-        response = self.c.post(reverse('doctors:packbuy'), follow=True)
-=======
+    # def test_packbuy(self):
+    #     self.c = Client()
+    #     self.c.login(username='test', password='test')
+    #     response = self.c.post(reverse('doctors:packbuy'), follow=True)
     def test_packbuy(self):
         self.c = Client()
         response = self.c.get(reverse('doctors:packbuy'), follow=True)
@@ -254,7 +249,6 @@ class TestViewsCase(TestCase):
         self.c = Client()
         self.c.login(username='test', password='test')
         response = self.c.get(reverse('doctors:mypack'), follow=True)
->>>>>>> Stashed changes
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'doctors/packbuy.html', 'doctors/layout.html')
         

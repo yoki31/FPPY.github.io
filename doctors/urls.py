@@ -37,11 +37,6 @@ urlpatterns = [
 
 
 
-<<<<<<< Updated upstream
-    path('mcustomer', views.mcustomer, name="mcustomer"),
-
-=======
->>>>>>> Stashed changes
 #Appointment
     path('appointment/<pk>', views.appointment, name="appointment"),
 
@@ -56,6 +51,7 @@ urlpatterns = [
     path('doctor', views.doctor, name="doctor"),
     path('finddoc', views.finddoc, name="finddoc"),
     path('docprofile/<pk>', views.docprofile, name="docprofile"),
-    
+    path('spec', views.spec, name="spec"),
+    path('addDoc', views.addDoc, name="addDoc"),
 ]
 

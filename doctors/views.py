@@ -327,11 +327,3 @@ def addDoc(request):
 
 
 # ยังไม่ได้ใช้
-
-<<<<<<< Updated upstream
-def mcustomer(request):
-    return render(request, "doctors/mcustomer.html")
-
-
-=======
->>>>>>> Stashed changes
