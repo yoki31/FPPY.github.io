@@ -35,6 +35,12 @@ class CreatePackageForm(ModelForm):
         model = Package
         fields = '__all__'
         exclude = ['date_created']
+        
+class CreateDocForm(ModelForm):
+    class Meta:
+        model = Doctor
+        fields = '__all__'
+        exclude = ['date_created']
 
 # class CreateAppointmentForm(ModelForm):
 #     class Meta:

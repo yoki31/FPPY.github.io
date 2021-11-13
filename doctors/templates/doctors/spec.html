@@ -10,7 +10,7 @@
 <a href="{% url 'doctors:finddoc' %}"><li>ค้นหาแพทย์จากชื่อ</li></a>
 
 {% if request.user.is_superuser %}
-<a href=#><li>แก้ไขรายชื่อ</li></a>
+<a href={% url 'doctors:addDoc' %}><li>เพิ่ม</li></a>
 {% endif %}
 
 <p class="bold">อายุรศาสตร์ทั่วไป</p>

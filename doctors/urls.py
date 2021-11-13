@@ -50,11 +50,12 @@ urlpatterns = [
     path('profile', views.profile, name="profile"),
     path('accsetting', views.account, name="accsetting"),
 
-
+# Doctor
     path('doctor', views.doctor, name="doctor"),
     path('finddoc', views.finddoc, name="finddoc"),
     path('docprofile/<pk>', views.docprofile, name="docprofile"),
     path('spec', views.spec, name="spec"),
+    path('addDoc', views.addDoc, name="addDoc"),
     
 ]
 

@@ -285,15 +285,7 @@ def finddoc(request):
         doctors = Doctor.objects.filter(mulq)
     else:
         doctors = Doctor.objects.all()
-    list1 = Doctor.objects.filter(spec='อายุรศาสตร์ทั่วไป')
-    list2 = Doctor.objects.filter(spec='ศัลยแพทย์ออร์โธปิดิกส์')
-    list3 = Doctor.objects.filter(spec='จักษุแพทย์')
-    list4 = Doctor.objects.filter(spec='จิตแพทย์')
-    list5 = Doctor.objects.filter(spec='สูตินรีแพทย์')
-    list6 = Doctor.objects.filter(spec='ทันตแพทย์')
-    list7 = Doctor.objects.filter(spec='กุมารแพทย์')
-    context = {'list1': list1 ,'list2': list2 ,'list3': list3 ,'list4': list4 
-               ,'list5': list5 ,'list6': list6 ,'list7': list7 ,'doctors': doctors}
+    context = {'doctors': doctors}
     return render(request, "doctors/finddoc.html", context)
 
 def spec(request):
@@ -307,6 +299,15 @@ def spec(request):
     context = {'list1': list1 ,'list2': list2 ,'list3': list3 ,'list4': list4 
                ,'list5': list5 ,'list6': list6 ,'list7': list7 }
     return render(request, "doctors/spec.html", context)
+
+def addDoc(request):
+    form = CreateDocForm()
+    if request.method == 'POST':
+        createDocForm = CreateDocForm(request.POST, request.FILES)
+        if createDocForm.is_valid():
+            createDocForm.save()
+        return redirect("doctors:spec")
+    return render(request, "doctors/adddoc.html",{'form': form})
 
 # ยังไม่ได้ใช้
 
