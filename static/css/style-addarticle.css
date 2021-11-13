@@ -85,15 +85,70 @@
           border-radius: 20px;
           padding: 20px;
           font-size: 16px; }
+        .area-content .add-healthblog-card form .addcontent-blog textarea {
+          height: 34vh;
+          width: 100%;
+          border: transparent;
+          background-color: #f4f4f4;
+          border-radius: 20px;
+          padding: 20px;
+          font-size: 16px; }
       .area-content .add-healthblog-card form .btn {
+        margin-top: 10px;
         padding: 5px 30px;
         border-radius: 20px;
         background-color: #63bc8a;
         color: white;
         font-weight: bolder;
         border: transparent;
-        transition: 150ms; }
+        transition: 150ms;
+        font-size: 1.2rem; }
+      .area-content .add-healthblog-card form .btn.ea {
+        margin-top: 20px; }
+      .area-content .add-healthblog-card form .btn.en {
+        margin-top: 65px; }
       .area-content .add-healthblog-card form .btn:hover {
         background-color: #50aa77; }
+      .area-content .add-healthblog-card form .btn-news {
+        margin-top: 55px;
+        padding: 5px 30px;
+        border-radius: 20px;
+        background-color: #63bc8a;
+        color: white;
+        font-weight: bolder;
+        border: transparent;
+        transition: 150ms;
+        font-size: 1.2rem; }
+      .area-content .add-healthblog-card form .btn-news:hover {
+        background-color: #50aa77; }
+      .area-content .add-healthblog-card form .updatecontent-blog {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center; }
+        .area-content .add-healthblog-card form .updatecontent-blog h5 {
+          margin-right: 10px;
+          color: #63bc8a;
+          font-size: 1.2rem; }
+        .area-content .add-healthblog-card form .updatecontent-blog input:hover {
+          background-color: #e7e7e7; }
+        .area-content .add-healthblog-card form .updatecontent-blog label {
+          width: 40%;
+          text-align: left;
+          font-weight: bold;
+          color: #63bc8a; }
+        .area-content .add-healthblog-card form .updatecontent-blog a {
+          width: 30%;
+          overflow: hidden;
+          text-decoration: none;
+          color: gray;
+          font-weight: 100;
+          margin-right: 5px; }
+        .area-content .add-healthblog-card form .updatecontent-blog #profile_pic-clear_id {
+          width: 50px;
+          border: transparent; }
+        .area-content .add-healthblog-card form .updatecontent-blog br {
+          display: none; }
 
 /*# sourceMappingURL=style-addarticle.css.map */

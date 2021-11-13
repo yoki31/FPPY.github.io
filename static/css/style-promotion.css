@@ -39,7 +39,7 @@
     max-width: 90%;
     margin-bottom: 20px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 30px; }
     .area-content .promotion-card-area-all .promotion-card {
       text-decoration: none;
@@ -96,5 +96,12 @@
         padding: 10px; }
     .area-content .promotion-card-area-all .promotion-card:hover {
       transform: scale(1.1); }
+
+@media screen and (min-width: 600px) {
+  .area-content .promotion-card-area-all {
+    grid-template-columns: repeat(2, 1fr); } }
+@media screen and (min-width: 900px) {
+  .area-content .promotion-card-area-all {
+    grid-template-columns: repeat(3, 1fr); } }
 
 /*# sourceMappingURL=style-promotion.css.map */

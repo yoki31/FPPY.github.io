@@ -1,5 +1,22 @@
-<form method="POST" action="" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" name="Create Package" class="btn">
-</form>
+{% extends "doctors/layout.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="Stylesheet" href="{% static 'css/style-adddoc.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="add-doctor-card">
+    <div class="header-addhb">
+        <h2>Add Doctor</h2>
+    </div>
+
+    <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" name="Create Package" class="btn">
+    </form>
+
+</div>
+{% endblock %}
