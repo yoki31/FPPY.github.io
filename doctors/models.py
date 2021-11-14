@@ -12,7 +12,7 @@ class Patient(models.Model):
     phone = models.CharField(max_length=100, null = True)
     email = models.CharField(max_length=200, null = True)
     date_created = models.DateTimeField(default=timezone.now)
-    profile_pic = models.ImageField(default='defaultpic.jpeg',null=True, blank=True)
+    profile_pic = models.ImageField(default='defaultpic.jpeg',null=True)
 
     def __str__(self):
         return self.First_name
