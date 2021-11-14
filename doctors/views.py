@@ -203,6 +203,15 @@ def appointment(request, pk):
 
     context = {"form": form, "doctor": doctor}
     return render(request, "doctors/appointment_patient.html", context)
+    
+def deleteAppointment(request, pk):
+    appointment = Appointment.objects.get(id=pk)
+    appointment.delete()
+    return redirect("doctors:profile")
+    
+def adminAppointment(request):
+    appointment = Appointment.objects.all()
+    return render(request, "doctors/mappointment.html", {"appointment": appointment})
 
 def profile(request):
     appointment = Appointment.objects.filter(Patient_id=request.user.patient)

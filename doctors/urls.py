@@ -39,6 +39,9 @@ urlpatterns = [
 
 #Appointment
     path('appointment/<pk>', views.appointment, name="appointment"),
+    path('deleteappointment/<pk>', views.deleteAppointment, name="deleteappointment"),
+    path('adminappointment', views.adminAppointment, name="mappointment"),
+    
 
     # register, login profile
     path('register/', views.registerPage, name="register"),
