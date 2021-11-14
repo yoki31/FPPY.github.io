@@ -68,6 +68,7 @@
                 <a class="nav-text" href="{% url 'doctors:about' %}"><li>เกี่ยวกับเรา</li></a>
                 <a class="nav-text" href="{% url 'doctors:maps' %}"><li>แผนที่</li></a>
                 <a class="nav-text" href="{% url 'doctors:spec' %}"><li>รายชื่อแพทย์</li></a>
+                <a class="nav-text" href="{% url 'doctors:mappointment' %}"><li>ข้อมูลการนัดพบแพทย์</li></a>
                 {% elif request.user.is_active %}
                 <a class="nav-text" href="{% url 'doctors:index' %}"><li>หน้าแรก</li></a>
                 <a class="nav-text" href="{% url 'doctors:about' %}"><li>เกี่ยวกับเรา</li></a>
