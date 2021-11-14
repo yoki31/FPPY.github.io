@@ -214,7 +214,7 @@ def appointment(request, pk):
     context = {"form": form, "doctor": doctor}
     return render(request, "doctors/appointment_patient.html", context)
 
-@admin_only    
+# @admin_only    
 def deleteAppointment(request, pk):
     appointment = Appointment.objects.get(id=pk)
     appointment.delete()
