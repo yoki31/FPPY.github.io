@@ -224,7 +224,12 @@ def deleteAppointment(request, pk):
 def adminAppointment(request):
     appointment = Appointment.objects.all()
     return render(request, "doctors/mappointment.html", {"appointment": appointment})
-
+    
+def adminAppointment_one(request, pk):
+    doctor = Doctor.objects.get(id=pk)
+    appointment = Appointment.objects.filter(Doctor_id=doctor)
+    return render(request, "doctors/mappointment.html", {"appointment": appointment})
+    
 def profile(request):
     appointment = Appointment.objects.filter(Patient_id=request.user.patient)
     return render(request, "doctors/profile.html", {"appointment": appointment})

@@ -24,7 +24,7 @@
 
         {% if request.user.is_superuser %}
         <div class="button-zone">
-            <a href="#" class="app-butt">  <!-- ฝ่กทำทีนะกชมล -->
+            <a href="{% url 'doctors:appointment_one' doctor.id %}" class="app-butt">  <!-- ฝ่กทำทีนะกชมล -->
                 <ion-icon name="person"></ion-icon>
                 <p>ผู้ป่วย</p>
             </a>
