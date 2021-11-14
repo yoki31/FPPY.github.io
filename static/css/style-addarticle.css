@@ -23,6 +23,18 @@
     justify-content: flex-start;
     align-items: center;
     text-align: center; }
+    .area-content .add-healthblog-card .header-edp {
+      display: flex;
+      margin: 0px;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 10px;
+      font-size: 20px;
+      border-bottom: 2px solid #dfdfdf; }
+      .area-content .add-healthblog-card .header-edp h2 {
+        color: #63bc8a; }
     .area-content .add-healthblog-card .header-addhb {
       display: flex;
       margin: 15px;
@@ -37,6 +49,47 @@
         color: #63bc8a; }
     .area-content .add-healthblog-card form {
       width: 100%; }
+      .area-content .add-healthblog-card form p {
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        color: #63bc8a;
+        font-weight: bold; }
+        .area-content .add-healthblog-card form p input {
+          width: 65%;
+          border: transparent;
+          background-color: #f4f4f4;
+          color: gray;
+          border-radius: 50px;
+          padding: 10px; }
+        .area-content .add-healthblog-card form p input:hover {
+          background-color: #e7e7e7; }
+        .area-content .add-healthblog-card form p label {
+          width: 40%;
+          text-align: left;
+          font-weight: bold;
+          color: #63bc8a; }
+        .area-content .add-healthblog-card form p a {
+          width: 25%;
+          text-decoration: none;
+          color: gray;
+          font-weight: 100; }
+        .area-content .add-healthblog-card form p #profile_pic-clear_id {
+          width: 50px;
+          border: transparent; }
+        .area-content .add-healthblog-card form p br {
+          display: none; }
+        .area-content .add-healthblog-card form p select {
+          width: 65%;
+          height: 5vh;
+          border: transparent;
+          padding-left: 20px;
+          background-color: #f4f4f4;
+          border-radius: 20px;
+          font-size: 16px; }
       .area-content .add-healthblog-card form .addhead-blog {
         display: flex;
         width: 100%;

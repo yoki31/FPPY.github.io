@@ -1,6 +1,19 @@
-{% for i in patient %}
-{{i.package.name}}
-{{i.package.price}}
-{{i.status}} <br>
-{{i.package.date_created}}
-{% endfor %}
+{% extends "doctors/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="Stylesheet" href="{% static 'css/style-maps.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    {% for i in patient %}
+
+        {{i.package.name}}
+        {{i.package.price}}
+        {{i.status}} <br>
+        {{i.package.date_created}}
+
+    {% endfor %}
+
+{% endblock %}
