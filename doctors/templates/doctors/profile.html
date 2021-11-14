@@ -26,10 +26,15 @@
 
                 </div>
             </div>
+            
+            {% if request.user.is_superuser %}
+
+            {% else %}
             <a href="{% url 'doctors:mypack' %}" class="mypack">
                 <ion-icon src="{% static 'svg/gift.svg' %}"></ion-icon>
                 My pack
             </a>
+            {% endif %}
         </div>
     </div>
 
@@ -49,6 +54,19 @@
             <div class="details">อาการ: {{ app.symptom }}</div>
         </div>
         {% endfor %}
+        
+        {% if request.user.is_superuser %}
+            <a href="{% url 'doctors:packbuy' %}" class="mypack">
+                <ion-icon src="{% static 'svg/gift.svg' %}"></ion-icon>
+                Package purchase history
+            </a>
+            
+            <a href="{% url 'doctors:mappointment' %}" class="mypack">
+                <ion-icon src="{% static 'svg/gift.svg' %}"></ion-icon>
+                doctor's appointment history
+            </a>
+
+        {% endif %}
 
     </div>
 

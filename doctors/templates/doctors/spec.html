@@ -13,6 +13,7 @@
     </div>
 
     {% if request.user.is_superuser %}
+    <a href="{% url 'doctors:mappointment' %}"> ประวัติการนัดพบแพทย์</a>
     <a href="{% url 'doctors:addDoc' %}"><h3>เพิ่ม</h3></a>
     {% endif %}
 </div>
