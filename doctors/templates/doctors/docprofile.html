@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-<h3>INFOMATION</h3>
+<h2 class="dp-header">INFOMATION</h2>
 <div class="doctor-card">
     <div class="zone-l">
         <div class="doc-img">
@@ -31,7 +31,7 @@
                 <a href="{% url 'doctors:updateDoc' doctor.id %}">แก้ไข</a>
             <form action= "{% url 'doctors:deleteDoc' doctor.id %}" method="POST">
             {% csrf_token %}
-            <button  type="submit" class="remove-button"><h3>ลบ</h3></button>
+            <button  type="submit" class="remove-button"><h3 class="danger">ลบ</h3></button>
             </div>
             {% endif %}
         </div>

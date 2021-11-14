@@ -26,6 +26,10 @@ $Topiccolor: #63bc8a;
     flex-direction: column;
 
     // ================================================================
+    .dp-header {
+        color: $Topiccolor;
+        margin-bottom: 10px;
+    }
 
     .doctor-card {
         background-color: $Cardcolor;
@@ -120,22 +124,53 @@ $Topiccolor: #63bc8a;
                 h3 {
                     color: #56cc89;
                 }
+                .button-group {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    a {
+                        position: relative;
+                        display: inline-block;
+                        padding: 10px 20px;
+                        background: $Topiccolor;
+                        color: $Cardcolor;
+                        border-radius: 15px;
+                        text-decoration: none;
+                        transition: 100ms;
+                        font-weight: bold;
+                    }
+    
+                    a:hover {
+                        background: #56cc89;
+                    }
 
-                a {
-                    position: relative;
-                    display: inline-block;
-                    padding: 10px 20px;
-                    background: $Topiccolor;
-                    color: $Cardcolor;
-                    border-radius: 15px;
-                    text-decoration: none;
-                    transition: 100ms;
-                    font-weight: bold;
-                }
+                    .remove-button {
+                        position: relative;
+                        display: inline-block;
+                        padding: 10px 20px;
+                        background: $Cardcolor;
+                        border-radius: 15px;
+                        text-decoration: none;
+                        transition: 100ms;
+                        font-weight: bold;
+                        margin-left: 5px;
+                        border: 2px solid rgb(255, 99, 99);
 
-                a:hover {
-                    background: #56cc89;
+                        .danger {
+                            color: rgb(255, 99, 99);
+                        }
+                    }
+    
+                    .remove-button:hover {
+                        background: rgb(255, 99, 99);
+                        
+                        .danger {
+                            color: $Cardcolor;
+                        }
+                    }
                 }
+                
             }
 
             .xpert {

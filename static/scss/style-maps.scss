@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
+
+// $BGcolor:#63bc8a;
+$BGcolor:#f4f4f4;
+$Cardcolor:white;
+$labelcolor:#F2DC99;
+$Topiccolor: #63bc8a;
+// * {
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+//     font-family: 'Prompt', sans-serif;
+// }
+
+.area-content {
+    background-color: $BGcolor;
+    display: flex;
+    height: 91vh;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    // position: relative;
+    flex-direction: column;
+
+    .maps-header {
+        color: $Topiccolor;
+    }
+}

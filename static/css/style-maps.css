@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap");
+.area-content {
+  background-color: #f4f4f4;
+  display: flex;
+  height: 91vh;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  flex-direction: column; }
+  .area-content .maps-header {
+    color: #63bc8a; }
+
+/*# sourceMappingURL=style-maps.css.map */

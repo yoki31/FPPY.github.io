@@ -17,6 +17,9 @@
   align-items: center;
   text-align: center;
   flex-direction: column; }
+  .area-content .dp-header {
+    color: #63bc8a;
+    margin-bottom: 10px; }
   .area-content .doctor-card {
     background-color: white;
     width: 90%;
@@ -86,18 +89,40 @@
         border-bottom: 2px solid #cacaca; }
         .area-content .doctor-card .zone-r .name h3 {
           color: #56cc89; }
-        .area-content .doctor-card .zone-r .name a {
-          position: relative;
-          display: inline-block;
-          padding: 10px 20px;
-          background: #63bc8a;
-          color: white;
-          border-radius: 15px;
-          text-decoration: none;
-          transition: 100ms;
-          font-weight: bold; }
-        .area-content .doctor-card .zone-r .name a:hover {
-          background: #56cc89; }
+        .area-content .doctor-card .zone-r .name .button-group {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center; }
+          .area-content .doctor-card .zone-r .name .button-group a {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            background: #63bc8a;
+            color: white;
+            border-radius: 15px;
+            text-decoration: none;
+            transition: 100ms;
+            font-weight: bold; }
+          .area-content .doctor-card .zone-r .name .button-group a:hover {
+            background: #56cc89; }
+          .area-content .doctor-card .zone-r .name .button-group .remove-button {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            background: white;
+            border-radius: 15px;
+            text-decoration: none;
+            transition: 100ms;
+            font-weight: bold;
+            margin-left: 5px;
+            border: 2px solid #ff6363; }
+            .area-content .doctor-card .zone-r .name .button-group .remove-button .danger {
+              color: #ff6363; }
+          .area-content .doctor-card .zone-r .name .button-group .remove-button:hover {
+            background: #ff6363; }
+            .area-content .doctor-card .zone-r .name .button-group .remove-button:hover .danger {
+              color: white; }
       .area-content .doctor-card .zone-r .xpert {
         width: 100%;
         padding: 10px;
