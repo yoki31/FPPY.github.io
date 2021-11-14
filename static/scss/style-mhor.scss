@@ -44,6 +44,16 @@ $Topiccolor: #63bc8a;
         text-align: center;
         padding: 10px;
 
+        .group-r {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            a {
+                margin: 5px;
+            }
+        }
+
         .group-l {
             h2 {
                 color: $Topiccolor;

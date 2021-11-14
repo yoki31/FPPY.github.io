@@ -25,7 +25,7 @@ class Doctor(models.Model):
     email = models.CharField(max_length=200, null = True)
     spec = models.CharField(max_length=100, null = True)
     date_created = models.DateTimeField(default=timezone.now)
-    profile_pic = models.ImageField(default='person.jpg',null=True, blank=True)
+    profile_pic = models.ImageField(default='person.jpg',null=True)
 
     def __str__(self):
         return self.First_name

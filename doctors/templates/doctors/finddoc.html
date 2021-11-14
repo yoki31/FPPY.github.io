@@ -12,10 +12,16 @@
         <a href="{% url 'doctors:spec' %}" class="no-dec"><h4>รายชื่อแพทย์ตามสาขา</h4></a>
     </div>
     
-    <form>
-        <input name="q" type="text" placeholder="doctor name or lastname" />
-        <button><ion-icon name="search"></ion-icon></button>
-    </form>
+    <div class="group-r">
+        <form>
+            <input name="q" type="text" placeholder="doctor name or lastname" />
+            <button><ion-icon name="search"></ion-icon></button>
+        </form>
+            
+        {% if request.user.is_superuser %}
+        <a href="{% url 'doctors:addDoc' %}"><h3>เพิ่ม</h3></a>
+        {% endif %}
+    </div>
 </div>
 
 <div class="mhor-card-area-all">
