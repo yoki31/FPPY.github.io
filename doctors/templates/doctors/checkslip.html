@@ -1,0 +1,19 @@
+{% extends "doctors/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="Stylesheet" href="{% static 'css/style-editpackage.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="add-healthblog-card">
+    <div class="header-addhb">
+        <h2>Status</h2>
+    </div>
+
+        <form method="POST" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+                {{ form.status }}
+            <input type="submit" name="changestatus" class="btn epack">
+        </form>
+{% endblock %}

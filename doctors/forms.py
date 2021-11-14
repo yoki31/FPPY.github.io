@@ -42,6 +42,17 @@ class CreateDocForm(ModelForm):
         fields = '__all__'
         exclude = ['date_created']
 
+class StatusBuy(ModelForm):
+    class Meta:
+        model = Buy
+        fields = ['status']
+
+class SendSlip(ModelForm):
+    class Meta:
+        model = Buy
+        fields = ['img']
+        
+
 # class CreateAppointmentForm(ModelForm):
 #     class Meta:
 #         model = Appointment

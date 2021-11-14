@@ -187,6 +187,35 @@ def mypack(request):
     patient = request.user.patient.buy_set.all()
     return render(request, "doctors/mypack.html", {'patient': patient})
 
+@admin_only
+def packbuy_one(request, pk):
+    buy = Buy.objects.filter(id=pk).first()
+    return render(request, "doctors/packbuy_one.html", {'buy': buy} )
+
+@admin_only
+def checkslip(request, pk):
+    buy = Buy.objects.get(id=pk)
+    form = StatusBuy(instance=buy)
+    if request.method == 'POST':
+        form = StatusBuy(request.POST, request.FILES, instance=buy)
+        if form.is_valid():
+            form.save()
+        return redirect("doctors:packbuy")    
+    return render(request, "doctors/checkslip.html", {"form": form})
+
+def mypack_one(request, pk):
+    mypack = request.user.patient.buy_set.get(id=pk)
+    return render(request, "doctors/mypack_one.html", {'mypack': mypack})
+
+def sendslip(request, pk):
+    mypack = request.user.patient.buy_set.get(id=pk)
+    form = SendSlip(instance=mypack)
+    if request.method == 'POST':
+        form = SendSlip(request.POST, request.FILES, instance=mypack)
+        if form.is_valid():
+            form.save()
+            return redirect("doctors:mypack")
+    return render(request, "doctors/sendslip.html", {"form": form})   
 
 #-----------------------------------------------------------------------------------
 

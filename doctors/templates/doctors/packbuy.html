@@ -30,7 +30,7 @@
                     <tr>
                         <td>{{ i.date_created }}</td>
                         <td>{{ i.patient }}</td>
-                        <td><a href="#">ดูสลิป</a></td>
+                        <td><a href="{% url 'doctors:packbuyone' i.id %}">ดูสลิป</a></td>
                         <td>{{ i.status }}</td>
                     </tr>
                     {% endfor %}

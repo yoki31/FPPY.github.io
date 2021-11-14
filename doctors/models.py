@@ -88,7 +88,10 @@ class Buy(models.Model):
     patient = models.ForeignKey(Patient, null=True, on_delete= models.CASCADE)
     package = models.ForeignKey(Package, null=True, on_delete= models.CASCADE)
     date_created = models.DateTimeField(default=timezone.now)
+    img = models.ImageField(default='nopic.png', null=True)
     status = models.CharField(max_length=200, null = True, choices=STATUS, default='NOT PAID')
 
     def __str__(self) :
         return f'{self.patient.First_name} >>> {self.package}'
+
+

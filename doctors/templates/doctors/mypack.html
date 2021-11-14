@@ -27,7 +27,7 @@
                 <td>{{i.package.price}}</td>
                 <td>{{i.status}}</td>
                 <td>{{i.date_created}}</td>
-                <td><a href="#">แนบสลิป</a></td>
+                <td><a href="{% url 'doctors:mypackone' i.id %}">แนบสลิป</a></td>
             </tr>
             {% endfor %}
             </tbody>

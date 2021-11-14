@@ -34,6 +34,10 @@ urlpatterns = [
     path('buy/<str:pk>', views.buy, name="buy"),
     path('mypack', views.mypack, name="mypack" ),
     path('packbuy', views.packbuy, name="packbuy" ),
+    path('packbuy/<str:pk>', views.packbuy_one, name="packbuyone" ),
+    path('checkslip/<str:pk>', views.checkslip, name="checkslip" ),
+    path('mypack/<str:pk>', views.mypack_one, name="mypackone" ),
+    path('sendslip/<str:pk>', views.sendslip, name="sendslip" ),
 
 
 

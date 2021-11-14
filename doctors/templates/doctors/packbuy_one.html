@@ -1,0 +1,14 @@
+{% extends "doctors/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="Stylesheet" href="{% static 'css/style-dpromotion.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<img src="{{buy.img.url}}" alt="">
+
+<a href="{% url 'doctors:checkslip' buy.id %}">เปลี่ยนสถานะ</a>
+    
+{% endblock %}
