@@ -199,7 +199,7 @@ def checkslip(request, pk):
         form = StatusBuy(request.POST, request.FILES, instance=buy)
         if form.is_valid():
             form.save()
-        return redirect("doctors:packbuy")    
+            return redirect("doctors:packbuy")    
     return render(request, "doctors/checkslip.html", {"form": form})
 
 def mypack_one(request, pk):
@@ -379,7 +379,7 @@ def addDoc(request):
         createDocForm = CreateDocForm(request.POST, request.FILES)
         if createDocForm.is_valid():
             createDocForm.save()
-        return redirect("doctors:spec")
+            return redirect("doctors:spec")
     return render(request, "doctors/adddoc.html",{'form': form})
 
 
