@@ -147,6 +147,35 @@ $Topiccolor: #63bc8a;
         padding: 5px;
         padding-bottom: 20px;
         // background-color: pink;
+        
+        .admin-card {
+            margin-top: 20px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: $Cardcolor;
+            min-width: 400px;
+            max-width: 750px;
+            width: 70%;
+            height: 20vh;
+
+            .admin-btn {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                color: white;
+                background-color: #54a879;
+                margin: 5px;
+                padding: 10px;
+                padding-right: 10px;
+                border-radius: 20px;
+                font-weight: bold;
+                transition: 300ms;
+                // box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
+            }
+        }
 
         .app-topic {
             color: $Topiccolor;

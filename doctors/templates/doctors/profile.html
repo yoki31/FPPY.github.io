@@ -56,16 +56,15 @@
         {% endfor %}
         
         {% if request.user.is_superuser %}
-            <a href="{% url 'doctors:packbuy' %}" class="mypack">
-                <ion-icon src="{% static 'svg/gift.svg' %}"></ion-icon>
+        <div class="admin-card">
+            <a href="{% url 'doctors:packbuy' %}" class="admin-btn">
                 Package purchase history
             </a>
             
-            <a href="{% url 'doctors:mappointment' %}" class="mypack">
-                <ion-icon src="{% static 'svg/gift.svg' %}"></ion-icon>
+            <a href="{% url 'doctors:mappointment' %}" class="admin-btn">
                 doctor's appointment history
             </a>
-
+        </div>
         {% endif %}
 
     </div>
