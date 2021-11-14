@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-    <link rel="Stylesheet" href="{% static 'css/style-epromotion.css' %}">
+    <link rel="Stylesheet" href="{% static 'css/style-editpackage.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -16,22 +16,32 @@
             <div class="addhead-blog">
                 <h5>Header</h5>
                 {{ form.name }}
+                
+            </div>
+
+            <div class="addhead-blog">
+                <h5>Price</h5>
                 {{ form.price }}
             </div>
 
 
             <div class="addhead-blog">
-                <h5>Content</h5>
+                <h5>Details</h5>
                 {{ form.desc }}
-                {{ form.cond }}
-              
             </div>
-            <div class="addcontent-blog">
+
+            <div class="addhead-blog">
+                <h5>Condition</h5>
+                {{ form.cond }}
+            </div>
+
+            <div class="updatecontent-blog">
+                <h5>Picture</h5>
                 {{ form.img }}
             </div>
            
 
-            <input type="submit" name="editpackage" class="btn">
+            <input type="submit" name="editpackage" class="btn epack">
         </form>
 
     </div>
