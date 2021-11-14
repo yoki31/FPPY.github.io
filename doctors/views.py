@@ -107,8 +107,7 @@ def addNews(request):
             createNewsForm.save()
             news = New.objects.values('id').order_by('-id').first()
             id_last = news['id']
-            # อยากให้ไดเรกไปหน้าที่พึ่ง
-            return redirect("doctors:news_content", pk=id_last)
+        return redirect("doctors:news_content", pk=id_last)
     return render(request, "doctors/addnews.html", {"form": form})
 
 @admin_only
@@ -384,4 +383,3 @@ def addDoc(request):
     return render(request, "doctors/adddoc.html",{'form': form})
 
 
-# ยังไม่ได้ใช้

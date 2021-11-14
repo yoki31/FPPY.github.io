@@ -53,13 +53,6 @@ class SendSlip(ModelForm):
         fields = ['img']
         
 
-# class CreateAppointmentForm(ModelForm):
-#     class Meta:
-#         model = Appointment
-#         fields = '__all__'
-#         exclude = ['Patient_id', 'Doctor_id']
-
-
 
 class AppointmentForm(forms.Form):
     # your_name = forms.CharField(max_length=64)

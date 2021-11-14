@@ -53,12 +53,6 @@ class New(models.Model):
     def __str__(self):
         return self.header
 
-# class ProofDonation(models.Model): #ให้คนบริจาค กรอกเอง ต้องเชื่อมไหม
-#     First_name = models.CharField(max_length=150, null = True,)
-#     Last_name = models.CharField(max_length=150, null = True,)
-#     price = models.IntegerField(null=True,)
-#     date_created = models.DateTimeField(default=timezone.now)
-
 class Package(models.Model):
     name = models.CharField(max_length=100, null = True)
     price = models.IntegerField(null = True)

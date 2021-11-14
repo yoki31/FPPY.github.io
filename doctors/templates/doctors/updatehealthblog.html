@@ -12,15 +12,12 @@
                 <h2>Edit Article</h2>
             </div>
 
-            <!-- <img src="{% static 'images/pic.jpg' %}" alt="" class="img-blog"> -->
-
                 <form method="POST" action="" enctype="multipart/form-data">
                     {% csrf_token %}
 
                     <div class="addhead-blog">
                         <h5>Header</h5>
                         {{ form.header }}
-                        <!-- <input type="text" name="header">          -->
                     </div>
 
                     <div class="addhead-blog">
@@ -31,23 +28,15 @@
                     <div class="addcontent-blog">
                         <h5>Content</h5>
                         {{ form.context }}
-                        <!-- <textarea rows="60" cols="100" name="context" class="content">{ article.context }
-                        </textarea> -->
                     </div>
-                    <!-- {% csrf_token %} -->
+
                     <div class="updatecontent-blog">
                         <h5>Picture</h5>
                         {{ form.img }}
                     </div>
-                    <!-- <p class="content-blog">Header: {{ form.header }}</p>
-                    <p class="content-blog">Doctor_id: {{ form.doctor }}</p>
-                    <p class="content-blog">Context: {{ form.context }}</p> -->
-                    <!-- <p class="content-blog">images: {{ form.img }}</p> -->
 
                     <input type="submit" name="Create User" class="btn ea">
                 </form>
-
-            <!--<a href="#" >Confirm</a>-->
 
             </div>
 {% endblock %}
