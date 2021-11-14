@@ -271,7 +271,21 @@ class TestViewsCase(TestCase):
 #         response = self.c.post(reverse('doctors:appointment', args=(str(doctor1.id),)), follow=True)
 #         self.assertEqual(response.status_code, 200)
 #         self.assertTemplateUsed(response, 'doctors/addnews.html', 'doctors/layout.html')
+
+    def test_deleteAppointment(self):
+        self.c = Client()
+        self.c.login(username='test', password='test')
+        appointment_id = Appointment.objects.first().id   
+        response = self.c.get(reverse('doctors:deleteappointment', args=(str(appointment_id),)), follow=True)
+        self.assertEqual(Appointment.objects.all().count(), 0)
     
+    def test_adminAppointment(self):
+        self.c = Client()
+        self.c.login(username='test', password='test')
+        response = self.c.get(reverse('doctors:mappointment'), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'doctors/mappointment.html', 'doctors/layout.html')
+  
     def test_profile(self):
         self.c = Client()
         self.c.login(username='test', password='test')
