@@ -1,5 +1,43 @@
-{% for i in buy %}
-{{i.patient}} buy {{i.package}} 
-<a href="#">SLIP</a>
-{{i.status}}
-{% endfor %}
+{% extends "doctors/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="Stylesheet" href="{% static 'css/style-customer.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="header-customer">
+        <h2>ข้อมูลผู้ซื้อแพ็คเกจ</h2>
+
+    </div>
+
+    <div class="containertable">
+        <div class="table">
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>วันที่</th>
+                        <th>ชื่อ-นามสกุล</th>
+                        <th>สลิป</th>
+                        <th>สถานะการสั่งซื้อ</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    
+                    {% for i in buy %}
+                    <tr>
+                        <td>{{ i.date_created }}</td>
+                        <td>{{ i.patient }}</td>
+                        <td><a href="#">ดูสลิป</a></td>
+                        <td>{{ i.status }}</td>
+                    </tr>
+                    {% endfor %}
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}
