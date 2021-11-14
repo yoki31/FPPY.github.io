@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
+
+// $BGcolor:#63bc8a;
+$BGcolor:#f4f4f4;
+$Cardcolor:white;
+$labelcolor:#F2DC99;
+$Topiccolor: #63bc8a;
+// * {
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+//     font-family: 'Prompt', sans-serif;
+// }
+
+.area-content {
+    background-color: $BGcolor;
+    display: flex;
+    height: 91vh;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    // position: relative;
+    flex-direction: column;
+
+    .appointment-card {
+        margin-top: 15vh;
+        background-color: $Cardcolor;
+        min-width: 400px;
+        max-width: 1000px;
+        width: 80%;
+        height: 60vh;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 1px 1px 20px rgba(0,0,0,0.15);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+
+        .app-header {
+            width: 100%;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: $Topiccolor;
+            margin: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgb(184, 184, 184);
+        }
+
+        .warn {
+            width: 100%;
+            background-color: pink;
+            color: rgb(255, 0, 0);
+            border: 2px solid rgb(255, 99, 99);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .d-name {
+            width: 90%;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            color: gray; 
+            .label { 
+                margin: 10px;
+                color: $Topiccolor; 
+            }
+
+            .name {
+                // border: transparent;
+                width: 80%;
+                padding: 10px;
+                background-color: $BGcolor;
+                border-radius: 30px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                justify-content: left;
+            }
+        }
+
+        form {
+            width: 90%;
+            // background-color: plum;
+
+            .date-zone {
+                display: flex;
+                align-items: center;
+                text-align: center;
+                padding-top: 5px;
+
+                .label { 
+                    margin: 10px;
+                    color: $Topiccolor;
+                }
+
+                .vDateField {
+                    border: transparent;
+                    padding: 10px;
+                    background-color: $BGcolor;
+                    border-radius: 30px;
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    justify-content: center;
+                }
+
+                .datetimeshortcuts {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+
+                    a {
+                        display: none;
+                        // text-decoration: none;
+                        // font-weight: bold;
+                        // color: $Topiccolor;
+                    }
+    
+                    #calendarlink0 {
+                        display: flex;
+                        color: $Topiccolor;
+                    }
+                }
+            }
+
+            .symptom {
+                width: 90%;
+                display: flex;
+                align-items: center;
+                text-align: center;
+
+                .label { 
+                    margin: 10px;
+                    color: $Topiccolor;
+                }
+
+                input {
+                    width: 100%;
+                    border: transparent;
+                    padding: 10px;
+                    background-color: $BGcolor;
+                    border-radius: 30px;
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    justify-content: left;
+                }
+            }
+
+            .btn {
+                margin-top: 10px;
+                padding: 5px 30px;
+                border-radius: 20px;
+                background-color: $Topiccolor;
+                color: $Cardcolor;
+                font-weight: bolder;
+                border: transparent;
+                transition: 150ms;
+                font-size: 1.2rem;
+            }
+
+            .btn:hover {
+                background-color: #50aa77;
+            }
+        }
+    }
+}

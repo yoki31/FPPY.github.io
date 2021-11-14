@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-    <link rel="Stylesheet" href="{% static 'css/style-addarticle.css' %}">
+    <link rel="Stylesheet" href="{% static 'css/style-appointment.css' %}">
 
     <script src="{% url 'js-catlog' %}"></script>
     <script src="{% static '/admin/js/core.js' %}"></script>
@@ -12,25 +12,37 @@
 
 {% block content %}
 
-{% for message in messages %}
-    <div class="#">{{message}} </div>
-{% endfor %}
+<div class="appointment-card">
 
-<h5>ชื่อแพทย์</h5>
-<h3>{{doctor.First_name}} {{doctor.Last_name}}</h3>
+    <h2 class="app-header">นัดหมายแพทย์</h2>
+
+    {% for message in messages %}
+        <div class="warn">{{message}}</div>
+    {% endfor %}
+
+    <div class="d-name">
+        <h3 class="label">ชื่อแพทย์</h3>
+        <h3 class="name">{{doctor.First_name}} {{doctor.Last_name}}</h3>
+    </div>
 
     <form method="POST" action="" >
-            {% csrf_token %}
+        {% csrf_token %}
         
-        <h5>วันเดือนปีที่นัด</h5>
-        {{ form.media }}
-        {{ form.date_input }}
+        <div class="date-zone">
+            <h3 class="label">วันเดือนปีที่นัด</h3>
+            {{ form.media }}
+            {{ form.date_input }}
+        </div>
         <!-- {{ form.as_p }} -->
 
-        <h5>อาการ</h5>
-        {{ form.symptom }}
+        <div class="symptom">
+            <h3 class="label">อาการ</h3>
+            {{ form.symptom }}
+        </div>
 
-         <input type="submit" name="Create User" class="btn">
+        <input type="submit" name="Create User" class="btn">
     </form>
+
+</div>
 
 {% endblock %}
