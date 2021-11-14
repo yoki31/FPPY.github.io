@@ -12,10 +12,12 @@
         <a href="{% url 'doctors:finddoc' %}" class="no-dec"><h4>ค้นหาแพทย์จากชื่อ</h4></a>
     </div>
 
-    {% if request.user.is_superuser %}
-    <a href="{% url 'doctors:mappointment' %}"> ประวัติการนัดพบแพทย์</a>
-    <a href="{% url 'doctors:addDoc' %}"><h3>เพิ่ม</h3></a>
-    {% endif %}
+    <div class="group-r">
+        {% if request.user.is_superuser %}
+        <a href="{% url 'doctors:mappointment' %}"><h3>ประวัติการนัดพบแพทย์</h3></a>
+        <a href="{% url 'doctors:addDoc' %}"><h3>เพิ่ม</h3></a>
+        {% endif %}
+    </div>
 </div>
 
 <p class="bold">อายุรศาสตร์ทั่วไป</p>

@@ -22,6 +22,15 @@
         </div>
         {% endif %}
 
+        {% if request.user.is_superuser %}
+        <div class="button-zone">
+            <a href="#" class="app-butt">  <!-- ฝ่กทำทีนะกชมล -->
+                <ion-icon name="person"></ion-icon>
+                <p>ผู้ป่วย</p>
+            </a>
+        </div>
+        {% endif %}
+
     </div>
     <div class="zone-r">
         <div class="name">

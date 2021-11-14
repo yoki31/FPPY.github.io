@@ -24,6 +24,13 @@
     align-items: center;
     text-align: center;
     padding: 10px; }
+    .area-content .header-mhor-menu .group-r {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center; }
+      .area-content .header-mhor-menu .group-r a {
+        margin: 5px; }
     .area-content .header-mhor-menu .group-l h2 {
       color: #63bc8a; }
     .area-content .header-mhor-menu .group-l .no-dec {
