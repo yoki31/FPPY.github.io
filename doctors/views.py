@@ -186,14 +186,8 @@ def packbuy_one(request, pk):
 
 @admin_only
 def checkslip(request, pk):
-    buy = Buy.objects.get(id=pk)
-    form = StatusBuy(instance=buy)
-    if request.method == 'POST':
-        form = StatusBuy(request.POST, request.FILES, instance=buy)
-        if form.is_valid():
-            form.save()
-            return redirect("doctors:packbuy")
-    return render(request, "doctors/checkslip.html", {"form": form})
+    buy = Buy.objects.filter(id=pk).update(status='PAID')
+    return redirect("doctors:packbuy")
 
 def mypack_one(request, pk):
     mypack = request.user.patient.buy_set.get(id=pk)
