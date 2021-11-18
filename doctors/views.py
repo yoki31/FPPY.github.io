@@ -103,8 +103,8 @@ def addNews(request):
         if createNewsForm.is_valid():
             createNewsForm.save()
             news = New.objects.values('id').order_by('-id').first()
-            id_last = news['id']
-        return redirect("doctors:news_content", pk=id_last)
+            # id_last = news['id']
+            return redirect("doctors:news_content", pk=news['id'])
     return render(request, "doctors/addnews.html", {"form": form})
 
 @admin_only

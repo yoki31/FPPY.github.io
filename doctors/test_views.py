@@ -159,9 +159,7 @@ class TestViewsCase(TestCase):
     def test_addNews_invalid(self):
         self.c = Client()
         self.c.login(username='ad', password='testad')
-            
         self.assertEqual(New.objects.all().count(), 1)
-        # doctor1 = Doctor.objects.first()
         response = self.c.post(reverse('doctors:addNews'), follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'doctors/addnews.html', 'doctors/layout.html')
@@ -170,10 +168,8 @@ class TestViewsCase(TestCase):
         self.c = Client()
         self.c.login(username='ad', password='testad')
         new1 = New.objects.first()
-        # form_data = {'header': 'TestArticle', 'doctor':doctor1, 'context': 'Lorem10', 'img': "defaultpic.jpeg"}
         form = CreateNewsForm(instance=new1)
         self.assertTrue(form)
-        
         response = self.c.post(reverse('doctors:updateNew', args=(str(new1.id),)), follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'doctors/updatenews.html', 'doctors/layout.html')
@@ -220,10 +216,10 @@ class TestViewsCase(TestCase):
     def test_addPackage_invalid(self):  ##
         self.c = Client()
         self.c.login(username='ad', password='testad')
-        self.c.login(username='test', password='test')
+        # self.c.login(username='test', password='test')
         response = self.c.post(reverse('doctors:addPackage'), follow=True)
         self.assertEqual(response.status_code, 200)
-        # self.assertTemplateUsed(response, 'doctors/addpackage.html')
+        self.assertTemplateUsed(response, 'doctors/addpackage.html')
         self.assertEqual(Package.objects.all().count(), 1)
     
     # def test_buy(self): 
