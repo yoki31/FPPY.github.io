@@ -2,13 +2,18 @@
 {% load static %}
 
 {% block head %}
-    <link rel="Stylesheet" href="{% static 'css/style-dpromotion.css' %}">
+    <link rel="Stylesheet" href="{% static 'css/style-pbuy-checkslip.css' %}">
 {% endblock %}
 
 {% block content %}
 
-<img src="{{buy.img.url}}" alt="">
-
-<a href="{% url 'doctors:checkslip' buy.id %}">เปลี่ยนสถานะ</a>
+<div class="checkslip-card">
+    <div class="header-cs">
+        <h2>Check Slip</h2>
+    </div>
     
+    <img src="{{buy.img.url}}" alt="">
+
+    <a href="{% url 'doctors:checkslip' buy.id %}">เปลี่ยนสถานะ</a>
+</div>
 {% endblock %}

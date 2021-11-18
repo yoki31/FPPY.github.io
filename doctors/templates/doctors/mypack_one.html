@@ -2,13 +2,17 @@
 {% load static %}
 
 {% block head %}
-    <link rel="Stylesheet" href="{% static 'css/style-dpromotion.css' %}">
+    <link rel="Stylesheet" href="{% static 'css/style-pbuy-checkslip.css' %}">
 {% endblock %}
 
 {% block content %}
+<div class="checkslip-card">
+    <div class="header-cs">
+        <!-- <h2>แจ้งการโอนเงิน</h2> -->
+        <h2>Sendslip</h2>
+    </div>
+    <img src="{{mypack.img.url}}" alt="">
 
-<img src="{{mypack.img.url}}" alt="">
-
-<a href="{% url 'doctors:sendslip' mypack.id %}">แนบสลิป</a>
-    
+    <a href="{% url 'doctors:sendslip' mypack.id %}">แนบสลิป</a>
+</div>
 {% endblock %}
