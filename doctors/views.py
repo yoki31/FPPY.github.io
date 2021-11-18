@@ -59,7 +59,6 @@ def addArticle(request):
             form.save()
             article = Article.objects.values('id').order_by('-id').first()
             id_last = article['id']
-            # อยากให้ไดเรกไปหน้าที่พึ่ง
             return redirect("doctors:healthblog_content", pk=id_last)
     return render(request, "doctors/addhealthblog.html", {"form": form})
 
@@ -72,9 +71,7 @@ def updateArticle(request, pk):
             request.POST, request.FILES, instance=article)
         if createNewsForm.is_valid():
             createNewsForm.save()
-            article = Article.objects.values('id').order_by('-id').first()
-            id_last = article['id']
-            return redirect("doctors:healthblog_content", pk=id_last)
+            return redirect("doctors:healthblog_content", pk=pk)
     context = {"form": form, "article": article}
     return render(request, "doctors/updatehealthblog.html", context)
 
@@ -118,9 +115,7 @@ def updateNew(request, pk):
         form = CreateNewsForm(request.POST, request.FILES, instance=new)
         if form.is_valid():
             form.save()
-            new = New.objects.values('id').order_by('-id').first()
-            id_last = new['id']
-            return redirect("doctors:news_content", pk=id_last)
+            return redirect("doctors:news_content", pk=pk)
     context = {"form": form, "new": new}
     return render(request, "doctors/updatenews.html", context)
 
@@ -145,8 +140,6 @@ def editpackage(request, pk):
         form = CreatePackageForm(request.POST, request.FILES, instance=pack)
         if form.is_valid():
             form.save()
-            new = Package.objects.values('id').order_by('-id').first()
-            id_last = new['id']
             return redirect("doctors:package_content", pk=id_last)
     context = {"form": form}
     return render(request, "doctors/editpackage.html", context)
@@ -199,7 +192,7 @@ def checkslip(request, pk):
         form = StatusBuy(request.POST, request.FILES, instance=buy)
         if form.is_valid():
             form.save()
-            return redirect("doctors:packbuy")    
+            return redirect("doctors:packbuy")
     return render(request, "doctors/checkslip.html", {"form": form})
 
 def mypack_one(request, pk):
@@ -214,12 +207,13 @@ def sendslip(request, pk):
         if form.is_valid():
             form.save()
             return redirect("doctors:mypack")
-    return render(request, "doctors/sendslip.html", {"form": form})   
+    return render(request, "doctors/sendslip.html", {"form": form})
 
 #-----------------------------------------------------------------------------------
 
 # Appointment profile
 
+@login_required(login_url='doctors:login')
 def appointment(request, pk):
     doctor = Doctor.objects.filter(id=pk).first()
     form = AppointmentForm()
@@ -242,7 +236,7 @@ def appointment(request, pk):
     context = {"form": form, "doctor": doctor}
     return render(request, "doctors/appointment_patient.html", context)
 
-# @admin_only    
+
 def deleteAppointment(request, pk):
     appointment = Appointment.objects.get(id=pk)
     appointment.delete()
@@ -252,12 +246,16 @@ def deleteAppointment(request, pk):
 def adminAppointment(request):
     appointment = Appointment.objects.all()
     return render(request, "doctors/mappointment.html", {"appointment": appointment})
-    
+
+def changeStatusAppointment(request, pk):
+    app = Appointment.objects.filter(id=pk).update(status='CONFIRM')
+    return redirect("doctors:mappointment")
+
 def adminAppointment_one(request, pk):
     doctor = Doctor.objects.get(id=pk)
     appointment = Appointment.objects.filter(Doctor_id=doctor)
     return render(request, "doctors/mappointment.html", {"appointment": appointment})
-    
+
 def profile(request):
     appointment = Appointment.objects.filter(Patient_id=request.user.patient)
     return render(request, "doctors/profile.html", {"appointment": appointment})

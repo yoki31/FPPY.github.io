@@ -21,6 +21,7 @@
                         <th>ชื่อ-นามสกุลคนไข้</th>
                         <th>ชื่อ-นามสกุลแพทย์</th>
                         <th>อาการเบื้องต้น</th>
+                        <th>สถานะ</th>
                     </tr>
                 </thead>
 
@@ -32,6 +33,7 @@
                         <td>{{ p.Patient_id }}</td>
                         <td>{{ p.Doctor_id }}</td>
                         <td>{{ p.symptom }}</td>
+                        <td><a href="{% url 'doctors:changestatusapp' p.id %}">{{ p.status }}</a></td>
                     </tr>
                     {% endfor %}
                     

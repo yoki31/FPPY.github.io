@@ -45,6 +45,7 @@
             <div class="head">
                 <div class="group-l">
                     <h3 class="doc-name">หมอ: {{ app.Doctor_id }}</h3>
+                    <p class="doc-name">สถานะการนัดหมาย: {{ app.status }}<p>
                     <p class="date">นัดวันที่: {{ app.dateapp }}</p>
                 </div>
                 <a href="{% url 'doctors:deleteappointment' app.id %}" class="group-r" >
@@ -52,6 +53,7 @@
                 </a>
             </div>
             <div class="details">อาการ: {{ app.symptom }}</div>
+            
         </div>
         {% endfor %}
         

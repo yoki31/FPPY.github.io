@@ -53,10 +53,6 @@ class SendSlip(ModelForm):
         fields = ['img']
         
 
-
 class AppointmentForm(forms.Form):
-    # your_name = forms.CharField(max_length=64)
     symptom = forms.CharField(max_length=100)
     date_input = forms.DateField(widget=AdminDateWidget())
-    # time_input = forms.DateField(widget=AdminTimeWidget())
-    # date_time_input = forms.DateField(widget=AdminSplitDateTime())

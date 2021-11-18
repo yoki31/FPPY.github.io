@@ -65,10 +65,15 @@ class Package(models.Model):
         return self.name
 
 class Appointment(models.Model):
+    STATUS = (
+            ('NOT COMFIRM', 'NOT COMFIRM'),
+            ('CONFIRM', 'COMFIRM'),
+    )
     Patient_id = models.ForeignKey(Patient, null=True, on_delete=models.CASCADE)
     Doctor_id = models.ForeignKey(Doctor, null = True, on_delete=models.CASCADE)
     symptom = models.CharField(max_length=100, null = True)
     dateapp = models.DateField(null=True,)
+    status = models.CharField(max_length=200, null = True, choices=STATUS, default='NOT COMFIRM')
 
     def __str__(self):
         return f"{self.Doctor_id.First_name} > {self.Patient_id.First_name}"

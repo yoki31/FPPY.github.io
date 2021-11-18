@@ -46,6 +46,7 @@ urlpatterns = [
     path('appointmentfordoc/<pk>', views.adminAppointment_one, name="appointment_one"),
     path('deleteappointment/<pk>', views.deleteAppointment, name="deleteappointment"),
     path('adminappointment', views.adminAppointment, name="mappointment"),
+    path('changestatusappointment/<pk>', views.changeStatusAppointment, name="changestatusapp"),
     
 
     # register, login profile
