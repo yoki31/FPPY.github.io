@@ -339,9 +339,6 @@ def updateDoc(request, pk):
     context = {"form": form, "doctor": doctor}
     return render(request, "doctors/updateDoc.html", context)
 
-def doctor(request):
-    return render(request, "doctors/doctor.html")
-
 def finddoc(request):
     if 'q' in request.GET:
         q = request.GET['q']

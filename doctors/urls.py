@@ -57,7 +57,6 @@ urlpatterns = [
     path('accsetting', views.account, name="accsetting"),
 
 
-    path('doctor', views.doctor, name="doctor"),
     path('finddoc', views.finddoc, name="finddoc"),
     path('docprofile/<pk>', views.docprofile, name="docprofile"),
     path('deleteDoc/<pk>', views.deleteDoc, name="deleteDoc"),
