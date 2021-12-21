@@ -26,11 +26,6 @@
             </a>
 
             <div class="normal-a">
-
-            <a href="#" id="show-noti" onclick="showNoti();">
-                <ion-icon name="notifications"></ion-icon>
-            </a>
-
             <a href="#" id="show-more" onclick="showMore();">
                 <ion-icon name="caret-down"></ion-icon>
             </a>
@@ -62,12 +57,15 @@
             </div>
             <div class="nav-section">
                 {% if request.user.is_superuser %}
+                <a class="nav-text" href="{% url 'doctors:index' %}"><li>หน้าแรก</li></a>
+                <a class="nav-text" href="{% url 'doctors:about' %}"><li>เกี่ยวกับเรา</li>
                 <a class="nav-text" href="{% url 'doctors:healthblog' %}"><li>จัดการบทความ</li></a>
                 <a class="nav-text" href="{% url 'doctors:news' %}"><li>จัดการข่าว</li></a>
                 <a class="nav-text" href="{% url 'doctors:package' %}"><li>จัดการแพ็คเกจ</li></a>
-                <a class="nav-text" href="{% url 'doctors:about' %}"><li>เกี่ยวกับเรา</li></a>
                 <a class="nav-text" href="{% url 'doctors:maps' %}"><li>แผนที่</li></a>
                 <a class="nav-text" href="{% url 'doctors:spec' %}"><li>รายชื่อแพทย์</li></a>
+                <a class="nav-text" href="{% url 'doctors:mappointment' %}"><li>ข้อมูลการนัดพบแพทย์</li></a>
+                <a class="nav-text" href="{% url 'doctors:packbuy' %}"><li>ข้อมูลการซื้อ</li></a>
                 {% elif request.user.is_active %}
                 <a class="nav-text" href="{% url 'doctors:index' %}"><li>หน้าแรก</li></a>
                 <a class="nav-text" href="{% url 'doctors:about' %}"><li>เกี่ยวกับเรา</li></a>
@@ -90,48 +88,6 @@
     </nav>
 
     {% if request.user.is_active %}
-    <div class="noti" id="noti">
-        <h2>การแจ้งเตือน</h2>
-
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>กชมลติดต่อคุณ</p>
-        </a>
-        <!--
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>พญ.กชมลติดต่อคุณ2</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>พญ.กชมลติดต่อคุณ3</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>พญ.กชมลติดต่อคุณ4</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>พญ.กชมลติดต่อคุณ5</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>พญ.กชมลติดต่อคุณ6</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>พญ.กชมลติดต่อคุณ7</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>พญ.กชมลติดต่อคุณ8</p>
-        </a>
-        <a href='#' class="noti-item">
-            <img src="{% static 'images/yok.jpg' %}">
-            <p>พญ.กชมลติดต่อคุณ9</p>
-        </a>
-        -->
-    </div>
 
     <div class="more-options" id="more-options">
         <a href= "{% url 'doctors:profile' %}" class="more-profile-item">
@@ -143,15 +99,6 @@
         </a>
 
         <hr />
-
-        <a href="#" class="more-item" >
-            <div class="normal-a">
-                <ion-icon name="settings-sharp"></ion-icon>
-            </div>
-            <div class="item-detail">
-                <p>การตั้งค่า</p>
-            </div>
-        </a>
 
         <a href = "{% url 'doctors:logout' %}" class="more-item">
             <div class="normal-a">

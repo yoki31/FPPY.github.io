@@ -1,0 +1,45 @@
+{% extends "doctors/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="Stylesheet" href="{% static 'css/style-customer.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="header-customer">
+        <h2>ข้อมูลการนัดพบแพทย์</h2>
+
+    </div>
+
+    <div class="containertable">
+        <div class="table">
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>วันที่นัด</th>
+                        <th>ชื่อ-นามสกุลคนไข้</th>
+                        <th>ชื่อ-นามสกุลแพทย์</th>
+                        <th>อาการเบื้องต้น</th>
+                        <th>สถานะ</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    
+                    {% for p in appointment %}
+                    <tr>
+                        <td>{{ p.dateapp }}</td>
+                        <td>{{ p.Patient_id }}</td>
+                        <td>{{ p.Doctor_id }}</td>
+                        <td>{{ p.symptom }}</td>
+                        <td><a href="{% url 'doctors:changestatusapp' p.id %}">{{ p.status }}</a></td>
+                    </tr>
+                    {% endfor %}
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

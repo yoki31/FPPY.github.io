@@ -22,6 +22,15 @@
         </div>
         {% endif %}
 
+        {% if request.user.is_superuser %}
+        <div class="button-zone">
+            <a href="{% url 'doctors:appointment_one' doctor.id %}" class="app-butt">  <!-- ฝ่กทำทีนะกชมล -->
+                <ion-icon name="person"></ion-icon>
+                <p>ผู้ป่วย</p>
+            </a>
+        </div>
+        {% endif %}
+
     </div>
     <div class="zone-r">
         <div class="name">
@@ -46,30 +55,7 @@
             <p>{{doctor.phone}}</p>
             <p>{{doctor.email}}</p>
         </div>
-<!--
-        <div class="schedule">
-            <table class="content-table">
-                <thead>
-                    <tr>
-                        <th>วัน</th>
-                        <th>เวลา</th>
-                        <th>สถานที่</th>
-                    </tr>
-                </thead>
 
-                <tbody>
-
-                    <tr>
-                        <td>MON</td>
-                        <td>09.00-12.00</td>
-                        <td>ที่นั่นแหละ Lorem ipsum dolor sit amet.</td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>     -->
 
 {% endblock %}
 

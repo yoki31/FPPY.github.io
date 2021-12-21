@@ -42,17 +42,17 @@ class CreateDocForm(ModelForm):
         fields = '__all__'
         exclude = ['date_created']
 
-# class CreateAppointmentForm(ModelForm):
-#     class Meta:
-#         model = Appointment
-#         fields = '__all__'
-#         exclude = ['Patient_id', 'Doctor_id']
+class StatusBuy(ModelForm):
+    class Meta:
+        model = Buy
+        fields = ['status']
 
-
+class SendSlip(ModelForm):
+    class Meta:
+        model = Buy
+        fields = ['img']
+        
 
 class AppointmentForm(forms.Form):
-    # your_name = forms.CharField(max_length=64)
     symptom = forms.CharField(max_length=100)
     date_input = forms.DateField(widget=AdminDateWidget())
-    # time_input = forms.DateField(widget=AdminTimeWidget())
-    # date_time_input = forms.DateField(widget=AdminSplitDateTime())

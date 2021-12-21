@@ -51,8 +51,20 @@
         color: #63bc8a;
         padding: 10px; }
       .area-content .news-card-area-all .news-card .details {
+        position: relative;
+        overflow-wrap: break-word;
         color: gray;
-        padding: 10px; }
+        padding: 10px;
+        max-height: 18vh;
+        overflow: hidden; }
+      .area-content .news-card-area-all .news-card .details::before {
+        content: '';
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        background: linear-gradient(transparent, #fff); }
       .area-content .news-card-area-all .news-card .read-more {
         position: relative;
         display: inline-block;

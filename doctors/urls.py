@@ -34,11 +34,20 @@ urlpatterns = [
     path('buy/<str:pk>', views.buy, name="buy"),
     path('mypack', views.mypack, name="mypack" ),
     path('packbuy', views.packbuy, name="packbuy" ),
+    path('packbuy/<str:pk>', views.packbuy_one, name="packbuyone" ),
+    path('checkslip/<str:pk>', views.checkslip, name="checkslip" ),
+    path('mypack/<str:pk>', views.mypack_one, name="mypackone" ),
+    path('sendslip/<str:pk>', views.sendslip, name="sendslip" ),
 
 
 
 #Appointment
     path('appointment/<pk>', views.appointment, name="appointment"),
+    path('appointmentfordoc/<pk>', views.adminAppointment_one, name="appointment_one"),
+    path('deleteappointment/<pk>', views.deleteAppointment, name="deleteappointment"),
+    path('adminappointment', views.adminAppointment, name="mappointment"),
+    path('changestatusappointment/<pk>', views.changeStatusAppointment, name="changestatusapp"),
+    
 
     # register, login profile
     path('register/', views.registerPage, name="register"),
@@ -48,7 +57,6 @@ urlpatterns = [
     path('accsetting', views.account, name="accsetting"),
 
 
-    path('doctor', views.doctor, name="doctor"),
     path('finddoc', views.finddoc, name="finddoc"),
     path('docprofile/<pk>', views.docprofile, name="docprofile"),
     path('deleteDoc/<pk>', views.deleteDoc, name="deleteDoc"),

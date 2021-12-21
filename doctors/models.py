@@ -12,7 +12,7 @@ class Patient(models.Model):
     phone = models.CharField(max_length=100, null = True)
     email = models.CharField(max_length=200, null = True)
     date_created = models.DateTimeField(default=timezone.now)
-    profile_pic = models.ImageField(default='defaultpic.jpeg',null=True, blank=True)
+    profile_pic = models.ImageField(default='defaultpic.jpeg',null=True)
 
     def __str__(self):
         return self.First_name
@@ -25,7 +25,7 @@ class Doctor(models.Model):
     email = models.CharField(max_length=200, null = True)
     spec = models.CharField(max_length=100, null = True)
     date_created = models.DateTimeField(default=timezone.now)
-    profile_pic = models.ImageField(default='person.jpg',null=True, blank=True)
+    profile_pic = models.ImageField(default='person.jpg',null=True)
 
     def __str__(self):
         return self.First_name
@@ -53,12 +53,6 @@ class New(models.Model):
     def __str__(self):
         return self.header
 
-# class ProofDonation(models.Model): #ให้คนบริจาค กรอกเอง ต้องเชื่อมไหม
-#     First_name = models.CharField(max_length=150, null = True,)
-#     Last_name = models.CharField(max_length=150, null = True,)
-#     price = models.IntegerField(null=True,)
-#     date_created = models.DateTimeField(default=timezone.now)
-
 class Package(models.Model):
     name = models.CharField(max_length=100, null = True)
     price = models.IntegerField(null = True)
@@ -71,10 +65,15 @@ class Package(models.Model):
         return self.name
 
 class Appointment(models.Model):
+    STATUS = (
+            ('NOT COMFIRM', 'NOT COMFIRM'),
+            ('CONFIRM', 'COMFIRM'),
+    )
     Patient_id = models.ForeignKey(Patient, null=True, on_delete=models.CASCADE)
     Doctor_id = models.ForeignKey(Doctor, null = True, on_delete=models.CASCADE)
     symptom = models.CharField(max_length=100, null = True)
     dateapp = models.DateField(null=True,)
+    status = models.CharField(max_length=200, null = True, choices=STATUS, default='NOT COMFIRM')
 
     def __str__(self):
         return f"{self.Doctor_id.First_name} > {self.Patient_id.First_name}"
@@ -88,7 +87,10 @@ class Buy(models.Model):
     patient = models.ForeignKey(Patient, null=True, on_delete= models.CASCADE)
     package = models.ForeignKey(Package, null=True, on_delete= models.CASCADE)
     date_created = models.DateTimeField(default=timezone.now)
+    img = models.ImageField(default='nopic.png', null=True)
     status = models.CharField(max_length=200, null = True, choices=STATUS, default='NOT PAID')
 
     def __str__(self) :
         return f'{self.patient.First_name} >>> {self.package}'
+
+

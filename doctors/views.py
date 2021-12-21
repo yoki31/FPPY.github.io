@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from doctors.decorator import unauthenticated_user, allowed_users
+from doctors.decorator import *
 from doctors.models import *
 from .forms import *
 from django.contrib.auth.forms import UserCreationForm
@@ -43,12 +43,14 @@ def healthblog_content(request, pk):
     context = {"article": article}
     return render(request, "doctors/healthblog_one.html", context)
 
+@admin_only
 def deleteArticle(request, pk):
     article = Article.objects.get(id=pk)
     if request.method == "POST":
         article.delete()
         return redirect("doctors:healthblog")
 
+@admin_only
 def addArticle(request):
     form = CreateArticleForm()
     if request.method == 'POST':
@@ -57,10 +59,10 @@ def addArticle(request):
             form.save()
             article = Article.objects.values('id').order_by('-id').first()
             id_last = article['id']
-            # อยากให้ไดเรกไปหน้าที่พึ่ง
             return redirect("doctors:healthblog_content", pk=id_last)
     return render(request, "doctors/addhealthblog.html", {"form": form})
 
+@admin_only
 def updateArticle(request, pk):
     article = Article.objects.get(id=pk)
     form = CreateArticleForm(instance=article)
@@ -69,9 +71,7 @@ def updateArticle(request, pk):
             request.POST, request.FILES, instance=article)
         if createNewsForm.is_valid():
             createNewsForm.save()
-            article = Article.objects.values('id').order_by('-id').first()
-            id_last = article['id']
-            return redirect("doctors:healthblog_content", pk=id_last)
+            return redirect("doctors:healthblog_content", pk=pk)
     context = {"form": form, "article": article}
     return render(request, "doctors/updatehealthblog.html", context)
 
@@ -88,12 +88,14 @@ def news_content(request, pk):
     context = {"new": new}
     return render(request, "doctors/news_one.html", context)
 
+@admin_only
 def deleteNews(request, pk):
     new = New.objects.get(id=pk)
     if request.method == "POST":
         new.delete()
         return redirect("doctors:news")
 
+@admin_only
 def addNews(request):
     form = CreateNewsForm()
     if request.method == 'POST':
@@ -101,11 +103,11 @@ def addNews(request):
         if createNewsForm.is_valid():
             createNewsForm.save()
             news = New.objects.values('id').order_by('-id').first()
-            id_last = news['id']
-            # อยากให้ไดเรกไปหน้าที่พึ่ง
-            return redirect("doctors:news_content", pk=id_last)
+            # id_last = news['id']
+            return redirect("doctors:news_content", pk=news['id'])
     return render(request, "doctors/addnews.html", {"form": form})
 
+@admin_only
 def updateNew(request, pk):
     new = New.objects.get(id=pk)
     form = CreateNewsForm(instance=new)
@@ -113,9 +115,7 @@ def updateNew(request, pk):
         form = CreateNewsForm(request.POST, request.FILES, instance=new)
         if form.is_valid():
             form.save()
-            new = New.objects.values('id').order_by('-id').first()
-            id_last = new['id']
-            return redirect("doctors:news_content", pk=id_last)
+            return redirect("doctors:news_content", pk=pk)
     context = {"form": form, "new": new}
     return render(request, "doctors/updatenews.html", context)
 
@@ -132,6 +132,7 @@ def package_content(request, pk):
     pack = Package.objects.filter(id=pk).first()
     return render(request, "doctors/package_one.html", {'pack': pack})
 
+@admin_only
 def editpackage(request, pk):
     pack = Package.objects.get(id=pk)
     form = CreatePackageForm(instance=pack)
@@ -139,18 +140,17 @@ def editpackage(request, pk):
         form = CreatePackageForm(request.POST, request.FILES, instance=pack)
         if form.is_valid():
             form.save()
-            new = Package.objects.values('id').order_by('-id').first()
-            id_last = new['id']
             return redirect("doctors:package_content", pk=id_last)
     context = {"form": form}
     return render(request, "doctors/editpackage.html", context)
 
+@admin_only
 def deletePackage(request, pk):
     pack = Package.objects.get(id=pk)
     pack.delete()
     return redirect("doctors:package")
 
-
+@admin_only
 def addPackage(request):
     form = CreatePackageForm()
     if request.method == 'POST':
@@ -162,12 +162,14 @@ def addPackage(request):
             return redirect("doctors:package_content", pk=id_last)
     return render(request, "doctors/addpackage.html", {"form": form})
 
+@login_required(login_url='doctors:login')
 def buy(request , pk):
     pack = Package.objects.get(id=pk)
     pat = request.user.patient
     Buy.objects.create(patient=pat, package=pack)
     return redirect("doctors:package")
 
+@admin_only
 def packbuy(request):
     buy = Buy.objects.all()
     return render(request, "doctors/packbuy.html", {'buy': buy})
@@ -177,11 +179,35 @@ def mypack(request):
     patient = request.user.patient.buy_set.all()
     return render(request, "doctors/mypack.html", {'patient': patient})
 
+@admin_only
+def packbuy_one(request, pk):
+    buy = Buy.objects.filter(id=pk).first()
+    return render(request, "doctors/packbuy_one.html", {'buy': buy} )
+
+@admin_only
+def checkslip(request, pk):
+    buy = Buy.objects.filter(id=pk).update(status='PAID')
+    return redirect("doctors:packbuy")
+
+def mypack_one(request, pk):
+    mypack = request.user.patient.buy_set.get(id=pk)
+    return render(request, "doctors/mypack_one.html", {'mypack': mypack})
+
+def sendslip(request, pk):
+    mypack = request.user.patient.buy_set.get(id=pk)
+    form = SendSlip(instance=mypack)
+    if request.method == 'POST':
+        form = SendSlip(request.POST, request.FILES, instance=mypack)
+        if form.is_valid():
+            form.save()
+            return redirect("doctors:mypack")
+    return render(request, "doctors/sendslip.html", {"form": form})
 
 #-----------------------------------------------------------------------------------
 
 # Appointment profile
 
+@login_required(login_url='doctors:login')
 def appointment(request, pk):
     doctor = Doctor.objects.filter(id=pk).first()
     form = AppointmentForm()
@@ -203,6 +229,26 @@ def appointment(request, pk):
 
     context = {"form": form, "doctor": doctor}
     return render(request, "doctors/appointment_patient.html", context)
+
+
+def deleteAppointment(request, pk):
+    appointment = Appointment.objects.get(id=pk)
+    appointment.delete()
+    return redirect("doctors:profile")
+
+@admin_only
+def adminAppointment(request):
+    appointment = Appointment.objects.all()
+    return render(request, "doctors/mappointment.html", {"appointment": appointment})
+
+def changeStatusAppointment(request, pk):
+    app = Appointment.objects.filter(id=pk).update(status='CONFIRM')
+    return redirect("doctors:mappointment")
+
+def adminAppointment_one(request, pk):
+    doctor = Doctor.objects.get(id=pk)
+    appointment = Appointment.objects.filter(Doctor_id=doctor)
+    return render(request, "doctors/mappointment.html", {"appointment": appointment})
 
 def profile(request):
     appointment = Appointment.objects.filter(Patient_id=request.user.patient)
@@ -271,12 +317,14 @@ def docprofile(request, pk):
     doctor = Doctor.objects.filter(id=pk).first()
     return render(request, "doctors/docprofile.html", {"doctor": doctor})
 
+@admin_only
 def deleteDoc(request, pk):
     doc = Doctor.objects.get(id=pk)
     if request.method == "POST":
         doc.delete()
         return redirect("doctors:spec")
 
+@admin_only
 def updateDoc(request, pk):
     doctor = Doctor.objects.get(id=pk)
     form = CreateDocForm(instance=doctor)
@@ -290,9 +338,6 @@ def updateDoc(request, pk):
             return redirect("doctors:docprofile" , pk=id_last)
     context = {"form": form, "doctor": doctor}
     return render(request, "doctors/updateDoc.html", context)
-
-def doctor(request):
-    return render(request, "doctors/doctor.html")
 
 def finddoc(request):
     if 'q' in request.GET:
@@ -316,14 +361,14 @@ def spec(request):
                ,'list5': list5 ,'list6': list6 ,'list7': list7 }
     return render(request, "doctors/spec.html", context)
 
+@admin_only
 def addDoc(request):
     form = CreateDocForm()
     if request.method == 'POST':
         createDocForm = CreateDocForm(request.POST, request.FILES)
         if createDocForm.is_valid():
             createDocForm.save()
-        return redirect("doctors:spec")
+            return redirect("doctors:spec")
     return render(request, "doctors/adddoc.html",{'form': form})
 
 
-# ยังไม่ได้ใช้

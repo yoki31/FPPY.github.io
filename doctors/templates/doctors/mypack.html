@@ -1,6 +1,39 @@
-{% for i in patient %}
-{{i.package.name}}
-{{i.package.price}}
-{{i.status}} <br>
-{{i.package.date_created}}
-{% endfor %}
+{% extends "doctors/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="Stylesheet" href="{% static 'css/style-customer.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="header-customer">
+    <h2>My pack</h2>
+</div>
+
+<div class="containertable">
+    <div class="table">
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>ชื่อแพ็คเกจ</th>
+                    <th>ราคา</th>
+                    <th>สถานะ</th>
+                    <th>วันที่สั่งซื้อ</th>
+                    <th>หลักฐาน</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for i in patient %}
+            <tr>
+                <td>{{i.package.name}}</td>
+                <td>{{i.package.price}}</td>
+                <td>{{i.status}}</td>
+                <td>{{i.date_created}}</td>
+                <td><a href="{% url 'doctors:mypackone' i.id %}">แนบสลิป</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+
+{% endblock %}

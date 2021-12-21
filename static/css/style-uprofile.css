@@ -15,7 +15,7 @@
     background-color: white;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    min-height: 250px; }
+    min-height: 38vh; }
     .area-content .profile-zone .box {
       width: 100%;
       height: 20vh;
@@ -102,6 +102,30 @@
     width: 100%;
     padding: 5px;
     padding-bottom: 20px; }
+    .area-content .app-card-area-all .admin-card {
+      margin-top: 20px;
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-color: white;
+      min-width: 400px;
+      max-width: 750px;
+      width: 70%;
+      height: 20vh; }
+      .area-content .app-card-area-all .admin-card .admin-btn {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        background-color: #54a879;
+        margin: 5px;
+        padding: 10px;
+        padding-right: 10px;
+        border-radius: 20px;
+        font-weight: bold;
+        transition: 300ms; }
     .area-content .app-card-area-all .app-topic {
       color: #63bc8a; }
     .area-content .app-card-area-all .app-item {

@@ -26,34 +26,48 @@
 
                 </div>
             </div>
+            
+            {% if request.user.is_superuser %}
+
+            {% else %}
             <a href="{% url 'doctors:mypack' %}" class="mypack">
                 <ion-icon src="{% static 'svg/gift.svg' %}"></ion-icon>
                 My pack
             </a>
+            {% endif %}
         </div>
     </div>
 
     <div class="app-card-area-all">
-        <!-- <div class="app-topic">
-            <h2>Appointment</h2>
-        </div> -->
-
+        
         {% for app in appointment %}
         <div class="app-item">
             <div class="head">
                 <div class="group-l">
                     <h3 class="doc-name">หมอ: {{ app.Doctor_id }}</h3>
+                    <p class="doc-name">สถานะการนัดหมาย: {{ app.status }}<p>
                     <p class="date">นัดวันที่: {{ app.dateapp }}</p>
                 </div>
-                <form action= "#" method="POST">
-                    {% csrf_token %}
-                <button type="submit"  class="group-r">
+                <a href="{% url 'doctors:deleteappointment' app.id %}" class="group-r" >
                     <ion-icon name="close-outline"></ion-icon>
-                </button>
+                </a>
             </div>
             <div class="details">อาการ: {{ app.symptom }}</div>
+            
         </div>
         {% endfor %}
+        
+        {% if request.user.is_superuser %}
+        <div class="admin-card">
+            <a href="{% url 'doctors:packbuy' %}" class="admin-btn">
+                Package purchase history
+            </a>
+            
+            <a href="{% url 'doctors:mappointment' %}" class="admin-btn">
+                doctor's appointment history
+            </a>
+        </div>
+        {% endif %}
 
     </div>
 

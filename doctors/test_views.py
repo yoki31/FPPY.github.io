@@ -25,17 +25,17 @@ class TestViewsCase(TestCase):
         appointment = Appointment.objects.create(Patient_id=patient, Doctor_id=doctorT, symptom="symptom", dateapp=datetime.date(1997, 10, 19))#ไม่ชัวร์
         buy = Buy.objects.create(patient=patient, package=package)
         
-        self.group = Group(name="Patient")
+        self.group = Group(name="patient")
         self.group.save()
-        self.group = Group(name="Admin")
+        self.group = Group(name="admin")
         self.group.save()
 
         self.user_ad = User.objects.create_user(username="ad", email="ad@test.com", password="testad")
         self.user = User.objects.create_user(username="test", email="test@test.com", password="test")
-        group_ad = Group.objects.get(name="Admin")
+        group_ad = Group.objects.get(name="admin")
         self.user_ad.groups.add(group_ad)
 
-        group_p = Group.objects.get(name="Patient")
+        group_p = Group.objects.get(name="patient")
         self.user.groups.add(group_p)
         self.patient = Patient.objects.create(user=self.user, First_name="PFname", Last_name="PLname", email= "test@test.com", phone="0123456789")
 
@@ -88,7 +88,7 @@ class TestViewsCase(TestCase):
         
     def test_addArticle_invalid(self):
         self.c = Client()
-        self.c.login(username='test', password='test')
+        self.c.login(username='ad', password='testad')
         
         self.assertEqual(Article.objects.all().count(), 1)
         doctor1 = Doctor.objects.first()
@@ -118,6 +118,7 @@ class TestViewsCase(TestCase):
     
     def test_updateArticle_invalid(self):
         self.c = Client()
+        self.c.login(username='ad', password='testad')
         article1 = Article.objects.first()
         # form_data = {'header': 'TestArticle', 'doctor':doctor1, 'context': 'Lorem10', 'img': "defaultpic.jpeg"}
         form = CreateArticleForm(instance=article1)
@@ -135,6 +136,7 @@ class TestViewsCase(TestCase):
 
     def test_deleteArticle(self):
         self.c = Client()
+        self.c.login(username='ad', password='testad')
         article1 = Article.objects.first()
         response = self.c.post(reverse('doctors:deleteArticle', args=(str(article1.id),)), follow=True)
         
@@ -156,27 +158,25 @@ class TestViewsCase(TestCase):
  
     def test_addNews_invalid(self):
         self.c = Client()
-        self.c.login(username='test', password='test')
-            
+        self.c.login(username='ad', password='testad')
         self.assertEqual(New.objects.all().count(), 1)
-        # doctor1 = Doctor.objects.first()
         response = self.c.post(reverse('doctors:addNews'), follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'doctors/addnews.html', 'doctors/layout.html')
   
     def test_updateNew_invalid(self):
         self.c = Client()
+        self.c.login(username='ad', password='testad')
         new1 = New.objects.first()
-        # form_data = {'header': 'TestArticle', 'doctor':doctor1, 'context': 'Lorem10', 'img': "defaultpic.jpeg"}
         form = CreateNewsForm(instance=new1)
         self.assertTrue(form)
-        
         response = self.c.post(reverse('doctors:updateNew', args=(str(new1.id),)), follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'doctors/updatenews.html', 'doctors/layout.html')
 
     def test_deletenews(self):
         self.c = Client()
+        self.c.login(username='ad', password='testad')
         news1 = New.objects.first()
         response = self.c.post(reverse('doctors:deleteNews', args=(str(news1.id),)), follow=True)
         self.assertEqual(response.status_code, 200)
@@ -197,6 +197,7 @@ class TestViewsCase(TestCase):
     
     def test_editpackage_invalid(self):
         self.c = Client()
+        self.c.login(username='ad', password='testad')
         package1 = Package.objects.first()
         form = CreatePackageForm(instance=package1)
         self.assertTrue(form)
@@ -206,6 +207,7 @@ class TestViewsCase(TestCase):
 
     def test_deletePackage(self):
         self.c = Client()
+        self.c.login(username='ad', password='testad')
         package1 = Package.objects.first()
         response = self.c.post(reverse('doctors:deletepackage', args=(str(package1.id),)), follow=True)
         self.assertEqual(response.status_code, 200)
@@ -213,10 +215,11 @@ class TestViewsCase(TestCase):
 
     def test_addPackage_invalid(self):  ##
         self.c = Client()
-        self.c.login(username='test', password='test')
+        self.c.login(username='ad', password='testad')
+        # self.c.login(username='test', password='test')
         response = self.c.post(reverse('doctors:addPackage'), follow=True)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'doctors/addpackage.html', 'doctors/layout.html')
+        self.assertTemplateUsed(response, 'doctors/addpackage.html')
         self.assertEqual(Package.objects.all().count(), 1)
     
     # def test_buy(self): 
@@ -233,8 +236,10 @@ class TestViewsCase(TestCase):
     #     self.c = Client()
     #     self.c.login(username='test', password='test')
     #     response = self.c.post(reverse('doctors:packbuy'), follow=True)
+    
     def test_packbuy(self):
         self.c = Client()
+        self.c.login(username='ad', password='testad')
         response = self.c.get(reverse('doctors:packbuy'), follow=True)
         self.assertEqual(response.status_code, 200)
     
@@ -251,27 +256,82 @@ class TestViewsCase(TestCase):
         response = self.c.get(reverse('doctors:mypack'), follow=True)
         self.assertEqual(response.status_code, 200)
         
-    # not work
-    # def test_mypack(self):
+    def test_packbuy_one(self):
+        self.c = Client()
+        self.c.login(username='ad', password='testad')
+        buy = Buy.objects.first()
+        response = self.c.get(reverse('doctors:packbuyone', args=(str(buy.id),)), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'doctors/packbuy_one.html', 'doctors/layout.html')
+    
+    def test_checkslip_invalid(self):
+        self.c = Client()
+        self.c.login(username='ad', password='testad')
+        buy = Buy.objects.first()
+        response = self.c.get(reverse('doctors:checkslip', args=(str(buy.id),)), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'doctors/packbuy.html', 'doctors/layout.html')
+    
+#can't do it 
+    # def test_mypack_one(self):
     #     self.c = Client()
     #     self.c.login(username='test', password='test')
-    #     package1 = Package.objects.create(name="Package_name", price=3000, desc="detail", cond="condition")
-    #     Buy.objects.create(self.patient, package1, "NOT PAID")
-    #     response = self.c.get(reverse('doctors:mypack'), follow=True)
+    #     buy = Buy.objects.first()
+    #     response = self.c.get(reverse('doctors:mypackone', args=(str(buy.id),)), follow=True)
     #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, 'doctors/mypack.html', 'doctors/layout.html')
-
-#can't do it 
-#  def test_appointment_invalid(self):
-#         self.c = Client()
-#         self.c.login(username='test', password='test')
-            
-#         self.assertEqual(Appointment.objects.all().count(), 1)
-#         doctor1 = Doctor.objects.first()
-#         response = self.c.post(reverse('doctors:appointment', args=(str(doctor1.id),)), follow=True)
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'doctors/addnews.html', 'doctors/layout.html')
+    #     self.assertTemplateUsed(response, 'doctors/mypack_one.html', 'doctors/layout.html')
     
+#can't do it 
+    # def test_sendslip_invalid(self):
+    #     self.c = Client()
+    #     self.c.login(username='test', password='test')
+    #     buy = Buy.objects.first()
+    #     response = self.c.post(reverse('doctors:sendslip', args=(str(buy.id),)), follow=True)
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertTemplateUsed(response, 'doctors/sendslip.html', 'doctors/layout.html')
+        
+#มีเรื่องเวลา
+    # def test_appointment_invalid(self):
+    #     self.c = Client()
+    #     self.c.login(username='test', password='test')
+            
+    #     self.assertEqual(Appointment.objects.all().count(), 1)
+    #     doctor1 = Doctor.objects.first()
+    #     response = self.c.post(reverse('doctors:appointment', args=(str(doctor1.id),)), follow=True)
+    #     self.assertEqual(response.status_code, 200)
+
+
+    def test_deleteAppointment(self):
+        self.c = Client()
+        self.c.login(username='test', password='test')
+        appointment_id = Appointment.objects.first().id   
+        response = self.c.get(reverse('doctors:deleteappointment', args=(str(appointment_id),)), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(Appointment.objects.all().count(), 0)
+    
+    def test_adminAppointment(self):
+        self.c = Client()
+        self.c.login(username='ad', password='testad')
+        response = self.c.get(reverse('doctors:mappointment'), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'doctors/mappointment.html', 'doctors/layout.html')
+    
+    def test_changeStatusAppointment(self):
+        self.c = Client()
+        self.c.login(username='ad', password='testad')
+        appointment1 = Appointment.objects.first()
+        response = self.c.get(reverse('doctors:changestatusapp', args=(str(appointment1.id),)), follow=True)
+        appointment2 = Appointment.objects.first()
+        self.assertEqual(appointment2.status, 'CONFIRM')
+        
+    def test_adminAppointment_one(self):
+        self.c = Client()
+        self.c.login(username='ad', password='testad')
+        doctor1 = Doctor.objects.first()
+        response = self.c.get(reverse('doctors:appointment_one', args=(str(doctor1.id),)), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'doctors/mappointment.html', 'doctors/layout.html')
+        
     def test_profile(self):
         self.c = Client()
         self.c.login(username='test', password='test')
@@ -297,20 +357,26 @@ class TestViewsCase(TestCase):
         c.force_login(User.objects.first())
         response = c.get(reverse('doctors:logout'), follow=True)
         self.assertEqual(response.status_code, 200)
+        
+    def test_account_invalid(self):
+        c = Client()
+        c.force_login(User.objects.first())
+        response = c.post(reverse('doctors:accsetting'), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'doctors/acc.html')
+        
+    def test_account_valid(self):
+        c = Client()
+        c.force_login(User.objects.first())
+        response = c.post(reverse('doctors:accsetting'), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'doctors/acc.html')
     
     def test_register(self):
         self.c = Client()
         response = self.c.post(reverse('doctors:register'), {'username': "test", 'email': "test@testtest.com", 'password1': "testtesttest", 'password2': "testtesttest"}, follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'doctors/register.html')
-    
-
-    def test_doctor(self):
-        self.c = Client()
-        response = self.c.get(reverse('doctors:doctor'), follow=True)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'doctors/doctor.html', 'doctors/layout.html')
-    
     
     def test_doctor_one(self):
         self.c = Client()
@@ -321,8 +387,33 @@ class TestViewsCase(TestCase):
     
     def test_deleteDoc(self):
         self.c = Client()
+        self.c.login(username='ad', password='testad')
         doctor1 = Doctor.objects.first()
         response = self.c.post(reverse('doctors:deleteDoc', args=(str(doctor1.id),)), follow=True)
         self.assertEqual(response.status_code, 200)
+        
+    def test_updateDoc(self):
+        self.c = Client()
+        self.c.login(username='ad', password='testad')
+        doctor1 = Doctor.objects.first()
+        response = self.c.post(reverse('doctors:updateDoc', args=(str(doctor1.id),)), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'doctors/updateDoc.html', 'doctors/layout.html')
+    
+    # def test_addDoc_valid(self):
+    #     self.c = Client()
+    #     self.c.login(username='ad', password='testad')
+    #     response = self.c.post(reverse('doctors:addDoc'), follow=True)
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertTemplateUsed(response, 'doctors/spec.html', 'doctors/layout.html')
+    
+    def test_addDoc_invaild(self):
+        self.c = Client()
+        self.c.login(username='ad', password='testad')
+        response = self.c.get(reverse('doctors:addDoc'), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'doctors/adddoc.html', 'doctors/layout.html')
+        
+    
 
         
